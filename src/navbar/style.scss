@@ -1,0 +1,35 @@
+.Navbar {
+  display: flex;
+  background-color: #ecf0f1;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
+  &-Logo {
+    span {
+      font-size: 40px;
+      font-weight: 600;
+      color: #13cfae;
+    }
+  }
+  &-List {
+    display: flex;
+  }
+
+  &-Item {
+    a {
+      color: black;
+      font-weight: 600;
+      margin-left: 23px;
+      cursor: pointer;
+      transition: all 0.2s linear;
+      position: relative;
+      text-decoration: none;
+
+      &:hover {
+        color: #13cfae;
+      }
+    }
+  }
+}
