@@ -5,16 +5,14 @@ import Register from './register';
 import './style.scss';
 const Navbar_sigin = () => {
   const location = useLocation();
-
   return (
     <div>
-      <div className="navbar-dangky">This is Navbar</div>
       <div>
-        <Link to="/dangnhap/?sigin">Đăng ký</Link>
-        <Link to="/dangnhap/?register">Đăng Nhập </Link>
+        <Link to="/dangnhap/?sigin">Đăng nhập </Link>
+        <Link to="/dangnhap/?register">Đăng ký </Link>
 
-        {location.search === '?sigin' && <Register></Register>}
-        {location.search === '?register' && <Sigin></Sigin>}
+        {location.search === '?sigin' && <Sigin/>}
+        {location.search === '?register' && <Register/>}
       </div>
     </div>
   );
