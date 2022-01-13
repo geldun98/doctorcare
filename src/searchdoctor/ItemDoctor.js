@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemDoctor = ({ data }) => {
   return (
@@ -13,6 +14,7 @@ const ItemDoctor = ({ data }) => {
       <p className="ItemDoctor-Work">{data.work}</p>
       <p className="ItemDoctor-Exp"> {data.experience} năm kinh nghiệm</p>
       <div className="ItemDoctor-Major"> Chuyên khoa: {data.major}</div>
+
       <button>Đặt khám</button>
     </div>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
-import './style.scss';
-import Navbar from './navbar';
-import { Routes, Route } from 'react-router-dom';
-import SearchDoctor from './searchdoctor';
+import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/home';
+import Navbar from './navbar';
+import SearchDoctor from './searchdoctor';
+import './style.scss';
 const App = () => {
   return (
     <div className="App">

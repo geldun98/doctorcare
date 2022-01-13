@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import doctorApi from '../api/doctorApi';
+import Context from '../store/Context';
 import ItemDoctor from './ItemDoctor';
 import './style.scss';
+
 function SearchDoctor() {
   const [doctors, setDoctors] = useState([]);
   const [works, setWorks] = useState([]);
   const [majors, setMajors] = useState([]);
   const [dataShow, setDataShow] = useState([]);
+  const [dataDoctor, setDataDoctor] = useContext(Context);
 
   const [selectdata, setSelectdata] = useState({ major: null, work: null });
   useEffect(() => {
@@ -15,9 +18,9 @@ function SearchDoctor() {
       const workList = await doctorApi.getAll();
       const majorList = await doctorApi.getAll();
       setDoctors(doctorList);
+
       setWorks(workList);
       setMajors(majorList);
-      setDataShow(doctorList);
     };
     fetchDoctors();
   }, []);
@@ -28,6 +31,7 @@ function SearchDoctor() {
     return doctors.filter((item) => item.work === work);
   }
   function handle() {
+    setDataDoctor(doctors);
     if (selectdata.major && selectdata.work) {
       setDataShow(filterMajor(selectdata.major).filter((item) => item.work === selectdata.work));
       return;
