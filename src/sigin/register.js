@@ -3,7 +3,8 @@ import React from 'react'
 function Register () {
     return (
         <div>
-            đăng ký 
+            Đây là form đăng ký 
+            342432432432453
         </div>
     )
 }
