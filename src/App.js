@@ -5,6 +5,8 @@ import Navbar from './navbar';
 import SearchDoctor from './searchdoctor';
 import './style.scss';
 import UserUpdateInfo from './update-info/UserUpdateInfo';
+import SiginRegister from './sigin/sigin_register';
+
 const App = () => {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ const App = () => {
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/trangchu" element={<HomePage></HomePage>}></Route>
         <Route path="/capnhatthongtin" element={<UserUpdateInfo></UserUpdateInfo>}></Route>
+        <Route path="/dangnhap" element={<SiginRegister />}></Route>
       </Routes>
     </div>
   );
