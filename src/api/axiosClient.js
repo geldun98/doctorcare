@@ -1,6 +1,6 @@
 import axios from 'axios';
 const axiosClient = axios.create({
-  baseURL: 'https://61dd65eaf60e8f001766879d.mockapi.io/api/',
+  baseURL: 'https://doctor-care-api.herokuapp.com/',
   headers: {
     'Content-Type': 'application/json',
   },

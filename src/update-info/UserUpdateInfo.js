@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import './UserUpdateInfo.css'
 import './DoctorUpdateInfo.css'
-
+import updateApi from "../api/updateApi";
 function UserUpdateInfo() {
 
     const author = 'Xuân Hiếu';
     const role = 'Chủ tài khoản';
-    const role2 = 'Bác sĩ';
+    
+
+    useEffect(() =>{
+      const fetchUpdate = async() =>{
+        const listApi = await updateApi.getAll(); 
+      };
+      fetchUpdate();
+    }, []);
+
+    function handleUpdate(){
+      const data = {
+        name: nameValueInput.current.value,
+        email: emailValueInput.current.value,
+        dob: dobValueInput.current.value,
+        gender: genderValueInput.current.value,
+        phone: phoneValueInput.current.value,
+        address: addressValueInput.current.value,
+        Job: jobValueInput.current.value,
+        id: '1'
+      }
+      updateApi.update(data);
+    }
+
+    const nameValueInput = useRef()
+    const emailValueInput = useRef()
+    const dobValueInput = useRef()
+    const genderValueInput = useRef()
+    const phoneValueInput = useRef()
+    const addressValueInput = useRef()
+    const jobValueInput = useRef()
   return (
     <>
       <h1>SỬA THÔNG TIN CÁ NHÂN</h1>
@@ -20,19 +49,19 @@ function UserUpdateInfo() {
           <div className="form-content">
             <div className="form-content_name">
               <label>Họ và tên</label>
-              <input type={Text} />
+              <input type="text" ref={nameValueInput} />
             </div>
             <div className="form-content_email">
               <label>Email</label>
-              <input type={"text"} />
+              <input type="text" ref={emailValueInput}/>
             </div>
             <div className="form-content_dob">
               <label>Ngày sinh</label>
-              <input type={"date"} />
+              <input type="date" ref={dobValueInput}/>
             </div>
             <div className="form-content_gender">
               <label>Giới tính</label>
-              <select>
+              <select ref={genderValueInput}>
                 <option>Chọn giới tính</option>
                 <option>Nam</option>
                 <option>Nữ</option>
@@ -40,71 +69,18 @@ function UserUpdateInfo() {
             </div>
             <div className="form-content_phone">
               <label>Số điện thoại</label>
-              <input type={"text"} />
+              <input type="text" ref={phoneValueInput} />
             </div>
             <div className="form-content_address">
               <label>Địa chỉ</label>
-              <input type={"text"} />
+              <input type="text" ref={addressValueInput} />
             </div>
             <div className="form-content_job">
               <label>Nghề nghiệp</label>
-              <input type={"text"} />
+              <input type="text" ref={jobValueInput} />
             </div>
           <div className="btn">
-          <button type="submit">Lưu</button>
-          <button type="reset">Hủy</button>
-          </div>
-          </div>
-        </form>
-      </div>
-      {/* <div>
-        <img src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/frame_1c75cb90_c90f_433b_a75f_8bb7a87dafe0.png"/>
-      </div> */}
-
-
-<h1>SỬA THÔNG TIN BÁC SĨ</h1>
-      <div className="form">
-        <form>
-          <div className="form-header">
-            <div className="form-header_avatar"></div>
-            <h3 className="form-header_name">{author}</h3>
-            <p className="form-header_role">{role2}</p>
-          </div>
-          <div className="form-content">
-            <div className="form-content_nameDoctor">
-              <label>Họ và tên</label>
-              <input type={Text} />
-            </div>
-            <div className="form-content_emailDoctor">
-              <label>Email</label>
-              <input type={"text"} />
-            </div>
-            <div className="form-content_hospital">
-              <label>Bệnh viên</label>
-              <input type={"text"} />
-            </div>
-            <div className="form-content_major">
-              <label>Chuyên khoa</label>
-              <select>
-                <option>Chọn chuyên khoa</option>
-                <option>...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div className="form-content_degree">
-              <label>Học vị</label>
-              <input type={"text"} />
-            </div>
-            <div className="form-content_exp">
-              <label>Năm kinh nghiệm</label>
-              <input type={"text"} />
-            </div>
-            <div className="form-content_time">
-              <label>Thời lượng tư vấn</label>
-              <input type={"text"} />
-            </div>
-          <div className="btn">
-          <button type="submit">Lưu</button>
+          <button type="button" onClick={handleUpdate}>Lưu</button>
           <button type="reset">Hủy</button>
           </div>
           </div>

@@ -9,7 +9,6 @@ const App = () => {
   return (
     <div className="App">
       <Navbar></Navbar>
-
       <Routes>
         <Route path="/datkham" element={<SearchDoctor></SearchDoctor>}></Route>
         <Route path="/" element={<HomePage></HomePage>}></Route>
