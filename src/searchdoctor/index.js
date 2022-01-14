@@ -18,7 +18,7 @@ function SearchDoctor() {
       const workList = await doctorApi.getAll();
       const majorList = await doctorApi.getAll();
       setDoctors(doctorList);
-
+      setDataShow(doctorList);
       setWorks(workList);
       setMajors(majorList);
     };
@@ -30,8 +30,11 @@ function SearchDoctor() {
   function filterWork(work) {
     return doctors.filter((item) => item.work === work);
   }
-  function handle() {
+  function handleData(selectdata) {
+    setSelectdata(selectdata);
+
     setDataDoctor(doctors);
+
     if (selectdata.major && selectdata.work) {
       setDataShow(filterMajor(selectdata.major).filter((item) => item.work === selectdata.work));
       return;
@@ -52,7 +55,8 @@ function SearchDoctor() {
           <select
             onChange={(e) => {
               const newselectdata = { ...selectdata, major: e.target.value };
-              setSelectdata(newselectdata);
+
+              handleData(newselectdata);
             }}
           >
             <option></option>
@@ -68,7 +72,7 @@ function SearchDoctor() {
           <select
             onChange={(e) => {
               const newselectdata = { ...selectdata, work: e.target.value };
-              setSelectdata(newselectdata);
+              handleData(newselectdata);
             }}
           >
             <option></option>
@@ -76,8 +80,6 @@ function SearchDoctor() {
             <option>Bệnh viện Hữu Nghị Việt Đức</option>
           </select>
         </div>
-
-        <button onClick={handle}>Search</button>
       </div>
       <div className="ListDoctor ">
         <div className="ListDoctorContent container">
