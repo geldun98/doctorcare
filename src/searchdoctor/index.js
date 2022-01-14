@@ -18,6 +18,7 @@ function SearchDoctor() {
       const workList = await doctorApi.getAll();
       const majorList = await doctorApi.getAll();
       setDoctors(doctorList);
+      setDataDoctor(doctorList);
       setDataShow(doctorList);
       setWorks(workList);
       setMajors(majorList);
