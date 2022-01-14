@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import './UserUpdateInfo.css'
 import './DoctorUpdateInfo.css'
 import updateApi from "../api/updateApi";
 function UserUpdateInfo() {
 
+    const [result, setResult] = useState(false);
+    const [reject, setReject] = useState(false);
+
     const author = 'Xuân Hiếu';
     const role = 'Chủ tài khoản';
     
-
     useEffect(() =>{
       const fetchUpdate = async() =>{
         const listApi = await updateApi.getAll(); 
@@ -17,16 +19,22 @@ function UserUpdateInfo() {
 
     function handleUpdate(){
       const data = {
+        id: '1',
         name: nameValueInput.current.value,
         email: emailValueInput.current.value,
         dob: dobValueInput.current.value,
         gender: genderValueInput.current.value,
         phone: phoneValueInput.current.value,
         address: addressValueInput.current.value,
-        Job: jobValueInput.current.value,
-        id: '1'
+        Job: jobValueInput.current.value
       }
-      updateApi.update(data);
+      updateApi.update(data).then((res)=>{
+        console.log(res.status)
+        if(res.status){
+          setResult(true);
+
+        }else setReject(true);
+      })
     }
 
     const nameValueInput = useRef()
@@ -39,6 +47,8 @@ function UserUpdateInfo() {
   return (
     <>
       <h1>SỬA THÔNG TIN CÁ NHÂN</h1>
+      {result && <p>Update thanh cong</p>}
+      {reject && <p>Update that bai</p>}
       <div className="form">
         <form>
           <div className="form-header">

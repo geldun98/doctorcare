@@ -61,8 +61,10 @@ function DoctorUpdateInfo() {
               <label>Chuyên khoa</label>
               <select ref={majorValueInput}>
                 <option>Chọn chuyên khoa</option>
-                <option>...</option>
-                <option>...</option>
+                <option>Tai mũi họng</option>
+                <option>TT nam học</option>
+                <option>Phẫu thuật cột sống</option>
+                <option>Nội tiết</option>
               </select>
             </div>
             <div className="form-content_degree">
