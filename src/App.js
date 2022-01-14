@@ -6,7 +6,7 @@ import SearchDoctor from './searchdoctor';
 import './style.scss';
 import UserUpdateInfo from './update-info/UserUpdateInfo';
 import SiginRegister from './sigin/sigin_register';
-import PickDoctor from './PickDoctor';
+import DoctorDetail from './pickdoctor/doctor-infor';
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
       <Navbar></Navbar>
 
       <Routes>
-        <Route path="/pickdoctor" element={<PickDoctor></PickDoctor>}></Route>
+        <Route path="/pickdoctor" element={<DoctorDetail></DoctorDetail>}></Route>
         <Route path="/datkham" element={<SearchDoctor></SearchDoctor>}></Route>
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/trangchu" element={<HomePage></HomePage>}></Route>
