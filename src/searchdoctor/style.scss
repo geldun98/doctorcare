@@ -3,6 +3,7 @@
   width: 30%;
 
   background-color: white;
+
   padding: 20px;
   margin: 15px;
 
@@ -75,35 +76,35 @@
   margin: 0 auto;
 }
 .SearchSelect {
-  select {
-    font-size: 18px;
-    margin-right: 20px;
-    padding: 10px 15px;
-    outline: none;
-    border: none;
-  }
+  font-size: 18px;
+  margin: 15px;
+  padding: 5px 15px;
+  outline: none;
+  border: none;
 }
 .SearchBox {
   span {
     font-size: 20px;
     font-weight: 600;
-    margin-right: 10px;
+    margin: 15px;
+    color: white;
+    line-height: 80px;
   }
   height: 80px;
-  display: flex;
+
   align-items: center;
-  button {
-    height: 30px;
-    outline: none;
-    border: none;
-    background-color: #27ae60;
-    color: white;
-    font-size: 20px;
-    padding: 0 15px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
 }
 a {
   text-decoration: none;
+}
+select {
+  font-weight: 600;
+}
+option {
+  font-weight: 600;
+  outline: none;
+  border: none;
+}
+.searchDoctor {
+  background-color: #2c3e50;
 }
