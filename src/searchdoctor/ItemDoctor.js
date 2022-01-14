@@ -12,7 +12,7 @@ const ItemDoctor = ({ data }) => {
       </h2>
       <p className="ItemDoctor-Work">{data.work}</p>
       <p className="ItemDoctor-Exp"> {data.experience} năm kinh nghiệm</p>
-      <div className="ItemDoctor-Major"> Chuyên khoa: {data.major}</div>
+      <div className="ItemDoctor-Major"> Chuyên khoa: {data.major}</div>   
       <button>Đặt khám</button>
     </div>
   );
