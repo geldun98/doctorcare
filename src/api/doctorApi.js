@@ -15,7 +15,7 @@ const doctorApi = {
   },
   update(data) {
     const url = `/doctors/${data.id}`;
-    return axiosClient.patch(url, data);
+    return axiosClient.put(url, data);
   },
   remove(id) {
     const url = `/doctors/${id}`;
