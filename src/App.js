@@ -6,6 +6,7 @@ import SearchDoctor from './searchdoctor';
 import './style.scss';
 import UserUpdateInfo from './update-info/UserUpdateInfo';
 import SiginRegister from './sigin/sigin_register';
+import PickDoctor from './PickDoctor';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Navbar></Navbar>
 
       <Routes>
+        <Route path="/pickdoctor" element={<PickDoctor></PickDoctor>}></Route>
         <Route path="/datkham" element={<SearchDoctor></SearchDoctor>}></Route>
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/trangchu" element={<HomePage></HomePage>}></Route>

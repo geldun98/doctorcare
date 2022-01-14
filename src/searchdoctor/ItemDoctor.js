@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ItemDoctor = ({ data }) => {
+  const url = `/pickdoctor?${data.id}`;
   return (
     <div className="ItemDoctor">
       <div className="ItemDoctor-Image">
@@ -14,8 +15,9 @@ const ItemDoctor = ({ data }) => {
       <p className="ItemDoctor-Work">{data.work}</p>
       <p className="ItemDoctor-Exp"> {data.experience} năm kinh nghiệm</p>
       <div className="ItemDoctor-Major"> Chuyên khoa: {data.major}</div>
-
-      <button>Đặt khám</button>
+      <Link to={url}>
+        <button>Đặt khám</button>
+      </Link>
     </div>
   );
 };
