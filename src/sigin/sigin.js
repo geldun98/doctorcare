@@ -1,6 +1,16 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
-
+import Input_item from './components/Input_item'
 function Sigin() {
-  return <div>Đây là form đăng nhập 9878798797908789</div>;
+  return <div>
+            <form>
+            <Input_item type="text" labelText="Tên Đăng nhập"/>
+            <Input_item type="password" labelText="Mật khẩu"/>
+            <button type='submit'>đăng nhập</button>
+            </form>
+        </div>;
 }
 export default Sigin;
+
+
+
