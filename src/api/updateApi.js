@@ -1,25 +1,25 @@
 import axiosClient from './axiosClient';
 
-const doctorApi = {
+const updateApi = {
   getAll(params) {
-    const url = '/doctors';
+    const url = '/userupdate';
     return axiosClient.get(url, { params: params });
   },
   get(id) {
-    const url = `/doctors/${id}`;
+    const url = `/userupdate/${id}`;
     return axiosClient.get(url);
   },
   add(data) {
-    const url = `/doctors`;
+    const url = `/userupdate`;
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/doctors/${data.id}`;
+    const url = `/userupdate/${data.id}`;
     return axiosClient.put(url, data);
   },
   remove(id) {
-    const url = `/doctors/${id}`;
+    const url = `/userupdate/${id}`;
     return axiosClient.delete(url);
   },
 };
-export default doctorApi;
+export default updateApi;

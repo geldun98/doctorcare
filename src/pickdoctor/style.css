@@ -1,0 +1,30 @@
+mark{
+    background-color: rgb(202, 229, 241);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+.d-flex{
+    padding:25px 0px;
+    background-color: white;
+}
+.doctor-exp{
+    background-color: white;
+    padding: 25px 50px;
+}
+.time{
+    margin: 15px 0px;
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    padding: 20px;
+}
+.pick-time{
+background-color: antiquewhite;
+width: 100%;
+height: 260px;
+padding: 20px;
+}

@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import doctorApi from '../api/doctorApi';
+import Context from '../store/Context';
 import ItemDoctor from './ItemDoctor';
 import './style.scss';
+
 function SearchDoctor() {
   const [doctors, setDoctors] = useState([]);
   const [works, setWorks] = useState([]);
   const [majors, setMajors] = useState([]);
   const [dataShow, setDataShow] = useState([]);
+  const [dataDoctor, setDataDoctor] = useContext(Context);
 
   const [selectdata, setSelectdata] = useState({ major: null, work: null });
   useEffect(() => {
@@ -15,9 +18,10 @@ function SearchDoctor() {
       const workList = await doctorApi.getAll();
       const majorList = await doctorApi.getAll();
       setDoctors(doctorList);
+      setDataDoctor(doctorList);
+      setDataShow(doctorList);
       setWorks(workList);
       setMajors(majorList);
-      setDataShow(doctorList);
     };
     fetchDoctors();
   }, []);
@@ -27,7 +31,11 @@ function SearchDoctor() {
   function filterWork(work) {
     return doctors.filter((item) => item.work === work);
   }
-  function handle() {
+  function handleData(selectdata) {
+    setSelectdata(selectdata);
+
+    setDataDoctor(doctors);
+
     if (selectdata.major && selectdata.work) {
       setDataShow(filterMajor(selectdata.major).filter((item) => item.work === selectdata.work));
       return;
@@ -48,7 +56,8 @@ function SearchDoctor() {
           <select
             onChange={(e) => {
               const newselectdata = { ...selectdata, major: e.target.value };
-              setSelectdata(newselectdata);
+
+              handleData(newselectdata);
             }}
           >
             <option></option>
@@ -64,7 +73,7 @@ function SearchDoctor() {
           <select
             onChange={(e) => {
               const newselectdata = { ...selectdata, work: e.target.value };
-              setSelectdata(newselectdata);
+              handleData(newselectdata);
             }}
           >
             <option></option>
@@ -72,8 +81,6 @@ function SearchDoctor() {
             <option>Bệnh viện Hữu Nghị Việt Đức</option>
           </select>
         </div>
-
-        <button onClick={handle}>Search</button>
       </div>
       <div className="ListDoctor ">
         <div className="ListDoctorContent container">
