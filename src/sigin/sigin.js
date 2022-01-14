@@ -3,9 +3,14 @@ import React from 'react';
 import Input_item from './components/Input_item'
 function Sigin() {
   return <div>
-            <Input_item type="Email" labelText="Email"/>
+            <form>
+            <Input_item type="text" labelText="Tên Đăng nhập"/>
             <Input_item type="password" labelText="Mật khẩu"/>
             <button type='submit'>đăng nhập</button>
+            </form>
         </div>;
 }
 export default Sigin;
+
+
+

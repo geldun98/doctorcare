@@ -3,8 +3,10 @@ import React from 'react'
 const Input_item = ({type,labelText,name,value}) => {
     return (
         <div>
-        <label>{labelText}</label>
+        <label>{labelText}
+        
         <input type={type} name={name} value={value}></input>
+        </label>
         </div>
     )
 }
