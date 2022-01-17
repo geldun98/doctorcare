@@ -4,3 +4,63 @@
 .use_register{
     display: none;
 }
+
+.login{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+  
+}
+.login1{
+    width: 25vw;
+    height: 60vh;
+    background-color: cadetblue;
+    border-radius: 10px;
+}
+.link{
+    display: flex;
+    justify-content:space-evenly;
+}
+.link2{
+    display: flex;
+    height: 100%;
+    justify-content:space-evenly;
+}
+.classdiv{
+    margin: 0px;
+    width: 100%;
+}
+form{
+    display: flex;
+    height: 85%;
+    flex-direction: column; 
+    width: 100%;
+    margin-top: 5%;
+}
+
+form button{
+    margin-top: 10%;
+}
+
+form div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+form div label{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+form div label input {
+    border-radius: 5px;
+    width: 100%;
+
+}
+
