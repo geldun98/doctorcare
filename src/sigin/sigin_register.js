@@ -6,7 +6,7 @@ import Navbar from './navbar_sigin';
 function SiginRegister() {
   return (
     <div>
-      <Navbar />
+      <Navbar/>
     </div>
   );
 }
