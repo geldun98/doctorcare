@@ -9,6 +9,7 @@ import DoctorUpdateInfo from './update-info/DoctorUpdateInfo';
 import SiginRegister from './sigin/sigin_register';
 import DoctorDetail from './pickdoctor/doctor-infor';
 import Question from './question';
+import UpdateInfo from './update-info/UpdateInfo';
 
 const App = () => {
   return (
@@ -28,6 +29,15 @@ const App = () => {
           //    role == 'Chủ tài khoản' ? <UserUpdateInfo/> : <DoctorUpdateInfo/>
           //   })
           // }}
+        ></Route>
+        <Route
+          path="/capnhatthongtin/:role"
+          // element={<UpdateInfo></UpdateInfo>}
+          render={(role) => {
+            if (role === 'doctor') {
+              return <DoctorUpdateInfo />;
+            } else <UserUpdateInfo />;
+          }}
         ></Route>
         <Route path="/dangnhap" element={<SiginRegister />}></Route>
       </Routes>

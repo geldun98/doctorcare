@@ -32,7 +32,6 @@ function UserUpdateInfo() {
         console.log(res.status)
         if(res.status){
           setResult(true);
-
         }else setReject(true);
       })
     }
