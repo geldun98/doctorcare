@@ -32,7 +32,7 @@ const App = () => {
         ></Route>
         <Route
           path="/capnhatthongtin/:role"
-          // element={<UpdateInfo></UpdateInfo>}
+          element={<UpdateInfo></UpdateInfo>}
           render={(role) => {
             if (role === 'doctor') {
               return <DoctorUpdateInfo />;
