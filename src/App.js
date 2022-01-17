@@ -8,6 +8,7 @@ import UserUpdateInfo from './update-info/UserUpdateInfo';
 import DoctorUpdateInfo from './update-info/DoctorUpdateInfo';
 import SiginRegister from './sigin/sigin_register';
 import DoctorDetail from './pickdoctor/doctor-infor';
+import Question from './question';
 
 const App = () => {
   return (
@@ -18,13 +19,15 @@ const App = () => {
         <Route path="/datkham" element={<SearchDoctor></SearchDoctor>}></Route>
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/trangchu" element={<HomePage></HomePage>}></Route>
-        <Route path="/capnhatthongtin" 
-        element={<UserUpdateInfo></UserUpdateInfo>}
-        // render={()=>{
-        //   return({
-        //    role == 'Chủ tài khoản' ? <UserUpdateInfo/> : <DoctorUpdateInfo/>
-        //   })
-        // }}
+        <Route path="/hoidap" element={<Question></Question>}></Route>
+        <Route
+          path="/capnhatthongtin"
+          element={<UserUpdateInfo></UserUpdateInfo>}
+          // render={()=>{
+          //   return({
+          //    role == 'Chủ tài khoản' ? <UserUpdateInfo/> : <DoctorUpdateInfo/>
+          //   })
+          // }}
         ></Route>
         <Route path="/dangnhap" element={<SiginRegister />}></Route>
       </Routes>

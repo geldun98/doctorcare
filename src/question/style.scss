@@ -1,0 +1,125 @@
+.Question-content {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.ListQuestion {
+  width: 550px;
+}
+.InputQuestion {
+  width: 370px;
+  height: 500px;
+  background-color: white;
+
+  padding: 20px 16px;
+  border-radius: 15px;
+  box-shadow: #000000 1px 2px 10px 0px;
+  &-title {
+    font-size: 20px;
+    text-align: center;
+  }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-textarea {
+    padding-top: 15px;
+
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      height: 200px;
+    }
+  }
+  &-image {
+    padding-top: 15px;
+    font-weight: 700;
+    span {
+      margin-right: 15px;
+    }
+    input {
+      border: 2px solid #ccc;
+      padding: 0 5px;
+    }
+  }
+  &-major {
+    font-weight: 700;
+    padding-top: 15px;
+    select {
+      margin-left: 15px;
+      outline: none;
+      background-color: white;
+      padding: 2px 5px;
+      border: 2px solid transparent;
+      box-shadow: 1px 0 5px 0 #000000;
+    }
+    select:focus {
+      border-color: #3498db;
+      box-shadow: none;
+    }
+  }
+  &-submit {
+    padding-top: 20px;
+    text-align: center;
+    button {
+      width: 90%;
+      background-color: #00cba7;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 5.25px 10.5px;
+    }
+  }
+  .input-gender {
+    font-weight: 600;
+    input {
+      margin-left: 20px;
+      margin-right: 10px;
+    }
+  }
+  .input-age {
+    input {
+      width: 60px;
+      font-size: 16px;
+      background-color: #bdc3c7;
+      outline: none;
+      border-radius: 5px;
+      padding: 0px 11px;
+      border: 2px solid transparent;
+      margin-right: 10px;
+    }
+    input:focus {
+      border-color: #3498db;
+    }
+    span {
+      color: red;
+    }
+  }
+}
+.ItemQuestion {
+  &-major {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3498db;
+  }
+  &-info {
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+  }
+  &-textarea {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid #ccc;
+  &-time {
+    font-size: 16px;
+    color: #636e72;
+    font-weight: 600;
+  }
+}
