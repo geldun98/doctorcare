@@ -13,7 +13,7 @@ const ListQuestion = ({ update }) => {
   return (
     <div className="ListQuestion">
       {listDataQuestion.map((item, index) => (
-        <ItemQuestion key={index} data={item}></ItemQuestion>
+        <ItemQuestion key={index} data={item} image={null}></ItemQuestion>
       ))}
     </div>
   );

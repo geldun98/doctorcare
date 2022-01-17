@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import DetailQuestion from './DetailQuestion';
 import InputQuestion from './InputQuestion';
 import ListQuestion from './ListQuestion';
 import './style.scss';
@@ -7,13 +9,21 @@ const Question = () => {
   function handleUpdate() {
     setUpdate(update + 1);
   }
-  console.log(update);
+
   return (
     <div className="Question">
-      <div className="Question-content container">
-        <ListQuestion update={update}></ListQuestion>
-        <InputQuestion handleUpdate={handleUpdate}> </InputQuestion>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="Question-content container">
+              <ListQuestion update={update}></ListQuestion>
+              <InputQuestion handleUpdate={handleUpdate}> </InputQuestion>
+            </div>
+          }
+        ></Route>
+        <Route path="/detail" element={<DetailQuestion></DetailQuestion>}></Route>
+      </Routes>
     </div>
   );
 };

@@ -20,25 +20,8 @@ const App = () => {
         <Route path="/datkham" element={<SearchDoctor></SearchDoctor>}></Route>
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/trangchu" element={<HomePage></HomePage>}></Route>
-        <Route path="/hoidap" element={<Question></Question>}></Route>
-        <Route
-          path="/capnhatthongtin"
-          element={<UserUpdateInfo></UserUpdateInfo>}
-          // render={()=>{
-          //   return({
-          //    role == 'Chủ tài khoản' ? <UserUpdateInfo/> : <DoctorUpdateInfo/>
-          //   })
-          // }}
-        ></Route>
-        <Route
-          path="/capnhatthongtin/:role"
-          element={<UpdateInfo></UpdateInfo>}
-          render={(role) => {
-            if (role === 'doctor') {
-              return <DoctorUpdateInfo />;
-            } else <UserUpdateInfo />;
-          }}
-        ></Route>
+        <Route path="/hoidap/*" element={<Question></Question>}></Route>
+
         <Route path="/dangnhap" element={<SiginRegister />}></Route>
       </Routes>
     </div>

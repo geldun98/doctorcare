@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import informationApi from '../api/informationApi';
 import questionApi from '../api/questionApi';
-
+import commentApi from '../api/commentApi';
 const InputQuestion = ({ handleUpdate }) => {
   const [listMajor, setListMajor] = useState([]);
 
@@ -27,6 +27,7 @@ const InputQuestion = ({ handleUpdate }) => {
       image: valueImage.current.value,
       time: Date.now(),
     };
+    commentApi.add({ listcomment: [] });
     questionApi.add(dataPost).then((res) => {
       if (res.status) {
         valueAge.current.value = '';

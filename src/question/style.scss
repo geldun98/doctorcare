@@ -59,6 +59,7 @@
       box-shadow: none;
     }
   }
+
   &-submit {
     padding-top: 20px;
     text-align: center;
@@ -100,6 +101,10 @@
   }
 }
 .ItemQuestion {
+  a {
+    text-decoration: none;
+    color: black;
+  }
   &-major {
     font-size: 20px;
     font-weight: 700;
@@ -117,9 +122,61 @@
   padding-bottom: 20px;
   padding-top: 20px;
   border-bottom: 1px solid #ccc;
+  &-detail {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600px;
+    color: white;
+    padding: 5px 10px;
+    background-color: #2ecc71;
+    display: inline-block;
+    border-radius: 15px;
+  }
+  img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 250px;
+    height: auto;
+  }
   &-time {
     font-size: 16px;
     color: #636e72;
     font-weight: 600;
+  }
+}
+.InputComment {
+  textarea {
+    width: 1000px;
+    outline: none;
+    border: 2px solid #2c3e50;
+    height: 80px !important;
+    padding: 10px;
+    &:focus {
+      border-color: #2ecc71;
+    }
+  }
+  button {
+    margin-left: 15px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: #2ecc71;
+    font-size: 20px;
+    padding: 5px 15px;
+    border-radius: 15px;
+  }
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.ItemComment {
+  background-color: #e7ecf4;
+  padding: 15px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  &-user {
+    color: white;
+    background-color: #c0392b;
+    padding: 5px 10px;
   }
 }
