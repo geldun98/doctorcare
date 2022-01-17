@@ -16,9 +16,14 @@ const ItemDoctor = ({ data, handleButton }) => {
       <p className="ItemDoctor-Exp"> {data.experience} năm kinh nghiệm</p>
 
       <div className="ItemDoctor-Major"> Chuyên khoa: {data.major}</div>
+<<<<<<< HEAD
 
       <Link to={url}>
         <button onClick={handleButton}>Đặt khám</button>
+=======
+      <Link to={url}>
+        <button>Đặt khám</button>
+>>>>>>> Nam/DoctorSelectTime
       </Link>
     </div>
   );
