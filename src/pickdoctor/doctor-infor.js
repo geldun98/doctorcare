@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import Context from '../store/Context';
-import './style.css';
+import './style.scss';
 
 const DoctorDetail = () => {
   const [dataDoctor, setDataDoctor] = useContext(Context);
@@ -13,7 +13,7 @@ const DoctorDetail = () => {
     return { __html: `${convert}` };
   }
   return (
-    <div className="container">
+    <div className="pickdoctor container">
       <div className="d-flex">
         <div>
           <img src={dataDoctor[location.search.split('?').join('') - 1].image} alt="doctorpicture" />

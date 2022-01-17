@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Routes, Route, useLocation, Link, BrowserRouter } from 'react-router-dom';
 import Sigin from './sigin';
 import Register from './register';
-import './components/index.css';
+import './components/index.scss';
 const Navbar_sigin = () => {
   const location = useLocation();
   return (

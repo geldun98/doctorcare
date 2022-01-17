@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./DoctorUpdateInfo.css";
+import "./DoctorUpdateInfo.scss";
 import updateApi from "../api/updateApi";
 function DoctorUpdateInfo() {
   const author = "Xuân Hiếu";

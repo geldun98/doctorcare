@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React,{useState} from 'react'
 import Input_item from './components/Input_item'
-import "./components/index.css"
+import "./components/index.scss"
 
 
 function Register () {
