@@ -15,7 +15,7 @@
     color: grey;
     font-weight: 600;
   }
-  .company_info-item:hover{
+  .company_info-item:hover {
     color: #fff;
   }
 
@@ -28,7 +28,14 @@
   .company_info h2 {
     color: #13cfae;
   }
-
+  .input-group {
+    input {
+      border: none;
+      &:active {
+        border-color: red;
+      }
+    }
+  }
   .company_info h2:hover {
     cursor: pointer;
     color: #fff;
