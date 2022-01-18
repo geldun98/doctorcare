@@ -1,9 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./DoctorUpdateInfo.scss";
 import updateApi from "../api/updateApi";
 function DoctorUpdateInfo() {
-  const author = "Xuân Hiếu";
 
+  const [result, setResult] = useState(false);
+  const [reject, setReject] = useState(false);
+
+  const author = "Xuân Hiếu";
   const role2 = "Bác sĩ";
 
   useEffect(() => {
@@ -24,7 +27,12 @@ function DoctorUpdateInfo() {
       exp: expValueInput.current.value,
       time: timeValueInput.current.value,
     };
-    updateApi.update(data);
+    updateApi.update(data).then((res) => {
+      console.log(res.status);
+      if (res.status) {
+        setResult(true);
+      } else setReject(true);
+    });;
   }
 
   const nameValueInput = useRef();
@@ -36,8 +44,10 @@ function DoctorUpdateInfo() {
   const timeValueInput = useRef();
   return (
     <>
-      <h1>SỬA THÔNG TIN BÁC SĨ</h1>
       <div className="form">
+      <h1>SỬA THÔNG TIN BÁC SĨ</h1>
+      {result && <p>Update thanh cong</p>}
+      {reject && <p>Update that bai</p>}
         <form>
           <div className="form-header">
             <div className="form-header_avatar"></div>
@@ -62,9 +72,12 @@ function DoctorUpdateInfo() {
               <select ref={majorValueInput}>
                 <option>Chọn chuyên khoa</option>
                 <option>Tai mũi họng</option>
-                <option>TT nam học</option>
-                <option>Phẫu thuật cột sống</option>
                 <option>Nội tiết</option>
+                <option>Nhi</option>
+                <option>Mắt</option>
+                <option>Hô hấp</option>
+                <option>Nội tổng hợp</option>
+                <option>Da liễu</option>
               </select>
             </div>
             <div className="form-content_degree">

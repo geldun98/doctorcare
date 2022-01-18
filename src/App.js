@@ -4,12 +4,11 @@ import HomePage from './components/home';
 import Navbar from './navbar';
 import SearchDoctor from './searchdoctor';
 import './style.scss';
-import UserUpdateInfo from './update-info/UserUpdateInfo';
-import DoctorUpdateInfo from './update-info/DoctorUpdateInfo';
 import SiginRegister from './sigin/sigin_register';
 import DoctorDetail from './pickdoctor/doctor-infor';
 import Question from './question';
-import UpdateInfo from './update-info/UpdateInfo';
+import UpdateInfo from './update-info/UpdateInfo'
+import Footer from './footer/Footer';
 
 const App = () => {
   return (
@@ -20,10 +19,11 @@ const App = () => {
         <Route path="/datkham" element={<SearchDoctor></SearchDoctor>}></Route>
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/trangchu" element={<HomePage></HomePage>}></Route>
-        <Route path="/hoidap/*" element={<Question></Question>}></Route>
-
+        <Route path="/hoidap" element={<Question></Question>}></Route>
+        <Route path="/capnhatthongtin" element={<UpdateInfo></UpdateInfo>}></Route>
         <Route path="/dangnhap" element={<SiginRegister />}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 };

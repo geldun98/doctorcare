@@ -47,7 +47,6 @@ function UserUpdateInfo() {
       <h1>SỬA THÔNG TIN CÁ NHÂN</h1>
       {result && <p>Update thanh cong</p>}
       {reject && <p>Update that bai</p>}
-
       <form>
         <div className="form-header">
           <div className="form-header_avatar"></div>
