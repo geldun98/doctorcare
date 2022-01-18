@@ -24,7 +24,7 @@
 
   .form-content div input,
   .form-content div select {
-    width: 550px;
+    width: 500px;
     height: 35px;
     padding: 0 10px;
     border-radius: 5px;
@@ -32,8 +32,7 @@
   }
 
   .form-content div {
-    /* margin-bottom: 15px; */
-    margin: 20px 0 20px 0;
+    margin: 20px 0 20px 15px;
   }
   .form-content_name input {
     margin-left: 34px;
@@ -46,6 +45,10 @@
   }
   .form-content_gender select {
     margin-left: 42px;
+    font-weight: 400;
+  }
+  .form-content_major select option{
+    font-weight: 400;
   }
   .form-content_phone input {
     margin-left: 8px;

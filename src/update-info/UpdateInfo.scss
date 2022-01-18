@@ -1,0 +1,20 @@
+.update{
+    .btn-change{
+        float:right; 
+        background-color:#13cfae;
+        color:white;
+        margin:0 20px;
+        border:1px solid;
+        border-radius:5px;
+        width:70px;
+        height:30px;
+    }
+    .btn-change:hover{
+        cursor: pointer;
+        border: 1px solid;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        color: #13cfae;
+        background-color: white;
+    }
+
+}
