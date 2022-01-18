@@ -8,7 +8,7 @@
 }
 .InputQuestion {
   width: 370px;
-  height: 500px;
+  height: 550px;
   background-color: white;
 
   padding: 20px 16px;
@@ -166,6 +166,7 @@
     border-radius: 15px;
   }
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 100px;
 }
@@ -178,5 +179,15 @@
     color: white;
     background-color: #c0392b;
     padding: 5px 10px;
+  }
+}
+.validate-text {
+  display: block;
+  color: red;
+  font-weight: 300;
+}
+.validate {
+  .validate-text {
+    display: none;
   }
 }

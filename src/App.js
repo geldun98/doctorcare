@@ -9,6 +9,8 @@ import DoctorDetail from './pickdoctor/doctor-infor';
 import Question from './question';
 import UpdateInfo from './update-info/UpdateInfo';
 import Footer from './footer/Footer';
+import Share from './share';
+import CreatePost from './createpost';
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/hoidap/*" element={<Question></Question>}></Route>
         <Route path="/capnhatthongtin" element={<UpdateInfo></UpdateInfo>}></Route>
         <Route path="/dangnhap" element={<SiginRegister />}></Route>
+        <Route path="/camnang/" element={<Share></Share>}></Route>
+        <Route path="/createpost/" element={<CreatePost></CreatePost>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

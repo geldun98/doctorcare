@@ -1,0 +1,15 @@
+.Share {
+  min-height: 100vh;
+  &-create {
+    margin-top: 40px;
+    background-color: #3498db;
+    color: white;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

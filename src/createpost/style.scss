@@ -1,0 +1,41 @@
+.CreatePost {
+  min-height: 50vh;
+  &-title {
+    padding-top: 30px;
+    span {
+      font-weight: 600;
+      font-size: 20px;
+    }
+    input {
+      width: 800px;
+      margin-left: 15px;
+      font-size: 20px;
+      outline: none;
+      border: solid 1px #ccc;
+      padding: 5px 10px;
+      &:focus {
+        border-color: green;
+      }
+    }
+  }
+  &-submit {
+    border: none;
+    color: white;
+    font-weight: 600;
+    background-color: #3498db;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-top: 50px;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+  &-quill {
+    margin-top: 50px;
+    border: 2px solid #2c3e50;
+    p {
+      font-size: 16px;
+    }
+  }
+}
