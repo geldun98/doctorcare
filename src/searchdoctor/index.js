@@ -120,7 +120,7 @@ function SearchDoctor() {
       <div className="ListDoctor ">
         <div className="ListDoctorContent container">
           {dataShow.map((item, index) => (
-            <ItemDoctor key={index} data={item} handleButton={handleButton}></ItemDoctor>
+            <ItemDoctor key={index} data={item}></ItemDoctor>
           ))}
         </div>
       </div>
