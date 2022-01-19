@@ -1,8 +1,7 @@
-import { useEffect, useState, useContext, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Fragment } from 'react/cjs/react.production.min';
 import doctorApi from '../api/doctorApi';
 import informationApi from '../api/informationApi';
-import Context from '../store/Context';
 import ItemDoctor from './ItemDoctor';
 import './style.scss';
 
@@ -12,7 +11,6 @@ function SearchDoctor() {
   const information = useRef();
   const listMajor = useRef([]);
   const listPosition = useRef([]);
-  const [dataDoctor, setDataDoctor] = useContext(Context);
 
   const selectdata = useRef({ major: null, position: null, experience: null });
 
@@ -27,9 +25,6 @@ function SearchDoctor() {
     };
     fetchDoctors();
   }, []);
-  function handleButton() {
-    setDataDoctor(doctors.current);
-  }
 
   function handleSelect(e) {
     selectdata.current = { ...selectdata.current, [e.target.id]: e.target.value };
@@ -125,7 +120,7 @@ function SearchDoctor() {
       <div className="ListDoctor ">
         <div className="ListDoctorContent container">
           {dataShow.map((item, index) => (
-            <ItemDoctor key={index} data={item} handleButton={handleButton}></ItemDoctor>
+            <ItemDoctor key={index} data={item}></ItemDoctor>
           ))}
         </div>
       </div>
