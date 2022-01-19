@@ -6,7 +6,7 @@ import ListComment from './ListComment';
 const DetailQuestion = () => {
   const location = useLocation();
   const id = location.search.split('?').join('');
-  console.log(id);
+
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {

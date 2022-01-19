@@ -1,62 +1,77 @@
-.login {
+.body_login_logout{
   display: flex;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  .doctor_register {
-    display: block;
+  align-items: center;
+  .form{
+    display: flex;
+    flex-direction: column;
+    width:35vw;
+    max-width: 300px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-top: 10px;
   }
-  .use_register {
+  .form_main{
+    display: flex;
+    flex-direction: column;
+  }
+  .input_group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .input_group input {
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    margin-top: 4px;
+  }
+ 
+  .err_span_block{
+    display: block;
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+  }
+  .err_span_none{
     display: none;
   }
-
-  .login1 {
-    width: 25vw;
-    height: 60vh;
-    background-color: cadetblue;
-    border-radius: 10px;
-  }
-  .link {
+  .radio_input_group {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    
   }
-  .link2 {
+  .radio_input_group label{
+    margin-right: 7px;
+  }
+  .navbar_login_logout {
     display: flex;
-    height: 100%;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-bottom: 10px;
   }
-  .classdiv {
-    margin: 0px;
-    width: 100%;
+  .navbar_login_logout a{
+    border: 1px groove #262213;
+    color :#262213;
+    padding: 5px;
   }
-  form {
-    display: flex;
-    height: 85%;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 5%;
+  .navbar_login_logout a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 700;
   }
-
-  form button {
-    margin-top: 10%;
+  .submit_button {
+    background-color: rgb(81, 142, 223);
+    height: 34px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 10px;
   }
-
-  form div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 10px 0;
-  }
-
-  form div label {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  form div label input {
-    border-radius: 5px;
-    width: 100%;
+  .submit_button:hover{
+    cursor: pointer;
   }
 }

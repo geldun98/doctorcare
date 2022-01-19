@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import DetailQuestion from './DetailQuestion';
 import InputQuestion from './InputQuestion';
 import ListQuestion from './ListQuestion';
 import './style.scss';
+import Context from '../store/Context';
 const Question = () => {
+  const [dataUser, setDataUser] = useContext(Context);
+  let role = dataUser.role;
+  if (role) {
+    role = true;
+  }
   const [update, setUpdate] = useState(0);
   function handleUpdate() {
     setUpdate(update + 1);
@@ -18,7 +24,7 @@ const Question = () => {
           element={
             <div className="Question-content container">
               <ListQuestion update={update}></ListQuestion>
-              <InputQuestion handleUpdate={handleUpdate}> </InputQuestion>
+              {role && <InputQuestion handleUpdate={handleUpdate}> </InputQuestion>}
             </div>
           }
         ></Route>
