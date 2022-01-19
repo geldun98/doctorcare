@@ -15,14 +15,14 @@ function UserUpdateInfo() {
   useEffect(() => {
     const fetchUpdate = async () => {
        await updateApi.get(id).then((res)=>{
-        setDataUser(res.data)
+        setDataUser(res.data);
       });
     };
     fetchUpdate();
-  
+    
   }, []);
-
-  
+      
+  console.log(dataUser.dob)
   function handleUpdate() {
     const data = {
       id: '1',
@@ -35,13 +35,14 @@ function UserUpdateInfo() {
       Job: jobValueInput.current.value,
     };
     updateApi.update(data).then((res) => {
-      console.log(res.status);
       if (res.status) {
         setResult(true);
       } else setReject(true);
     });
+    // dataUser.dob = dobValueInput.current.value;
   }
-
+  
+  
   const nameValueInput = useRef();
   const emailValueInput = useRef();
   const dobValueInput = useRef();
@@ -71,7 +72,7 @@ function UserUpdateInfo() {
           </div>
           <div className="form-content_dob">
             <label>Ngày sinh</label>
-            <input type="date" ref={dobValueInput} value={dataUser.dob}/>
+            <input type="datetime" ref={dobValueInput} value={dataUser.dob}/>
           </div>
           <div className="form-content_gender">
             <label>Giới tính</label>

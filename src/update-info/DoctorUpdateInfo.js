@@ -7,15 +7,15 @@ function DoctorUpdateInfo() {
   const [reject, setReject] = useState(false);
   const [dataDoctor, setDataDoctor] = useState({});
   
-  const id = 3;
+  const id = 2;
   const author = "Xuân Hiếu";
   const role2 = "Bác sĩ";
 
   useEffect(() => {
     const fetchUpdate = async () => {
       await updateApi.get(id).then((res)=>{
-        // setDataDoctor(res.data);
-        // console.log(res.data)
+        setDataDoctor(res.data);
+        console.log(res.data)
       });
     };
     fetchUpdate();
