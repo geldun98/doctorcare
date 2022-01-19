@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import ItemNav from './ItemNav';
+import Context from '../store/Context';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const [dataUser, setDataUser] = useContext(Context);
+  const navigate = useNavigate();
+  let hide = false;
+  if (dataUser.id) {
+    hide = !hide;
+  }
+  function handleLogout() {
+    localStorage.removeItem('user');
+    setDataUser({});
+    navigate('/trangchu');
+  }
   return (
     <div className="Navbar">
       <div className="Navbar-Logo">
@@ -12,8 +25,9 @@ const Navbar = () => {
         <ItemNav url="/datkham">Đặt khám</ItemNav>
         <ItemNav url="/hoidap">Hỏi đáp</ItemNav>
         <ItemNav url="/camnang">Cẩm nang</ItemNav>
-        <ItemNav url="/capnhatthongtin">Cập nhật thông tin</ItemNav>
-        <ItemNav url="/dangnhap/?sigin">Đăng nhập</ItemNav>
+        {hide && <ItemNav url="/capnhatthongtin">Cập nhật thông tin</ItemNav>}
+        {!hide && <ItemNav url="/dangnhap/sigin">Đăng nhập</ItemNav>}
+        {hide && <button onClick={handleLogout}>Đăng Xuất</button>}
       </div>
     </div>
   );

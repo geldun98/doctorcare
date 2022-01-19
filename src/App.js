@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import CheckLogin from './checklogin/CheckLogin';
 import HomePage from './components/home';
 import Footer from './footer/Footer';
 import Navbar from './navbar';
@@ -14,7 +15,9 @@ import UpdateInfo from './update-info/UpdateInfo';
 const App = () => {
   return (
     <div className="App">
+      <CheckLogin></CheckLogin>
       <Navbar></Navbar>
+
       <Routes>
         <Route path="/pickdoctor" element={<DoctorDetail></DoctorDetail>}></Route>
         <Route path="/datkham" element={<SearchDoctor></SearchDoctor>}></Route>
@@ -22,7 +25,7 @@ const App = () => {
         <Route path="/trangchu" element={<HomePage></HomePage>}></Route>
         <Route path="/hoidap/*" element={<Question></Question>}></Route>
         <Route path="/capnhatthongtin" element={<UpdateInfo></UpdateInfo>}></Route>
-        <Route path="/dangnhap" element={<SiginRegister />}></Route>
+        <Route path="/dangnhap/*" element={<SiginRegister />}></Route>
         <Route path="/camnang/*" element={<Share></Share>}></Route>
       </Routes>
       <Footer></Footer>
