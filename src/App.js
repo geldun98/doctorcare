@@ -1,16 +1,15 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/home';
+import Footer from './footer/Footer';
 import Navbar from './navbar';
-import SearchDoctor from './searchdoctor';
-import './style.scss';
-import SiginRegister from './sigin/sigin_register';
 import DoctorDetail from './pickdoctor/doctor-infor';
 import Question from './question';
-import UpdateInfo from './update-info/UpdateInfo';
-import Footer from './footer/Footer';
+import SearchDoctor from './searchdoctor';
 import Share from './share';
-import CreatePost from './createpost';
+import SiginRegister from './sigin/sigin_register';
+import './style.scss';
+import UpdateInfo from './update-info/UpdateInfo';
 
 const App = () => {
   return (
@@ -24,8 +23,7 @@ const App = () => {
         <Route path="/hoidap/*" element={<Question></Question>}></Route>
         <Route path="/capnhatthongtin" element={<UpdateInfo></UpdateInfo>}></Route>
         <Route path="/dangnhap" element={<SiginRegister />}></Route>
-        <Route path="/camnang/" element={<Share></Share>}></Route>
-        <Route path="/createpost/" element={<CreatePost></CreatePost>}></Route>
+        <Route path="/camnang/*" element={<Share></Share>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

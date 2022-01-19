@@ -2,17 +2,34 @@ import React, { useRef } from 'react';
 import './style.scss';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
+import postApi from '../api/postApi';
+import { useNavigate } from 'react-router-dom';
 const CreatePost = () => {
   const valueheading = useRef();
   const valuebody = useRef();
   const hideValidate = useRef();
+  const navigate = useNavigate();
   function handleSubmit() {
+    const title = valueheading.current.value;
+    const content = valuebody.current.value;
+    var brief = content.replace(/<[^>]+>/g, '').substr(0, 350);
     if (valueheading.current.value.length === 0) {
       valueheading.current.parentElement.classList.remove('validate');
     }
     if (valuebody.current.value.length === 0) {
       hideValidate.current.parentElement.classList.remove('validate');
+    }
+    if (valueheading.current.value.length > 0 && valuebody.current.value.length > 0) {
+      const dataPost = {
+        title,
+        content,
+        brief,
+      };
+      postApi.add(dataPost).then(() => {
+        navigate('/camnang');
+        valueheading.current.value = '';
+        valuebody.current.value = '';
+      });
     }
   }
   return (
