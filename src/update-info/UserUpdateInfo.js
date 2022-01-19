@@ -6,16 +6,16 @@ import updateApi from '../api/updateApi';
 function UserUpdateInfo() {
   const [result, setResult] = useState(false);
   const [reject, setReject] = useState(false);
-  const [dataUser, setDataUser] = useState({});
+  const [dataUsers, setDataUsers] = useState({});
+  
   const id = 1;
-
   const author = 'Xuân Hiếu';
   const role = 'Chủ tài khoản';
 
   useEffect(() => {
     const fetchUpdate = async () => {
        await updateApi.get(id).then((res)=>{
-        setDataUser(res.data);
+        setDataUsers(res.data);
       });
     };
     fetchUpdate();
@@ -64,20 +64,19 @@ function UserUpdateInfo() {
         <div className="form-content">
           <div className="form-content_name">
             <label>Họ và tên</label>
-            <input type="text" ref={nameValueInput} value={dataUser.name}/>
+            <input type="text" ref={nameValueInput} value={dataUsers.name}/>
           </div>
           <div className="form-content_email">
             <label>Email</label>
-            <input type="text" ref={emailValueInput} value={dataUser.email}/>
+            <input type="text" ref={emailValueInput} value={dataUsers.email}/>
           </div>
           <div className="form-content_dob">
             <label>Ngày sinh</label>
-            <input type="datetime" ref={dobValueInput} value={dataUser.dob}
-            placeholder='dd/mm/yyyy'/>
+            <input type="date" ref={dobValueInput} value={dataUsers.dob}/>
           </div>
           <div className="form-content_gender">
             <label>Giới tính</label>
-            <select ref={genderValueInput} value={dataUser.gender}>
+            <select ref={genderValueInput} value={dataUsers.gender}>
               <option>Chọn giới tính</option>
               <option>Nam</option>
               <option>Nữ</option>
@@ -85,15 +84,15 @@ function UserUpdateInfo() {
           </div>
           <div className="form-content_phone">
             <label>Số điện thoại</label>
-            <input type="text" ref={phoneValueInput} value={dataUser.phone}/>
+            <input type="text" ref={phoneValueInput} value={dataUsers.phone}/>
           </div>
           <div className="form-content_address">
             <label>Địa chỉ</label>
-            <input type="text" ref={addressValueInput} value={dataUser.address}/>
+            <input type="text" ref={addressValueInput} value={dataUsers.address}/>
           </div>
           <div className="form-content_job">
             <label>Nghề nghiệp</label>
-            <input type="text" ref={jobValueInput} value={dataUser.job}/>
+            <input type="text" ref={jobValueInput} value={dataUsers.job}/>
           </div>
           <div className="btn">
             <button type="button" onClick={handleUpdate}>

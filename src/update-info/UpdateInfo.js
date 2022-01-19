@@ -6,11 +6,12 @@ import './UpdateInfo.scss'
 import Context from '../store/Context';
 function UpdateInfo(){
     const [checkDoctor, setCheckDoctor] = useState(true)
-    const [dataUser, setDataUser] = useContext();
+    const [dataUser, setDataUser] = useContext(Context);
     // const checkDoctor = true
     let role = dataUser.role;
+    console.log(role);
     if(role === 'doctor'){
-        role =true;
+        role = true;
     }
     function handleChange(){
         setCheckDoctor(!checkDoctor)
@@ -18,8 +19,8 @@ function UpdateInfo(){
     return(
         <>
         <div className='update'>
-          {checkDoctor && <button onClick={handleChange} className='btn-change'>User</button>}
-          {!checkDoctor && <button onClick={handleChange} className='btn-change'>Doctor</button>}
+          {role && <button onClick={handleChange} className='btn-change'>User</button>}
+          {!role && <button onClick={handleChange} className='btn-change'>Doctor</button>}
            { role && <DoctorUpdateInfo></DoctorUpdateInfo> }
            { !role && <UserUpdateInfo></UserUpdateInfo> }
         </div>
