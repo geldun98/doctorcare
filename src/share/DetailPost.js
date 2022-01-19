@@ -5,7 +5,7 @@ const DetailPost = () => {
   const location = useLocation();
   const id = location.search.split('?').join('');
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({ title: '', content: '' });
   useEffect(() => {
     const fetchData = async () => {
       setData(await postApi.get(id).then((res) => res.data));
