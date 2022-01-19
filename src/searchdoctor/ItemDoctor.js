@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ItemDoctor = ({ data, handleButton }) => {
+const ItemDoctor = ({ data }) => {
   const url = `/pickdoctor?${data.id}`;
   return (
     <div className="ItemDoctor">
@@ -18,7 +18,7 @@ const ItemDoctor = ({ data, handleButton }) => {
       <div className="ItemDoctor-Major"> Chuyên khoa: {data.major}</div>
 
       <Link to={url}>
-        <button onClick={handleButton}>Đặt khám</button>
+        <button >Đặt khám</button>
       </Link>
     </div>
   );
