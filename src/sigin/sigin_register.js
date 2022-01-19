@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
-import Sigin from './sigin';
-import Register from '../sigin/register';
+import React from 'react';
 import Navbar from './navbar_sigin';
+import './components/index.scss'
 function SiginRegister() {
   return (
-    <div>
+    <div className='body_login_logout'>
       <Navbar/>
     </div>
   );
