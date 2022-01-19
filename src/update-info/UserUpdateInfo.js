@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import './UserUpdateInfo.scss';
 import './DoctorUpdateInfo.scss';
 import updateApi from '../api/updateApi';
+
 function UserUpdateInfo() {
   const [result, setResult] = useState(false);
   const [reject, setReject] = useState(false);
   const [dataUser, setDataUser] = useState({});
-
   const id = 1;
 
   const author = 'Xuân Hiếu';
@@ -22,7 +22,7 @@ function UserUpdateInfo() {
     
   }, []);
       
-  console.log(dataUser.dob)
+  // console.log(dataUser.dob)
   function handleUpdate() {
     const data = {
       id: '1',
@@ -72,7 +72,8 @@ function UserUpdateInfo() {
           </div>
           <div className="form-content_dob">
             <label>Ngày sinh</label>
-            <input type="datetime" ref={dobValueInput} value={dataUser.dob}/>
+            <input type="datetime" ref={dobValueInput} value={dataUser.dob}
+            placeholder='dd/mm/yyyy'/>
           </div>
           <div className="form-content_gender">
             <label>Giới tính</label>

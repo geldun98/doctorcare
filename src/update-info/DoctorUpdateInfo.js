@@ -15,7 +15,6 @@ function DoctorUpdateInfo() {
     const fetchUpdate = async () => {
       await updateApi.get(id).then((res)=>{
         setDataDoctor(res.data);
-        console.log(res.data)
       });
     };
     fetchUpdate();
