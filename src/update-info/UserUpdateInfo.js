@@ -5,17 +5,24 @@ import updateApi from '../api/updateApi';
 function UserUpdateInfo() {
   const [result, setResult] = useState(false);
   const [reject, setReject] = useState(false);
+  const [dataUser, setDataUser] = useState({});
+
+  const id = 1;
 
   const author = 'Xuân Hiếu';
   const role = 'Chủ tài khoản';
 
   useEffect(() => {
     const fetchUpdate = async () => {
-      const listApi = await updateApi.getAll();
+       await updateApi.get(id).then((res)=>{
+        setDataUser(res.data)
+      });
     };
     fetchUpdate();
+  
   }, []);
 
+  
   function handleUpdate() {
     const data = {
       id: '1',
@@ -45,8 +52,8 @@ function UserUpdateInfo() {
   return (
     <div className="form">
       <h1>SỬA THÔNG TIN CÁ NHÂN</h1>
-      {result && <p>Update thanh cong</p>}
-      {reject && <p>Update that bai</p>}
+      {result && <p style={{color:'green'}}>Update thành công!</p>}
+      {reject && <p style={{color:'red'}}>Update thất bại!</p>}
       <form>
         <div className="form-header">
           <div className="form-header_avatar"></div>
@@ -56,19 +63,19 @@ function UserUpdateInfo() {
         <div className="form-content">
           <div className="form-content_name">
             <label>Họ và tên</label>
-            <input type="text" ref={nameValueInput} />
+            <input type="text" ref={nameValueInput} value={dataUser.name}/>
           </div>
           <div className="form-content_email">
             <label>Email</label>
-            <input type="text" ref={emailValueInput} />
+            <input type="text" ref={emailValueInput} value={dataUser.email}/>
           </div>
           <div className="form-content_dob">
             <label>Ngày sinh</label>
-            <input type="date" ref={dobValueInput} />
+            <input type="date" ref={dobValueInput} value={dataUser.dob}/>
           </div>
           <div className="form-content_gender">
             <label>Giới tính</label>
-            <select ref={genderValueInput}>
+            <select ref={genderValueInput} value={dataUser.gender}>
               <option>Chọn giới tính</option>
               <option>Nam</option>
               <option>Nữ</option>
@@ -76,15 +83,15 @@ function UserUpdateInfo() {
           </div>
           <div className="form-content_phone">
             <label>Số điện thoại</label>
-            <input type="text" ref={phoneValueInput} />
+            <input type="text" ref={phoneValueInput} value={dataUser.phone}/>
           </div>
           <div className="form-content_address">
             <label>Địa chỉ</label>
-            <input type="text" ref={addressValueInput} />
+            <input type="text" ref={addressValueInput} value={dataUser.address}/>
           </div>
           <div className="form-content_job">
             <label>Nghề nghiệp</label>
-            <input type="text" ref={jobValueInput} />
+            <input type="text" ref={jobValueInput} value={dataUser.job}/>
           </div>
           <div className="btn">
             <button type="button" onClick={handleUpdate}>

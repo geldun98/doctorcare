@@ -5,13 +5,18 @@ function DoctorUpdateInfo() {
 
   const [result, setResult] = useState(false);
   const [reject, setReject] = useState(false);
-
+  const [dataDoctor, setDataDoctor] = useState({});
+  
+  const id = 3;
   const author = "Xuân Hiếu";
   const role2 = "Bác sĩ";
 
   useEffect(() => {
     const fetchUpdate = async () => {
-      const listApi = await updateApi.getAll();
+      await updateApi.get(id).then((res)=>{
+        // setDataDoctor(res.data);
+        // console.log(res.data)
+      });
     };
     fetchUpdate();
   }, []);
@@ -46,8 +51,8 @@ function DoctorUpdateInfo() {
     <>
       <div className="form">
       <h1>SỬA THÔNG TIN BÁC SĨ</h1>
-      {result && <p>Update thanh cong</p>}
-      {reject && <p>Update that bai</p>}
+      {result && <p style={{color:'green'}}>Update thành công!</p>}
+      {reject && <p style={{color:'red'}}>Update thất bại!</p>}
         <form>
           <div className="form-header">
             <div className="form-header_avatar"></div>
@@ -57,19 +62,19 @@ function DoctorUpdateInfo() {
           <div className="form-content">
             <div className="form-content_nameDoctor">
               <label>Họ và tên</label>
-              <input type="text" ref={nameValueInput} />
+              <input type="text" ref={nameValueInput} value={dataDoctor.name}/>
             </div>
             <div className="form-content_emailDoctor">
               <label>Email</label>
-              <input type="text" ref={emailValueInput}/>
+              <input type="text" ref={emailValueInput} value={dataDoctor.email}/>
             </div>
             <div className="form-content_hospital">
               <label>Bệnh viên</label>
-              <input type="text" ref={hospitalValueInput}/>
+              <input type="text" ref={hospitalValueInput} value={dataDoctor.hospital}/>
             </div>
             <div className="form-content_major">
               <label>Chuyên khoa</label>
-              <select ref={majorValueInput}>
+              <select ref={majorValueInput} value={dataDoctor.major}>
                 <option>Chọn chuyên khoa</option>
                 <option>Tai mũi họng</option>
                 <option>Nội tiết</option>
@@ -82,15 +87,15 @@ function DoctorUpdateInfo() {
             </div>
             <div className="form-content_degree">
               <label>Học vị</label>
-              <input type="text" ref={degreeValueInput}/>
+              <input type="text" ref={degreeValueInput} value={dataDoctor.degree}/>
             </div>
             <div className="form-content_exp">
               <label>Năm kinh nghiệm</label>
-              <input type="text" ref={expValueInput}/>
+              <input type="text" ref={expValueInput} value={dataDoctor.exp}/>
             </div>
             <div className="form-content_time">
               <label>Thời lượng tư vấn</label>
-              <input type="text" ref={timeValueInput}/>
+              <input type="text" ref={timeValueInput} value={dataDoctor.time}/>
             </div>
             <div className="btn">
               <button type="button" onClick={handleUpdate}>
