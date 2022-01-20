@@ -1,17 +1,25 @@
 .Navbar {
   display: flex;
-  background-color: #ecf0f1;
-  height: 80px;
+  // background-color: #ecf0f1;
+  background-color: white;
+  height: 100px;
   align-items: center;
   justify-content: space-between;
   padding-left: 25px;
   padding-right: 25px;
-
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   &-Logo {
     span {
       font-size: 40px;
       font-weight: 600;
       color: #13cfae;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    p{
+      font-size: 18px;
+      font-weight: 400;
+      color: #610051;
+      font-style: italic;
     }
   }
   &-List {
@@ -22,15 +30,33 @@
   &-Item {
     a {
       color: black;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 500;
       margin-left: 23px;
       cursor: pointer;
       transition: all 0.2s linear;
       position: relative;
       text-decoration: none;
 
-      &:hover {
+      &::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #13cfae;
+        transition: 0.1s;
+      }
+
+      &:hover{
         color: #13cfae;
+      }
+
+      &:hover::after {
+        color: #13cfae;
+        transform: scaleX(1);
       }
     }
   }
@@ -43,5 +69,10 @@
     padding: 5px 10px;
     font-weight: 600;
     border-radius: 15px;
+
+    &:hover{
+      background-color: #d12e1c;
+    }
   }
+
 }

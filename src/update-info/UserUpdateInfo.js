@@ -1,31 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './UserUpdateInfo.scss';
-import './DoctorUpdateInfo.scss';
-import updateApi from '../api/updateApi';
-
+import React, { useEffect, useRef, useState, useContext } from "react";
+import "./UserUpdateInfo.scss";
+import "./DoctorUpdateInfo.scss";
+import updateApi from "../api/updateApi";
+import Context from "../store/Context";
 function UserUpdateInfo() {
   const [result, setResult] = useState(false);
   const [reject, setReject] = useState(false);
   const [dataUsers, setDataUsers] = useState({});
-  
-  const id = 1;
-  const author = 'Xuân Hiếu';
-  const role = 'Chủ tài khoản';
+  const [dataUser, setDataUser] = useContext(Context);
+  const id = dataUser.id;
+  console.log(dataUser.id);
 
   useEffect(() => {
     const fetchUpdate = async () => {
-       await updateApi.get(id).then((res)=>{
+      await updateApi.get(id).then((res) => {
         setDataUsers(res.data);
       });
     };
     fetchUpdate();
-    
   }, []);
-      
-  // console.log(dataUser.dob)
+
   function handleUpdate() {
     const data = {
-      id: '1',
+      id: "1",
       name: nameValueInput.current.value,
       email: emailValueInput.current.value,
       dob: dobValueInput.current.value,
@@ -39,10 +36,8 @@ function UserUpdateInfo() {
         setResult(true);
       } else setReject(true);
     });
-    // dataUser.dob = dobValueInput.current.value;
   }
-  
-  
+
   const nameValueInput = useRef();
   const emailValueInput = useRef();
   const dobValueInput = useRef();
@@ -53,26 +48,26 @@ function UserUpdateInfo() {
   return (
     <div className="form">
       <h1>SỬA THÔNG TIN CÁ NHÂN</h1>
-      {result && <p style={{color:'green'}}>Update thành công!</p>}
-      {reject && <p style={{color:'red'}}>Update thất bại!</p>}
+      {result && <p className="update-success" style={{ color: "green" }}>Update thành công!</p>}
+      {reject && <p className="update-fail" style={{ color: "red" }}>Update thất bại!</p>}
       <form>
         <div className="form-header">
           <div className="form-header_avatar"></div>
-          <h3 className="form-header_name">{author}</h3>
-          <p className="form-header_role">{role}</p>
+          <h3 className="form-header_name">{dataUsers.name}</h3>
+          <p className="form-header_role">{dataUser.role}</p>
         </div>
         <div className="form-content">
           <div className="form-content_name">
             <label>Họ và tên</label>
-            <input type="text" ref={nameValueInput} value={dataUsers.name}/>
+            <input type="text" ref={nameValueInput} value={dataUsers.name} />
           </div>
           <div className="form-content_email">
             <label>Email</label>
-            <input type="text" ref={emailValueInput} value={dataUsers.email}/>
+            <input type="text" ref={emailValueInput} value={dataUsers.email} />
           </div>
           <div className="form-content_dob">
             <label>Ngày sinh</label>
-            <input type="date" ref={dobValueInput} value={dataUsers.dob}/>
+            <input type="date" ref={dobValueInput} value={dataUsers.dob} />
           </div>
           <div className="form-content_gender">
             <label>Giới tính</label>
@@ -84,15 +79,19 @@ function UserUpdateInfo() {
           </div>
           <div className="form-content_phone">
             <label>Số điện thoại</label>
-            <input type="text" ref={phoneValueInput} value={dataUsers.phone}/>
+            <input type="text" ref={phoneValueInput} value={dataUsers.phone} />
           </div>
           <div className="form-content_address">
             <label>Địa chỉ</label>
-            <input type="text" ref={addressValueInput} value={dataUsers.address}/>
+            <input
+              type="text"
+              ref={addressValueInput}
+              value={dataUsers.address}
+            />
           </div>
           <div className="form-content_job">
             <label>Nghề nghiệp</label>
-            <input type="text" ref={jobValueInput} value={dataUsers.job}/>
+            <input type="text" ref={jobValueInput} value={dataUsers.job} />
           </div>
           <div className="btn">
             <button type="button" onClick={handleUpdate}>

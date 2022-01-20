@@ -19,6 +19,7 @@ const Navbar = () => {
     <div className="Navbar">
       <div className="Navbar-Logo">
         <span>Doctor Care</span>
+        <p>Dịch vụ tư vấn sức khỏe hàng đầu</p>
       </div>
       <div className="Navbar-List">
         <ItemNav url="/trangchu">Trang chủ</ItemNav>
