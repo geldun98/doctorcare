@@ -20,31 +20,6 @@ function Sigin() {
   };
 
   const [dataDoctor, setDataDoctor] = useContext(Context);
-  // tự động đăng nhập
-  // const dataUse = JSON.parse(localStorage.getItem('dataUse'));
-  // if (!dataUse) {
-  // }
-  // if (dataUse) {
-  //   data['username'] = dataUse.data.user.username;
-  //   data['password'] = dataUse.data.user.password;
-  //   MloginApi.add(data).then((res) => {
-  //     if (res.status === 200) {
-  //       localStorage.setItem('dataUse', JSON.stringify(res));
-
-  //       check = true;
-  //     } else {
-  //     }
-  //   });
-  // }
-  // // function test(){
-  // //   if(true){
-  // //     setDataDoctor({ id: dataUse.data.user.id , role:dataUse.data.user.role})
-  // //     console.log(dataDoctor)
-  // //     return
-  // //   }
-  // // }
-  // test()
-  //điều kiện để submit
   const [classNameSpanInput, setclassNameSpanInput] = useState('err_span_none');
   const [classNameSpanPassword, setclassNameSpanPassword] = useState('err_span_none');
   const handclick = (even) => {
@@ -58,8 +33,8 @@ function Sigin() {
           setDataDoctor(res.data.user);
           navigate('/trangchu');
         } else {
-          spanErr.current.classList.remove('err_span_none')
-          spanErr.current.classList.add('err_span_block')
+          spanErr.current.classList.remove('err_span_none');
+          spanErr.current.classList.add('err_span_block');
         }
       });
     }
@@ -81,7 +56,7 @@ function Sigin() {
   };
 
   const onFocusEven = (e) => {
-    spanErr.current.classList.add('err_span_none')
+    spanErr.current.classList.add('err_span_none');
     if (e.target.name === 'name') {
       setclassNameSpanInput('err_span_none');
     }

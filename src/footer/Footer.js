@@ -5,7 +5,7 @@ function Footer() {
     <>
       <div className="footer">
         <div className="company_info">
-          <h2>DOCTOR CARE</h2>
+          <h3>DOCTOR CARE</h3>
           <hr></hr>
           <h4>Địa chỉ</h4>
           <p className="company_info-item">Số 315 Trường Chinh, Thanh Xuân Hà Nội</p>
@@ -20,13 +20,13 @@ function Footer() {
           <p className="company_link-item">Liên kết hợp tác</p>
           <p className="company_link-item">Câu hỏi thường gặp</p>
           <p className="company_link-item">Điều khoản sử dụng</p>
-          <p className="company_lin-item">Chính sách bảo mật</p>
+          <p className="company_link-item">Chính sách bảo mật</p>
         </div>
         <div className="company_support">
           <h4>HỖ TRỢ KHÁCH HÀNG</h4>
           <hr></hr>
           <p className="company_support-item">Phiếu quà tặng</p>
-          <p className="company_support-tiem">Hướng dẫn chọn giờ</p>
+          <p className="company_support-item">Hướng dẫn chọn giờ</p>
           <p className="company_support-item">Thẻ VIP</p>
         </div>
         <div className="register_for_news">

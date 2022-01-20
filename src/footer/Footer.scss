@@ -25,8 +25,13 @@
     cursor: pointer;
   }
 
-  .company_info h2 {
+  .company_link-item, 
+  .company_support-item{
+    margin-bottom: 5px;
+  }
+  .company_info h3 {
     color: #13cfae;
+    font-family:Georgia, 'Times New Roman', Times, serif;
   }
   .input-group {
     input {
@@ -36,7 +41,7 @@
       }
     }
   }
-  .company_info h2:hover {
+  .company_info h3:hover {
     cursor: pointer;
     color: #fff;
   }

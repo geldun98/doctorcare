@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import ItemNav from './ItemNav';
 import Context from '../store/Context';
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   const [dataUser, setDataUser] = useContext(Context);
   const navigate = useNavigate();
@@ -17,9 +17,13 @@ const Navbar = () => {
   }
   return (
     <div className="Navbar">
-      <div className="Navbar-Logo">
-        <span>Doctor Care</span>
-      </div>
+      <Link to="/trangchu">
+        <div className="Navbar-Logo">
+          <span>Doctor Care</span>
+          <p>Dịch vụ tư vấn sức khỏe hàng đầu</p>
+        </div>
+      </Link>
+
       <div className="Navbar-List">
         <ItemNav url="/trangchu">Trang chủ</ItemNav>
         <ItemNav url="/datkham">Đặt khám</ItemNav>

@@ -1,10 +1,11 @@
+import Slider from '@mui/material/Slider';
 import { useEffect, useRef, useState } from 'react';
+
 import { Fragment } from 'react/cjs/react.production.min';
 import doctorApi from '../api/doctorApi';
 import informationApi from '../api/informationApi';
 import ItemDoctor from './ItemDoctor';
 import './style.scss';
-
 function SearchDoctor() {
   const [dataShow, setDataShow] = useState([]);
   const doctors = useRef();
@@ -12,9 +13,8 @@ function SearchDoctor() {
   const listMajor = useRef([]);
   const listPosition = useRef([]);
 
-  const selectdata = useRef({ major: null, position: null, experience: null });
+  const selectdata = useRef({ major: null, position: null });
 
-  const listValueExp = calcExp();
   useEffect(() => {
     const fetchDoctors = async () => {
       doctors.current = await doctorApi.getAll().then((res) => res.data);
@@ -31,37 +31,36 @@ function SearchDoctor() {
     handleFilter(selectdata.current);
   }
   function handleFilter(option) {
-    if (option.major && option.position && option.experience) {
-      setDataShow(
-        doctors.current
-          .filter((item) => item.major === option.major)
-          .filter((item) => item.position === option.position)
-          .filter((item) => parseInt(item.experience) >= parseInt(option.experience))
-      );
-      return;
-    }
     if (option.major && option.position) {
       setDataShow(
         doctors.current
           .filter((item) => item.major === option.major)
           .filter((item) => item.position === option.position)
+          .filter(
+            (item) => parseInt(item.experience) >= valueExperience[0] && parseInt(item.experience) <= valueExperience[1]
+          )
       );
       return;
     }
-    if (option.major && option.experience) {
+
+    if (option.major) {
       setDataShow(
         doctors.current
           .filter((item) => item.major === option.major)
-          .filter((item) => parseInt(item.experience) >= parseInt(option.experience))
+          .filter(
+            (item) => parseInt(item.experience) >= valueExperience[0] && parseInt(item.experience) <= valueExperience[1]
+          )
       );
       return;
     }
-    if (option.position && option.experience) {
+    if (option.position) {
       setDataShow(
         doctors.current
 
           .filter((item) => item.position === option.position)
-          .filter((item) => parseInt(item.experience) >= parseInt(option.experience))
+          .filter(
+            (item) => parseInt(item.experience) >= valueExperience[0] && parseInt(item.experience) <= valueExperience[1]
+          )
       );
       return;
     }
@@ -73,21 +72,28 @@ function SearchDoctor() {
       setDataShow(doctors.current.filter((item) => item.position === option.position));
       return;
     }
-    if (option.experience) {
-      setDataShow(doctors.current.filter((item) => parseInt(item.experience) >= parseInt(option.experience)));
-      return;
-    }
 
     setDataShow(doctors.current);
   }
-  function calcExp() {
-    let listExperience = [];
-    for (let i = 1; i < 50; i++) {
-      listExperience = [...listExperience, i];
-    }
-    return listExperience;
+
+  const minDistance = 1;
+  const [valueExperience, setvalueExperience] = useState([1, 5]);
+  function valuetext(value) {
+    return `${value}`;
   }
 
+  const handleRange = (event, newValue, activeThumb) => {
+    if (!Array.isArray(newValue)) {
+      return;
+    }
+    handleFilter(selectdata.current);
+
+    if (activeThumb === 0) {
+      setvalueExperience([Math.min(newValue[0], valueExperience[1] - minDistance), valueExperience[1]]);
+    } else {
+      setvalueExperience([valueExperience[0], Math.max(newValue[1], valueExperience[0] + minDistance)]);
+    }
+  };
   return (
     <Fragment>
       <div className="searchDoctor">
@@ -106,14 +112,20 @@ function SearchDoctor() {
               <option key={item}>{item}</option>
             ))}
           </select>
-
-          <span>Năm công tác </span>
-          <select onChange={handleSelect} id="experience" className="SearchSelect">
-            <option></option>
-            {listValueExp.map((item) => (
-              <option key={item}>{item}</option>
-            ))}
-          </select>
+          <div>
+            <span> {`Năm công tác : từ ${valueExperience[0]} đến ${valueExperience[1]} năm`} </span>
+            <div className="inputExperience">
+              <Slider
+                getAriaLabel={() => 'Minimum distance'}
+                value={valueExperience}
+                onChange={handleRange}
+                valueLabelDisplay="auto"
+                getAriaValueText={valuetext}
+                disableSwap
+                max={50}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
