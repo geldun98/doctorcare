@@ -7,13 +7,18 @@ function DoctorUpdateInfo() {
   const [reject, setReject] = useState(false);
   const [dataDoctor, setDataDoctor] = useState({});
   const [dataUser, setDataUser] = useContext(Context);
-  console.log(dataDoctor.name);
   const id = dataUser.id;
 
   useEffect(() => {
     const fetchUpdate = async () => {
       await updateApi.get(id).then((res) => {
-        setDataDoctor(res.data);
+        nameValueInput.current.value = res.data.name;
+        emailValueInput.current.value = res.data.email;
+        hospitalValueInput.current.value = res.data.hospital;
+        majorValueInput.current.value = res.data.major;
+        degreeValueInput.current.value = res.data.degree;
+        expValueInput.current.value = res.data.exp;
+        timeValueInput.current.value = res.data.time;
       });
     };
     fetchUpdate();
@@ -21,7 +26,7 @@ function DoctorUpdateInfo() {
 
   function handleUpdate() {
     const data = {
-      id: "2",
+      id: dataUser.id,
       name: nameValueInput.current.value,
       email: emailValueInput.current.value,
       hospital: hospitalValueInput.current.value,
@@ -49,25 +54,28 @@ function DoctorUpdateInfo() {
     <>
       <div className="form">
         <h1>SỬA THÔNG TIN BÁC SĨ</h1>
-        {result && <p className="update-success" style={{ color: "green" }}>Update thành công!</p>}
-        {reject && <p className="update-fail" style={{ color: "red" }}>Update thất bại!</p>}
+
         <form>
           <div className="form-header">
             <div className="form-header_avatar"></div>
-            <h3 className="form-header_name">Tài khoản : {dataDoctor.name}</h3>
+            <h3 className="form-header_name">Tài khoản : {dataUser.username}</h3>
             <p className="form-header_role">{dataUser.role}</p>
           </div>
           <div className="form-content">
             <div className="form-content_nameDoctor">
               <label>Họ và tên</label>
-              <input type="text" ref={nameValueInput} value={dataDoctor.name} />
+              <input
+                type="text"
+                ref={nameValueInput}
+                // value={dataDoctor.name}
+              />
             </div>
             <div className="form-content_emailDoctor">
               <label>Email</label>
               <input
                 type="text"
                 ref={emailValueInput}
-                value={dataDoctor.email}
+                // value={dataDoctor.email}
               />
             </div>
             <div className="form-content_hospital">
@@ -75,12 +83,15 @@ function DoctorUpdateInfo() {
               <input
                 type="text"
                 ref={hospitalValueInput}
-                value={dataDoctor.hospital}
+                // value={dataDoctor.hospital}
               />
             </div>
             <div className="form-content_major">
               <label>Chuyên khoa</label>
-              <select ref={majorValueInput} value={dataDoctor.major}>
+              <select
+                ref={majorValueInput}
+                //  value={dataDoctor.major}
+              >
                 <option>Chọn chuyên khoa</option>
                 <option>Tai mũi họng</option>
                 <option>Nội tiết</option>
@@ -96,16 +107,24 @@ function DoctorUpdateInfo() {
               <input
                 type="text"
                 ref={degreeValueInput}
-                value={dataDoctor.degree}
+                // value={dataDoctor.degree}
               />
             </div>
             <div className="form-content_exp">
               <label>Năm kinh nghiệm</label>
-              <input type="text" ref={expValueInput} value={dataDoctor.exp} />
+              <input
+                type="text"
+                ref={expValueInput}
+                //  value={dataDoctor.exp}
+              />
             </div>
             <div className="form-content_time">
               <label>Thời lượng tư vấn</label>
-              <input type="text" ref={timeValueInput} value={dataDoctor.time} />
+              <input
+                type="text"
+                ref={timeValueInput}
+                // value={dataDoctor.time}
+              />
             </div>
             <div className="btn">
               <button type="button" onClick={handleUpdate}>
@@ -113,6 +132,16 @@ function DoctorUpdateInfo() {
               </button>
               <button type="reset">Hủy</button>
             </div>
+            {result && (
+              <p className="update-success" style={{ color: "green" }}>
+                Update thành công!
+              </p>
+            )}
+            {reject && (
+              <p className="update-fail" style={{ color: "red" }}>
+                Update thất bại!
+              </p>
+            )}
           </div>
         </form>
       </div>
