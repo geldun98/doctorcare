@@ -1,6 +1,7 @@
 .body_login_logout{
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  background-color: rgb(20,207,174);
   .form{
     display: flex;
     flex-direction: column;
@@ -11,6 +12,7 @@
     border-radius: 4px;
     padding: 10px 15px;
     margin-top: 10px;
+    
   }
   .form_main{
     display: flex;
@@ -73,5 +75,8 @@
   }
   .submit_button:hover{
     cursor: pointer;
+  }
+  .test{
+    color:rgb(81, 142, 223)
   }
 }

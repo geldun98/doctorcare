@@ -11,16 +11,15 @@ function Sigin() {
   const navigate = useNavigate();
 
   //data người dùng
-  const validate = useRef();
-  let check = 2;
+  const spanErr = useRef();
   const nameInput = useRef();
   const passwordInput = useRef();
   const data = {
     username: '',
     password: '',
   };
-  const [dataDoctor, setDataDoctor] = useContext(Context);
 
+  const [dataDoctor, setDataDoctor] = useContext(Context);
   const [classNameSpanInput, setclassNameSpanInput] = useState('err_span_none');
   const [classNameSpanPassword, setclassNameSpanPassword] = useState('err_span_none');
   const handclick = (even) => {
@@ -31,11 +30,11 @@ function Sigin() {
       MloginApi.add(data).then((res) => {
         if (res.status === 200) {
           localStorage.setItem('user', JSON.stringify(res.data.user));
-
           setDataDoctor(res.data.user);
           navigate('/trangchu');
         } else {
-          validate.current.parentElement.classList.remove('validate');
+          spanErr.current.classList.remove('err_span_none');
+          spanErr.current.classList.add('err_span_block');
         }
       });
     }
@@ -57,7 +56,7 @@ function Sigin() {
   };
 
   const onFocusEven = (e) => {
-    validate.current.parentElement.classList.add('validate');
+    spanErr.current.classList.add('err_span_none');
     if (e.target.name === 'name') {
       setclassNameSpanInput('err_span_none');
     }
@@ -68,7 +67,7 @@ function Sigin() {
   //form đăng nhập
   return (
     <React.Fragment>
-      <form className="form_main validate">
+      <form className="form_main ">
         <Input_item
           type="text"
           labelText="Tên Đăng nhập"
@@ -92,7 +91,7 @@ function Sigin() {
         <button type="submit" className="submit_button" onClick={handclick}>
           đăng nhập
         </button>
-        <span className="validate-text" ref={validate}>
+        <span className="err_span_none" ref={spanErr}>
           Sai mật khẩu hoặc tên đăng nhập
         </span>
       </form>
