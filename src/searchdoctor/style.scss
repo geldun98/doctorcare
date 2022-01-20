@@ -91,9 +91,10 @@
     color: white;
     line-height: 80px;
   }
-  height: 80px;
 
   align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
 }
 a {
   text-decoration: none;
@@ -108,4 +109,10 @@ option {
 }
 .searchDoctor {
   background-color: #2c3e50;
+}
+.inputExperience {
+  display: inline-flex;
+
+  width: 300px;
+  height: 100%;
 }
