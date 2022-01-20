@@ -116,14 +116,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        // border: 1px solid white;
+        border: 1px solid transparent;
         border-radius: 10px;
         box-shadow: 1px 3px 10px -5px #000000;
         margin: 0 10px;
         padding: 0 10px;
         background-color: rgb(254, 254, 254);
         &:hover {
-          border: 1.5px solid #13cfae;
+          border-color: #13cfae;
           cursor: pointer;
         }
         img {
