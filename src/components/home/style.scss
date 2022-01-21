@@ -10,7 +10,7 @@
     object-fit: cover;
   }
   .Home-Content_input {
-    width: 650px;
+    // width: 650px;
     height: 50px;
     padding: 0 20px;
     border: 2px solid #13cfae;
@@ -34,7 +34,18 @@
 .Home-Content {
   text-align: center;
   color: #2c3e50;
+  &-search {
+    input {
+      width: 80%;
+    }
+    button {
+      flex: 1;
+    }
 
+    display: flex;
+
+    justify-content: space-between;
+  }
   h3 {
     font-size: 40px;
     font-weight: 600;

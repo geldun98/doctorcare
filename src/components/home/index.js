@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.scss";
+import React from 'react';
+import './style.scss';
 const Home = () => {
   return (
     <div className="Home">
@@ -7,11 +7,10 @@ const Home = () => {
         <div className="Home-Content">
           <h3>Tìm bác sĩ, bệnh viện dễ dàng hơn</h3>
           <p>Chủ động đặt lịch hẹn thông minh và được chăm sóc tận tình</p>
-          <input
-            className="Home-Content_input"
-            placeholder="Nhập tên bác sĩ, bệnh viện, dịch vụ..."
-          ></input>
-          <button className="btnSearch">Tìm kiếm</button>
+          <div className='Home-Content-search'>
+            <input className="Home-Content_input" placeholder="Nhập tên bác sĩ, bệnh viện, dịch vụ..."></input>
+            <button className="btnSearch">Tìm kiếm</button>
+          </div>
         </div>
         <img
           src="https://motortradescare.com.au/wp-content/uploads/2020/11/shutterstock_1721876416-NTD-Agreement-scaled.jpg"
@@ -28,10 +27,10 @@ const Home = () => {
             <img src="" alt=""></img>
             <div className="detail">
               <p>Bệnh viện</p>
-              <hr style={{ height: "4px", color: "#13cfae" }}></hr>
+              <hr style={{ height: '4px', color: '#13cfae' }}></hr>
               <p>
-                Đặt khám theo gói dịch vụ chất lượng, dịch vụ xét nghiệm và chẩn
-                đoán hình ảnh hiện đại tới từ các đối tác bệnh viện hàng đầu.
+                Đặt khám theo gói dịch vụ chất lượng, dịch vụ xét nghiệm và chẩn đoán hình ảnh hiện đại tới từ các đối
+                tác bệnh viện hàng đầu.
               </p>
             </div>
           </div>
@@ -40,11 +39,10 @@ const Home = () => {
             <img src="" alt=""></img>
             <div className="detail">
               <p>Bác sĩ</p>
-              <hr style={{ height: "4px", color: "#13cfae" }}></hr>
+              <hr style={{ height: '4px', color: '#13cfae' }}></hr>
               <p>
-                Đặt khám trực tiếp tới đội ngũ bác sĩ có trình độ chuyên môn
-                cao, nhiều năm kinh nghiệm, giàu y đức, giúp bạn hoàn toàn chủ
-                động lựa chọn thời gian khám.
+                Đặt khám trực tiếp tới đội ngũ bác sĩ có trình độ chuyên môn cao, nhiều năm kinh nghiệm, giàu y đức,
+                giúp bạn hoàn toàn chủ động lựa chọn thời gian khám.
               </p>
             </div>
           </div>
@@ -53,11 +51,10 @@ const Home = () => {
             <img src="" alt=""></img>
             <div className="detail">
               <p>Hỏi đáp</p>
-              <hr style={{ height: "4px", color: "#13cfae" }}></hr>
+              <hr style={{ height: '4px', color: '#13cfae' }}></hr>
               <p>
-                Cộng đồng y tế đông đảo với sự tham gia của các bác sĩ đầu ngành
-                tới từ nhiều lĩnh vực, hỗ trợ giải đáp thắc mắc của bạn trong
-                mọi khía cạnh sức khỏe.
+                Cộng đồng y tế đông đảo với sự tham gia của các bác sĩ đầu ngành tới từ nhiều lĩnh vực, hỗ trợ giải đáp
+                thắc mắc của bạn trong mọi khía cạnh sức khỏe.
               </p>
             </div>
           </div>
@@ -66,11 +63,10 @@ const Home = () => {
             <img src="" alt=""></img>
             <div className="detail">
               <p>Cẩm nang</p>
-              <hr style={{ height: "4px", color: "#13cfae" }}></hr>
+              <hr style={{ height: '4px', color: '#13cfae' }}></hr>
               <p>
-                Với lượng bài đăng phong phú sẽ chia sẻ, cung cấp cho bạn nhiều
-                kiến thức bổ ích về sức khỏe từ kinh nghiệm của những bác sĩ đầu
-                ngành.
+                Với lượng bài đăng phong phú sẽ chia sẻ, cung cấp cho bạn nhiều kiến thức bổ ích về sức khỏe từ kinh
+                nghiệm của những bác sĩ đầu ngành.
               </p>
             </div>
           </div>
@@ -82,8 +78,8 @@ const Home = () => {
               <div className="product-list_items-content">
                 <p>Đặt khám từ xa</p>
                 <p>
-                  Bác sĩ của DOCTORCARE luôn sẵn sàng tư vấn và chăm sóc sức
-                  khỏe cho bạn mọi lúc mọi nơi qua video và chat
+                  Bác sĩ của DOCTORCARE luôn sẵn sàng tư vấn và chăm sóc sức khỏe cho bạn mọi lúc mọi nơi qua video và
+                  chat
                 </p>
               </div>
             </div>
@@ -92,8 +88,8 @@ const Home = () => {
               <div className="product-list_items-content">
                 <p>Đội ngũ chuyên gia và cơ sở y tế hàng đầu</p>
                 <p>
-                  Dễ dàng kết nối với các bác sĩ ưu tú, tận tâm, có chuyên môn
-                  cao đến từ các bệnh viện tuyến trung ương và phòng khám uy tín
+                  Dễ dàng kết nối với các bác sĩ ưu tú, tận tâm, có chuyên môn cao đến từ các bệnh viện tuyến trung ương
+                  và phòng khám uy tín
                 </p>
               </div>
             </div>
@@ -104,8 +100,8 @@ const Home = () => {
               <div className="product-list_items-content">
                 <p>Tiếp đón ưu tiên với nhiều quyền lợi đặc biệt</p>
                 <p>
-                  Đặt khám hẹn trước tại các bệnh viện trung ương, phòng khám
-                  hàng đầu với nhiều đặc quyền dành riêng cho bạn và gia đình
+                  Đặt khám hẹn trước tại các bệnh viện trung ương, phòng khám hàng đầu với nhiều đặc quyền dành riêng
+                  cho bạn và gia đình
                 </p>
               </div>
             </div>
@@ -113,21 +109,14 @@ const Home = () => {
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAtFBMVEUAAADv7+/v7+/v7+/u7u7u7u7v7+/v7+/v7+/v7+/v7+/u7u7u7u7v7+/v7++kr8Ht7e2jr8Ckr8Cjr7+jr7/v7++jr8Gkr8Kkrb+lscOfr7+fr7/v7+8oaVi9zckispYncmAkln+kvbZai35ym5Ckr8HW3tyYtK2LrKPW39xmkocIjXRBeWsAlns1cWIicF3i5+WxxcB/pJoVfmjK1dOAo5skoIZNgnQSg2vj5+YliXMedWFO8pQ7AAAAHHRSTlMAv98QQHAg75DPn4BgUK/aoIWgWEAw779wbyAQr/5PJwAAAhdJREFUSMellulW2zAQRiV5k7cApXQduW2I7QBJSAIU2r7/e1VKwMKacWLB/aPE59wzo2/khZHEUZYKABA8K2LmQ5BzeA0vPNQEXMRIPRRAIbrmv36qzxiNhCFytuNjfXJSfyFb5jCMDJjmrD7/Vn+g3BQOkQb7yp/rc0JGLrZNabKwhGNwZvhOuDkcRzKaGMYQ0XI6Sk5iyi1gHJySBYwk8iiMSAKPwogM3Q7gULXzyqxrszqEjpxBn7nSzNbQmnVxhTI71PVU7XjY7NdLVPpQ149K3d1oa2XWW6Wc0pODp1qpf8vlndLcLpdPSrnb7gXeu42bplkodaMrGp7Mumka98FgAUu7UjQPaNZoy40aZE4fs6iX8/Vsh+5gNjVR7//q6/S0ZE+uXiat57vt5qR/0JFNsNyo3YD+6OhaK1ORcSSvF897vF+ZC1bGfQskb7ottuaXlXHfCW57evlyqq63tm0qb0AyAsnZe2RBy21F4coQkzINkksbmK9sExMeMkos7ck/SZA8IY/n7x8UVnbO2OlbZXxL/v1FMSiX0FGpQba0HDtPbJLHK5Q2GjQ0Fck9/jqyiXlT2oeYPwH1SeH/kufecmHl3NcVzBK8vbB/39J5yfqQWtG7NA8cOfTpGSHHlg0ZJhDHxSSVISO5SAYMwTOZR0V5EbNhCuSJLAqxQVP2avMoZj7EvKuZB8yb8DQ13YZsFP8BX5YZyuKu6+sAAAAASUVORK5CYII="></img>
               <div className="product-list_items-content">
                 <p>Giá khám bằng với giá tại cơ sở y tế</p>
-                <p>
-                  Không những vậy còn giúp bạn tiết kiệm thời gian và các chi
-                  phí phát sinh khác
-                </p>
+                <p>Không những vậy còn giúp bạn tiết kiệm thời gian và các chi phí phát sinh khác</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        id="carouselExampleIndicators"
-        className="carousel slide slider"
-        data-bs-ride="carousel"
-      >
+      <div id="carouselExampleIndicators" className="carousel slide slider" data-bs-ride="carousel">
         <div className="carousel-indicators">
           <button
             type="button"
@@ -182,10 +171,7 @@ const Home = () => {
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="prev"
         >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>
         </button>
         <button
@@ -194,10 +180,7 @@ const Home = () => {
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="next"
         >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
@@ -207,12 +190,10 @@ const Home = () => {
         <div className="company_intro">
           <h1>TƯ VẤN SỨC KHỎE TRỰC TUYẾN</h1>
           <p>
-            Mang đến những dịch vụ thăm khám chuyên nghiệp, thân thiện cùng
-            những đặc quyền dành riêng cho bạn và gia đình. Điều mà chúng tôi
-            quan tâm hàng đầu chính là sự nhanh chóng, thuận tiện, an tâm của
-            người bệnh. Những dịch vụ mà DOCTOR CARE cung cấp sẽ giúp bạn và gia
-            đình luôn chủ động và tự tin khi đi khám chữa bệnh tại cơ sở y tế là
-            các phòng khám, bệnh viện tuyến trung ương.
+            Mang đến những dịch vụ thăm khám chuyên nghiệp, thân thiện cùng những đặc quyền dành riêng cho bạn và gia
+            đình. Điều mà chúng tôi quan tâm hàng đầu chính là sự nhanh chóng, thuận tiện, an tâm của người bệnh. Những
+            dịch vụ mà DOCTOR CARE cung cấp sẽ giúp bạn và gia đình luôn chủ động và tự tin khi đi khám chữa bệnh tại cơ
+            sở y tế là các phòng khám, bệnh viện tuyến trung ương.
           </p>
         </div>
         <div className="more_about_us">HIỂU THÊM VỀ CHÚNG TÔI</div>
@@ -222,58 +203,49 @@ const Home = () => {
         <div className="main_news">
           <p className="news_title">CẨM NANG Y TẾ</p>
           <div className="cards_news">
-            <div className="card" style={{ width: "24rem" }}>
+            <div className="card" style={{ width: '24rem' }}>
               <img
                 src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/dau-nua-dau-thi-giac-isofhcare-jpg_546d3fff_3732_45ed_80cc_889ccf4d6162.png"
                 className="card-img-top"
                 alt="..."
               ></img>
               <div className="card-body">
-                <h5 className="card-title">
-                  Đau đầu cấp tính: Đâu là nguyên nhân hay gặp phải?
-                </h5>
+                <h5 className="card-title">Đau đầu cấp tính: Đâu là nguyên nhân hay gặp phải?</h5>
                 <p className="card-text">
-                  Đau đầu là một triệu chứng hay gặp, do nhiều nguyên nhân khác
-                  nhau. Đau đầu có thể là hậu quả của một bệnh toàn thân hoặc
-                  tổn thương thực thể ở não và vùng sọ...
+                  Đau đầu là một triệu chứng hay gặp, do nhiều nguyên nhân khác nhau. Đau đầu có thể là hậu quả của một
+                  bệnh toàn thân hoặc tổn thương thực thể ở não và vùng sọ...
                 </p>
                 <p>XEM THÊM</p>
               </div>
             </div>
 
-            <div className="card" style={{ width: "24rem" }}>
+            <div className="card" style={{ width: '24rem' }}>
               <img
                 src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/benh-thuy-dau-co-nen-kieng-gio-kieng-nam-quat-isofhcare-jpg_c793c40d_6890_4a5d_a212_f42e7cc328ea.png"
                 className="card-img-top"
                 alt="..."
               ></img>
               <div className="card-body">
-                <h5 className="card-title">
-                  Theo quan niệm dân gian: Mắc thủy đậu cần kiêng gió, kiêng...
-                </h5>
+                <h5 className="card-title">Theo quan niệm dân gian: Mắc thủy đậu cần kiêng gió, kiêng...</h5>
                 <p className="card-text">
-                  Thủy đậu: căn bệnh truyền nhiễm dễ lây truyền và có đến hơn
-                  90% người mắc bệnh nếu chưa có miễn dịch. Từ xưa đến nay nếu
-                  phát hiện sớm và điều trị thì bệnh...
+                  Thủy đậu: căn bệnh truyền nhiễm dễ lây truyền và có đến hơn 90% người mắc bệnh nếu chưa có miễn dịch.
+                  Từ xưa đến nay nếu phát hiện sớm và điều trị thì bệnh...
                 </p>
                 <p>XEM THÊM</p>
               </div>
             </div>
 
-            <div className="card" style={{ width: "24rem" }}>
+            <div className="card" style={{ width: '24rem' }}>
               <img
                 src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/dau-dau-man-tinh-isofhcare-jpg_10326353_5738_4609_a8b8_2a0e133e21bf.png"
                 className="card-img-top"
                 alt="..."
               ></img>
               <div className="card-body">
-                <h5 className="card-title">
-                  6 nguyên nhân gây nên bệnh đau đầu mạn tính
-                </h5>
+                <h5 className="card-title">6 nguyên nhân gây nên bệnh đau đầu mạn tính</h5>
                 <p className="card-text">
-                  Đau đầu là một trong những triệu chứng xuất hiện phổ biến
-                  nhưng sâu bên trong lại ẩn giấu nhiều dấu hiệu nguy hiểm mà
-                  bạn có chắc đã biết đến? Những cơn đau...
+                  Đau đầu là một trong những triệu chứng xuất hiện phổ biến nhưng sâu bên trong lại ẩn giấu nhiều dấu
+                  hiệu nguy hiểm mà bạn có chắc đã biết đến? Những cơn đau...
                 </p>
                 <p>XEM THÊM</p>
               </div>

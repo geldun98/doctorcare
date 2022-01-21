@@ -8,8 +8,9 @@ import Context from '../store/Context';
 const Question = () => {
   const [dataUser, setDataUser] = useContext(Context);
   let role = dataUser.role;
-  if (role) {
-    role = true;
+  let checkShow = false;
+  if (role === 'user') {
+    checkShow = true;
   }
   const [update, setUpdate] = useState(0);
   function handleUpdate() {
@@ -24,7 +25,7 @@ const Question = () => {
           element={
             <div className="Question-content container">
               <ListQuestion update={update}></ListQuestion>
-              {role && <InputQuestion handleUpdate={handleUpdate}> </InputQuestion>}
+              {checkShow && <InputQuestion handleUpdate={handleUpdate}> </InputQuestion>}
             </div>
           }
         ></Route>

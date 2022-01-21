@@ -9,8 +9,9 @@ const Share = () => {
   const [showButton, setShowButton] = useState(true);
   const [dataUser, setDataUser] = useContext(Context);
   let role = dataUser.role;
+  let checkShow = false;
   if (role === 'doctor') {
-    role = true;
+    checkShow = true;
   }
   return (
     <div className="Share">
@@ -19,7 +20,7 @@ const Share = () => {
           path="/"
           element={
             <div>
-              {role && (
+              {checkShow && (
                 <Link to="createpost">
                   <button
                     className="Share-create"
