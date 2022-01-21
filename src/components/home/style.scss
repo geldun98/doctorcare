@@ -87,9 +87,9 @@
       font-size: 13.5px;
       margin: 0 10px;
       border-radius: 10px;
-      border: 1px solid white;
+      border: 1.5px solid transparent;
       &:hover {
-        border: 1.5px solid #13cfae;
+        border-color:#13cfae;
         cursor: pointer;
       }
       .detail p {
@@ -194,7 +194,7 @@
   padding: 20px 160px;
   object-fit: cover;
   border-radius: 3px;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(252, 252, 252);
   &:hover {
     cursor: pointer;
   }
