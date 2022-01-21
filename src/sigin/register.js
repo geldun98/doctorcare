@@ -5,6 +5,29 @@ import "./components/index.scss";
 import MilogioutApi from "./components/logoutAPIM";
 import updateApi from "../api/updateApi";
 function Register() {
+  //Không cho tiếng việt vào ô input
+  let specialCharacters = 0;
+  function removeVietnameseTones(str) {
+    str = str.trim();
+    str = str.replace(/ /g, "");
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
+    str = str.replace(/đ/g,"d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
+    return str
+  }
+  // không nhập tiếng việt vào ô password
+  
   const [role, setRole] = useState("user");
   // const [classDiv,setClassDiv] = useState('use_register')
   const use = (e) => {
@@ -26,6 +49,7 @@ function Register() {
   // const [classNameSpanage, setclassNameSpanage] = useState("err_span_none");
 
   const spanErr = useRef();
+  const spanErrvn =  useRef();
   const nameInput = useRef();
   const passwordInput = useRef();
   const confirmpasswordInput = useRef();
@@ -36,45 +60,78 @@ function Register() {
     password: "",
     role: "",
   };
+  
+   const inputOnChange = (e) => {
+    let x = [];
+    let z =
+      "à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ| ";
+    let i = z.split("|");
+    let y = e.target.value.split("");
+    x[0] = y[y.length - 1];
+    for (let c = 0; c < z.length; c++) {
+      if (i[c] === x[0]) {
+        specialCharacters++;
+        break;
+      }
+    }}
+
   const handclick = (even) => {
     even.preventDefault();
-    if (
-      nameInput.current.value !== "" &&
-      passwordInput.current.value !== "" &&
-      confirmpasswordInput.current.value !== ""
-      // &&
-      // fullnameInput.current.value !== "" &&
-      // ageInput.current.value !== ""
-    ) {
-      data["username"] = nameInput.current.value;
-      data["password"] = passwordInput.current.value;
-      data["role"] = role;
-      MilogioutApi.add(data).then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          const dataUpdate = {
-            ...data,
-            id: res.data,
-          };
-          updateApi.add(dataUpdate).then((resUpdate) => {
-            console.log(resUpdate);
-          });
-        } else {
-          spanErr.current.classList.remove("err_span_none");
-          spanErr.current.classList.add("err_span_block");
-        }
-      });
-      console.log(data);
+    if (confirmpasswordInput.current.value !== passwordInput.current.value) {
+        spanErr.current.innerHTML = "Xác nhận mật khẩu và mật khẩu không trùng nhau , vui lòng nhập lại";
+        spanErr.current.classList.remove("err_span_none");
+        spanErr.current.classList.add("err_span_block");
+        return;
+      }
+    if (specialCharacters>0) {
+      spanErrvn.current.classList.remove("err_span_none")
+      spanErrvn.current.classList.add("err_span_block")
+      specialCharacters = 0
+      passwordInput.current.value = ""
+      return;
     }
     if (nameInput.current.value === "") {
       setclassNameSpanInput("err_span_block");
+      
     }
     if (passwordInput.current.value === "") {
       setclassNameSpanPassword("err_span_block");
+    
     }
     if (confirmpasswordInput.current.value === "") {
       setclassNameSpanconfirmpassword("err_span_block");
+      return;
     }
+    if (
+      nameInput.current.value !== "" &&
+      passwordInput.current.value !== "" &&
+      confirmpasswordInput.current.value !== ""&& 
+      specialCharacters === 0
+      // fullnameInput.current.value !== "" &&
+      // ageInput.current.value !== ""
+      ) {
+        data["username"] = nameInput.current.value;
+        data["password"] = passwordInput.current.value;
+        data["role"] = role;
+        MilogioutApi.add(data).then((res) => {
+          if (res.status === 200) {
+            const dataUpdate = {
+              ...data,
+              id: res.data,
+            };
+            
+            localStorage.setItem("user", JSON.stringify(dataUpdate));
+            updateApi.add(dataUpdate).then((resUpdate) => {});
+            window.location.assign("../trangchu");
+          } else {
+            spanErr.current.classList.remove("err_span_none");
+            spanErr.current.classList.add("err_span_block");
+            nameInput.current.value =""
+            passwordInput.current.value =""
+            confirmpasswordInput.current.value =""
+          }
+        });
+      }
     // if (fullnameInput.current.value === "") {
     //   setclassNameSpanfullname("err_span_block");
     // }
@@ -84,7 +141,7 @@ function Register() {
   };
 
   const onBlurEven = (e) => {
-    console.log(e.target.name);
+    e.target.value = removeVietnameseTones(e.target.value)
     if (e.target.name === "name" && e.target.value === "") {
       setclassNameSpanInput("err_span_block");
     }
@@ -104,12 +161,13 @@ function Register() {
 
   const onFocusEven = (e) => {
     spanErr.current.classList.add("err_span_none");
-    console.log(e.target.name);
+    spanErrvn.current.classList.add("err_span_none");
     if (e.target.name === "name") {
       setclassNameSpanInput("err_span_none");
     }
     if (e.target.name === "password") {
       setclassNameSpanPassword("err_span_none");
+
     }
     if (e.target.name === "confirmpassword") {
       setclassNameSpanconfirmpassword("err_span_none");
@@ -124,26 +182,6 @@ function Register() {
   return (
     <div>
       <form className="form_main">
-        <div className="radio_input_group">
-          <div>
-            <label>Người dùng</label>
-            <input
-              type="radio"
-              value="user"
-              checked={role === "user"}
-              onChange={use}
-            ></input>
-          </div>
-          <div>
-            <label>Bác sĩ</label>
-            <input
-              type="radio"
-              value="doctor"
-              checked={role === "doctor"}
-              onChange={doctor}
-            ></input>
-          </div>
-        </div>
 
         <Input_item
           type="text"
@@ -164,6 +202,7 @@ function Register() {
           classNameSpan={classNameSpanPassword}
           onFocusEven={onFocusEven}
           onBlurEven={onBlurEven}
+          onChangeEven={inputOnChange}
         />
         <Input_item
           type="password"
@@ -175,6 +214,26 @@ function Register() {
           onFocusEven={onFocusEven}
           onBlurEven={onBlurEven}
         />
+          <div className="radio_input_group">
+            <div>
+              <label>Người dùng</label>
+              <input
+                type="radio"
+                value="user"
+                checked={role === "user"}
+                onChange={use}
+              ></input>
+            </div>
+            <div>
+              <label>Bác sĩ</label>
+              <input
+                type="radio"
+                value="doctor"
+                checked={role === "doctor"}
+                onChange={doctor}
+              ></input>
+            </div>
+          </div>
         {/* <Input_item
           type="text"
           labelText="Họ và tên"
@@ -184,8 +243,8 @@ function Register() {
           classNameSpan={classNameSpanfullname}
           onFocusEven={onFocusEven}
           onBlurEven={onBlurEven}
-        />
-        <Input_item
+          />
+          <Input_item
           type="number"
           labelText="Tuổi"
           className="input_group"
@@ -204,6 +263,9 @@ function Register() {
         <button type="submit" className="submit_button" onClick={handclick}>
           đăng ký
         </button>
+        <span className="err_span_none" ref={spanErrvn}>
+          Mật khẩu có chứa ký tự đặc biệt , vui lòng nhập lại mật khẩu
+        </span>
         <span className="err_span_none" ref={spanErr}>
           Đăng ký thất bại , tên đăng nhập đã tồn tại , vui lòng hãy tạo tên
           nhập mới nha :3
