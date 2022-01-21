@@ -1,14 +1,33 @@
+import React from "react";
 
-import React  from 'react';
-
-const Input_item = ({ type, labelText, name, placeholder,classNameSpan ,className,Ref,onFocusEven,onBlurEven}) => {
+const Input_item = ({
+  type,
+  labelText,
+  name,
+  placeholder,
+  classNameSpan,
+  className,
+  Ref,
+  onFocusEven,
+  onBlurEven,
+  onChangeEven,
+}) => {
   return (
     <div className={className}>
-      <label>
+      <label>{labelText}</label>
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        ref={Ref}
+        onFocus={onFocusEven}
+        onBlur={onBlurEven}
+        onChange={onChangeEven}
+      ></input>
+      <span className={classNameSpan}>
+        {"Vui lòng nhập đúng và đủ "}
         {labelText}
-      </label>
-      <input type={type} name={name} placeholder={placeholder} ref={Ref} onFocus={onFocusEven} onBlur={onBlurEven} ></input>
-      <span className={classNameSpan}>{'Vui lòng nhập đúng và đủ '}{labelText}</span>
+      </span>
     </div>
   );
 };
