@@ -175,9 +175,15 @@
   padding: 15px;
   font-weight: 500;
   margin-bottom: 20px;
+  .roledoctor {
+    background-color: #c0392b;
+  }
+  .roleuser {
+    background-color: #3498db;
+  }
   &-user {
     color: white;
-    background-color: #c0392b;
+
     padding: 5px 10px;
   }
 }
