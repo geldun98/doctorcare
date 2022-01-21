@@ -33,6 +33,16 @@
 
   .form-content div {
     margin: 20px 0 20px 5px;
+
+    .errormsg_block{
+      display: block;
+      font-size: 14px;
+      color: red;
+      margin: 5px 20px;
+    }
+    .errormsg_none{
+      display: none;
+    }
   }
   .form-content_name input {
     margin-left: 34px;

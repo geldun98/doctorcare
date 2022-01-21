@@ -38,9 +38,18 @@ body{
     border: 1px solid silver;
   }
   
-  .form-content div {
-    
+  .form-content div { 
     margin: 20px 0 20px 20px;
+
+    .errormsg_block{
+      display: block;
+      font-size: 14px;
+      color: red;
+      margin: 5px 20px;
+    }
+    .errormsg_none{
+      display: none;
+    }
   }
   .form-content_nameDoctor input {
     margin-left: 75px;
