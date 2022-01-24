@@ -16,14 +16,12 @@
   .time {
     margin: 15px 0px;
     width: 100%;
-    height: 300px;
     background-color: white;
     padding: 20px;
   }
   .pick-time {
     background-color: antiquewhite;
     width: 100%;
-    height: 260px;
     padding: 20px;
   }
   .picktime {
@@ -88,5 +86,8 @@
   }
   .fa-video {
     color: white;
+  }
+  .false {
+    display: none;
   }
 }

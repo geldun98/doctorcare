@@ -2,8 +2,8 @@ import axiosClient from './axiosClient';
 
 const timtableApi = {
 
-    get(id) {
-        const url = `/doctors/${id}`;
+    getAll() {
+        const url = `/timetable`;
         return axiosClient.get(url);
     },
 

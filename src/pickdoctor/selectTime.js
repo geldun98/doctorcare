@@ -1,140 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import timtableApi from '../api/timetableApi';
+import updateTimeApi from '../api/updateTimeApi';
 
 const Picktime = () => {
     const [dataTime, setDataTime] = useState([]);
     const [dataIdTime, setDataIdTime] = useState('');
-    const [data, setData] = useState([
-        {
-            id: 1,
-            id_doctor: 1,
-            listdate: [
-                {
-                    id_date: 1,
-                    value: '2022-01-05',
-                    listtime: [
-                        { id_time: 1, value: '8:00', status: true },
-                        { id_time: 2, value: '8:30', status: true },
-                        { id_time: 3, value: '9:00 ', status: true },
-                        { id_time: 4, value: '9:30', status: true },
-                        { id_time: 5, value: '10:00', status: true },
-                        { id_time: 6, value: '10:30', status: true },
-
-                    ]
-                },
-                {
-                    id_date: 2,
-                    value: '2022-01-06',
-                    listtime: [
-                        { id_time: 1, value: '8:00', status: true },
-                        { id_time: 2, value: '8:30', status: true },
-                        { id_time: 3, value: '9:00 ', status: true },
-                        { id_time: 4, value: '9:30', status: true },
-                        { id_time: 5, value: '10:00', status: true },
-                        { id_time: 6, value: '10:30', status: true },
-                        { id_time: 7, value: '11:00', status: true },
-                        { id_time: 8, value: '11:30', status: true },
-                        { id_time: 9, value: '14:00', status: true },
-                        { id_time: 10, value: '14:30', status: true },
-                        { id_time: 11, value: '15:00', status: true },
-                        { id_time: 12, value: '15:30', status: true },
-                        { id_time: 13, value: '16:00', status: true },
-                        { id_time: 14, value: '16:30', status: true },
-                        { id_time: 15, value: '17:00', status: true },
-                    ]
-                },
-                {
-                    id_date: 3,
-                    value: '2022-01-07',
-                    listtime: [
-                        { id_time: 1, value: '8:00', status: true },
-                        { id_time: 2, value: '8:30', status: true },
-                        { id_time: 3, value: '9:00 ', status: true },
-                        { id_time: 4, value: '9:30', status: true },
-                        { id_time: 5, value: '10:00', status: true },
-                        { id_time: 6, value: '10:30', status: true },
-                        { id_time: 7, value: '11:00', status: true },
-                        { id_time: 8, value: '11:30', status: true },
-                        { id_time: 9, value: '14:00', status: true },
-                        { id_time: 10, value: '14:30', status: true },
-                        { id_time: 11, value: '15:00', status: true },
-                        { id_time: 12, value: '15:30', status: true },
-                        { id_time: 13, value: '16:00', status: true },
-                        { id_time: 14, value: '16:30', status: true },
-                        { id_time: 15, value: '17:00', status: true },
-                    ]
-                },
-                {
-                    id_date: 4,
-                    value: '2022-01-08',
-                    listtime: [
-                        { id_time: 1, value: '8:00', status: true },
-                        { id_time: 2, value: '8:30', status: true },
-                        { id_time: 3, value: '9:00 ', status: true },
-                        { id_time: 4, value: '9:30', status: true },
-                        { id_time: 5, value: '10:00', status: true },
-                        { id_time: 6, value: '10:30', status: true },
-                        { id_time: 7, value: '11:00', status: true },
-                        { id_time: 8, value: '11:30', status: true },
-                        { id_time: 9, value: '14:00', status: true },
-                        { id_time: 10, value: '14:30', status: true },
-                        { id_time: 11, value: '15:00', status: true },
-                        { id_time: 12, value: '15:30', status: true },
-                        { id_time: 13, value: '16:00', status: true },
-                        { id_time: 14, value: '16:30', status: true },
-                        { id_time: 15, value: '17:00', status: true },
-
-                    ]
-                }, {
-                    id_date: 5,
-                    value: '2022-01-09',
-                    listtime: [
-                        { id_time: 1, value: '8:00', status: true },
-                        { id_time: 2, value: '8:30', status: true },
-                        { id_time: 3, value: '9:00 ', status: true },
-                        { id_time: 4, value: '9:30', status: true },
-                        { id_time: 5, value: '10:00', status: true },
-                        { id_time: 6, value: '10:30', status: true },
-                        { id_time: 7, value: '11:00', status: true },
-                        { id_time: 8, value: '11:30', status: true },
-                        { id_time: 9, value: '14:00', status: true },
-                        { id_time: 10, value: '14:30', status: true },
-                        { id_time: 11, value: '15:00', status: true },
-                        { id_time: 12, value: '15:30', status: true },
-                        { id_time: 13, value: '16:00', status: true },
-                        { id_time: 14, value: '16:30', status: true },
-                        { id_time: 15, value: '17:00', status: true },
-
-                    ]
-                },
-
-            ]
-        },
-
-    ])
+    const [data, setData] = useState({})
+    const cloneData = useRef(data);
+    const dataId = useRef();
+    useEffect(() => {
+        const fetchDoctors = async () => {
+            setData(await updateTimeApi.get(1).then((res) => res.data));
+        };
+        fetchDoctors();
+    }, []);
     function handleDate(e) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         const dataDate = solutionListTime(e.target.value);
         const dataTime = dataDate[0].listtime;
         setDataTime(dataTime);
     }
     function solutionListTime(date) {
-        return data[0].listdate.filter((item) => {
+        return data.listdate.filter((item) => {
             return item.value === date;
         })
     }
     function handleClickTime(e) {
         setDataIdTime(e.target.id);
-        console.log("123");
+        dataId.current = e.target.id;
 
 
     }
     function handletuvan() {
 
-
-        setData(data[0].listdate[0].listtime[0].status = false);
+        setData((data.listdate[0].listtime[dataId.current - 1].status = false));
+        cloneData.current.listdate[0].listtime[dataId.current - 1].status = false;
+        updateTimeApi.update(cloneData.current).then((res) => {
+            if (res.status) {
+                console.log(res.status);
+            }
+        })
     }
 
-    console.log(data);
+
     return (
         <div className="time">
             <div className="pick-time">
@@ -142,17 +50,13 @@ const Picktime = () => {
                 <div><input type="date" onChange={handleDate}></input></div>
                 <div>
                     {dataTime.map((item, index) => (
-                        <button className='picktime' key={index} id={item.id_time} onClick={handleClickTime}>{item.value}</button>
-                        // <div className='picktime' key={index} id={item.id_time} onClick={handleClickTime}>
-                        //   {item.value}
-                        // </div>
-
+                        <button className={`picktime ${item.status}`} key={index} id={item.id_time} onClick={handleClickTime}>{item.value}</button>
                     )
                     )}
 
 
                 </div>
-                <button className='save' onClick={handletuvan} ><i class="fas fa-video"></i>Tư vấn trực tuyến</button>
+                <button className='save' onClick={handletuvan} ><i className="fas fa-video"></i>Tư vấn trực tuyến</button>
 
 
             </div>
