@@ -12,10 +12,7 @@
     padding: 25px 0px;
     background-color: white;
   }
-  .doctor-exp {
-    background-color: white;
-    padding: 25px 50px;
-  }
+
   .time {
     margin: 15px 0px;
     width: 100%;
@@ -28,5 +25,68 @@
     width: 100%;
     height: 260px;
     padding: 20px;
+  }
+  .picktime {
+    display: inline-block;
+    background-color: white;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 1px solid orange;
+    border-radius: 6px;
+    margin-top: 30px;
+  }
+  .picktime:hover {
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+  }
+  .picktime:focus {
+    background-color: orange;
+    color: white;
+  }
+
+  .infor {
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+  .more-infor {
+    margin-top: 70px;
+    margin-left: 100px;
+  }
+  i {
+    margin-right: 10px;
+    color: #13cfae;
+  }
+  input {
+    color: orange;
+    border: 1px solid orange;
+    padding: 3px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 12px;
+  }
+  h5 {
+    margin-left: 12px;
+  }
+  .doctor-expensive {
+    padding: 5px;
+    .doctor-exp {
+      margin-left: 30px;
+    }
+  }
+  .save {
+    border: none;
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  .save:hover {
+    background-color: rgb(228, 152, 11);
+  }
+  .fa-video {
+    color: white;
   }
 }

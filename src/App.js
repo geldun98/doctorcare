@@ -4,7 +4,7 @@ import CheckLogin from './checklogin/CheckLogin';
 import HomePage from './components/home';
 import Footer from './footer/Footer';
 import Navbar from './navbar';
-import DoctorDetail from './pickdoctor/doctor-infor';
+import DoctorDetail from './pickdoctor/doctorInfor';
 import Question from './question';
 import SearchDoctor from './searchdoctor';
 import Share from './share';
