@@ -11,6 +11,7 @@ import Share from './share';
 import SiginRegister from './sigin/sigin_register';
 import './style.scss';
 import UpdateInfo from './update-info/UpdateInfo';
+import History from './history';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/capnhatthongtin" element={<UpdateInfo></UpdateInfo>}></Route>
         <Route path="/dangnhap/*" element={<SiginRegister />}></Route>
         <Route path="/camnang/*" element={<Share></Share>}></Route>
+        <Route path="/lichsukham" element={<History></History>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

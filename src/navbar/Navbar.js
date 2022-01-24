@@ -30,6 +30,7 @@ const Navbar = () => {
         <ItemNav url="/hoidap">Hỏi đáp</ItemNav>
         <ItemNav url="/camnang">Cẩm nang</ItemNav>
         {hide && <ItemNav url="/capnhatthongtin">Cập nhật thông tin</ItemNav>}
+        {hide && <ItemNav url="/lichsukham">Lịch sử khám</ItemNav>}
         {!hide && <ItemNav url="/dangnhap/sigin">Đăng nhập</ItemNav>}
         {hide && <button onClick={handleLogout}>Đăng Xuất</button>}
       </div>
