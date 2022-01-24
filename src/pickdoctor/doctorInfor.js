@@ -54,7 +54,7 @@ const DoctorDetail = () => {
 
         </div>
       </div>
-      <Picktime></Picktime>
+      <Picktime id={id}></Picktime>
       <div className='doctor-expensive'>
         <h5>Kinh nghiệm khám chữa bệnh</h5>
         <div className="doctor-exp" dangerouslySetInnerHTML={createMarkup()}></div>
