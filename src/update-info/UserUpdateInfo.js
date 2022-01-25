@@ -112,6 +112,25 @@ function UserUpdateInfo() {
     return /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(str);
   };
 
+  const handleFocusInput = () => {
+    setReject(false);
+    setResult(false);
+    errorName.current.classList.add("errormsg_none");
+    errorName.current.classList.remove("errormsg_block");
+    errorEmail.current.classList.add("errormsg_none");
+    errorEmail.current.classList.remove("errormsg_block");
+    errorDob.current.classList.add("errormsg_none");
+    errorDob.current.classList.remove("errormsg_block");
+    errorGender.current.classList.add("errormsg_none");
+    errorGender.current.classList.remove("errormsg_block");
+    errorPhone.current.classList.add("errormsg_none");
+    errorPhone.current.classList.remove("errormsg_block");
+    errorAddress.current.classList.add("errormsg_none");
+    errorAddress.current.classList.remove("errormsg_block");
+    errorJob.current.classList.add("errormsg_none");
+    errorJob.current.classList.remove("errormsg_block");
+  };
+
   const nameValueInput = useRef();
   const emailValueInput = useRef();
   const dobValueInput = useRef();
@@ -131,35 +150,42 @@ function UserUpdateInfo() {
       <form>
         <h1>SỬA THÔNG TIN CÁ NHÂN</h1>
         <div className="form-header">
-          <div className="form-header_avatar"></div>
           <h3 className="form-header_name">Tài khoản : {dataUser.username}</h3>
           <p className="form-header_role">{dataUser.role}</p>
         </div>
         <div className="form-content">
           <div className="form-content_name">
             <label>Họ và tên</label>
-            <input type="text" ref={nameValueInput} />
+            <input
+              type="text"
+              ref={nameValueInput}
+              onFocus={handleFocusInput}
+            />
             <p className="errormsg_none errname " ref={errorName}>
               Vui lòng nhập họ tên!
             </p>
           </div>
           <div className="form-content_email">
             <label>Email</label>
-            <input type="text" ref={emailValueInput} />
+            <input
+              type="text"
+              ref={emailValueInput}
+              onFocus={handleFocusInput}
+            />
             <p className="errormsg_none" ref={errorEmail}>
               Vui lòng nhập email!
             </p>
           </div>
           <div className="form-content_dob">
             <label>Ngày sinh</label>
-            <input type="date" ref={dobValueInput} />
+            <input type="date" ref={dobValueInput} onFocus={handleFocusInput} />
             <p className="errormsg_none" ref={errorDob}>
               Vui lòng nhập ngày sinh!
             </p>
           </div>
           <div className="form-content_gender">
             <label>Giới tính</label>
-            <select ref={genderValueInput}>
+            <select ref={genderValueInput} onFocus={handleFocusInput}>
               <option>Chọn giới tính</option>
               <option>Nam</option>
               <option>Nữ</option>
@@ -171,21 +197,29 @@ function UserUpdateInfo() {
           </div>
           <div className="form-content_phone">
             <label>Số điện thoại</label>
-            <input type="text" ref={phoneValueInput} />
+            <input
+              type="text"
+              ref={phoneValueInput}
+              onFocus={handleFocusInput}
+            />
             <p className="errormsg_none" ref={errorPhone}>
               Vui lòng nhập số điện thọa!
             </p>
           </div>
           <div className="form-content_address">
             <label>Địa chỉ</label>
-            <input type="text" ref={addressValueInput} />
+            <input
+              type="text"
+              ref={addressValueInput}
+              onFocus={handleFocusInput}
+            />
             <p className="errormsg_none" ref={errorAddress}>
               Vui lòng nhập địa chỉ!
             </p>
           </div>
           <div className="form-content_job">
             <label>Nghề nghiệp</label>
-            <input type="text" ref={jobValueInput} />
+            <input type="text" ref={jobValueInput} onFocus={handleFocusInput} />
             <p className="errormsg_none" ref={errorJob}>
               Vui lòng nhập nghề nghiệp!
             </p>
