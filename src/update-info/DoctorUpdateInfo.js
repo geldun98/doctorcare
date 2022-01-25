@@ -54,33 +54,42 @@ function DoctorUpdateInfo() {
       setReject(true);
     }
     if (nameValueInput.current.value === "") {
-      errorName.current.classList.remove('errormsg_none');
-      errorName.current.classList.add('errormsg_block');
+      errorName.current.classList.remove("errormsg_none");
+      errorName.current.classList.add("errormsg_block");
     }
-    if (emailValueInput.current.value === "" || !validateEmail(emailValueInput.current.value)) {
-      errorEmail.current.classList.remove('errormsg_none');
-      errorEmail.current.classList.add('errormsg_block');
+    if (
+      emailValueInput.current.value === "" ||
+      !validateEmail(emailValueInput.current.value)
+    ) {
+      errorEmail.current.classList.remove("errormsg_none");
+      errorEmail.current.classList.add("errormsg_block");
     }
     if (hospitalValueInput.current.value === "") {
-      errorHospital.current.classList.remove('errormsg_none');
-      errorHospital.current.classList.add('errormsg_block');
+      errorHospital.current.classList.remove("errormsg_none");
+      errorHospital.current.classList.add("errormsg_block");
     }
     if (majorValueInput.current.value === "") {
-      errorMajor.current.classList.remove('errormsg_none');
-      errorMajor.current.classList.add('errormsg_block');
+      errorMajor.current.classList.remove("errormsg_none");
+      errorMajor.current.classList.add("errormsg_block");
     }
     if (degreeValueInput.current.value === "") {
-      errorDegree.current.classList.remove('errormsg_none');
-      errorDegree.current.classList.add('errormsg_block');
+      errorDegree.current.classList.remove("errormsg_none");
+      errorDegree.current.classList.add("errormsg_block");
     }
-    if (expValueInput.current.value === "" || isNaN(expValueInput.current.value)) {
-      errorExp.current.classList.remove('errormsg_none');
-      errorExp.current.classList.add('errormsg_block');
+    if (
+      expValueInput.current.value === "" ||
+      isNaN(expValueInput.current.value)
+    ) {
+      errorExp.current.classList.remove("errormsg_none");
+      errorExp.current.classList.add("errormsg_block");
     }
-    if (timeValueInput.current.value === "" || isNaN(timeValueInput.current.value)) {
-      errorTime.current.classList.remove('errormsg_none');
-      errorTime.current.classList.add('errormsg_block');
-    } 
+    if (
+      timeValueInput.current.value === "" ||
+      isNaN(timeValueInput.current.value)
+    ) {
+      errorTime.current.classList.remove("errormsg_none");
+      errorTime.current.classList.add("errormsg_block");
+    }
   }
 
   const validateEmail = (email) => {
@@ -89,6 +98,25 @@ function DoctorUpdateInfo() {
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
+  };
+
+  const handleFocusInput = () => {
+    setReject(false);
+    setResult(false);
+    errorName.current.classList.add("errormsg_none");
+    errorName.current.classList.remove("errormsg_block");
+    errorEmail.current.classList.add("errormsg_none");
+    errorEmail.current.classList.remove("errormsg_block");
+    errorHospital.current.classList.add("errormsg_none");
+    errorHospital.current.classList.remove("errormsg_block");
+    errorMajor.current.classList.add("errormsg_none");
+    errorMajor.current.classList.remove("errormsg_block");
+    errorDegree.current.classList.add("errormsg_none");
+    errorDegree.current.classList.remove("errormsg_block");
+    errorExp.current.classList.add("errormsg_none");
+    errorExp.current.classList.remove("errormsg_block");
+    errorTime.current.classList.add("errormsg_none");
+    errorTime.current.classList.remove("errormsg_block");
   };
 
   const nameValueInput = useRef();
@@ -111,7 +139,6 @@ function DoctorUpdateInfo() {
         <h1>SỬA THÔNG TIN BÁC SĨ</h1>
         <form>
           <div className="form-header">
-            <div className="form-header_avatar"></div>
             <h3 className="form-header_name">
               Tài khoản : {dataUser.username}
             </h3>
@@ -120,28 +147,40 @@ function DoctorUpdateInfo() {
           <div className="form-content">
             <div className="form-content_nameDoctor">
               <label>Họ và tên</label>
-              <input type="text" ref={nameValueInput} />
+              <input
+                type="text"
+                ref={nameValueInput}
+                onFocus={handleFocusInput}
+              />
               <p className="errormsg_none errname " ref={errorName}>
                 Vui lòng nhập họ tên!
               </p>
             </div>
             <div className="form-content_emailDoctor">
               <label>Email</label>
-              <input type="text" ref={emailValueInput} />
+              <input
+                type="text"
+                ref={emailValueInput}
+                onFocus={handleFocusInput}
+              />
               <p className="errormsg_none errname " ref={errorEmail}>
                 Vui lòng nhập họ tên!
               </p>
             </div>
             <div className="form-content_hospital">
               <label>Bệnh viên</label>
-              <input type="text" ref={hospitalValueInput} />
+              <input
+                type="text"
+                ref={hospitalValueInput}
+                onFocus={handleFocusInput}
+              />
               <p className="errormsg_none errname " ref={errorHospital}>
                 Vui lòng nhập họ tên!
               </p>
             </div>
             <div className="form-content_major">
               <label>Chuyên khoa</label>
-              <select ref={majorValueInput}>
+              <select ref={majorValueInput} onFocus={handleFocusInput}>
                 <option>Chọn chuyên khoa</option>
                 <option>Tai mũi họng</option>
                 <option>Nội tiết</option>
@@ -157,21 +196,33 @@ function DoctorUpdateInfo() {
             </div>
             <div className="form-content_degree">
               <label>Học vị</label>
-              <input type="text" ref={degreeValueInput} />
+              <input
+                type="text"
+                ref={degreeValueInput}
+                onFocus={handleFocusInput}
+              />
               <p className="errormsg_none errname " ref={errorDegree}>
                 Vui lòng nhập họ tên!
               </p>
             </div>
             <div className="form-content_exp">
               <label>Năm kinh nghiệm</label>
-              <input type="text" ref={expValueInput} />
+              <input
+                type="text"
+                ref={expValueInput}
+                onFocus={handleFocusInput}
+              />
               <p className="errormsg_none errname " ref={errorExp}>
                 Vui lòng nhập họ tên!
               </p>
             </div>
             <div className="form-content_time">
               <label>Thời lượng tư vấn</label>
-              <input type="text" ref={timeValueInput} />
+              <input
+                type="text"
+                ref={timeValueInput}
+                onFocus={handleFocusInput}
+              />
               <p className="errormsg_none errname " ref={errorTime}>
                 Vui lòng nhập họ tên!
               </p>
