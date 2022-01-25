@@ -11,6 +11,7 @@ const Input_item = ({
   onFocusEven,
   onBlurEven,
   onChangeEven,
+  min,
 }) => {
   return (
     <div className={className}>
@@ -23,6 +24,7 @@ const Input_item = ({
         onFocus={onFocusEven}
         onBlur={onBlurEven}
         onChange={onChangeEven}
+        min={min}
       ></input>
       <span className={classNameSpan}>
         {"Vui lòng nhập đúng và đủ "}

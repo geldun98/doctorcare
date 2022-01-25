@@ -5,12 +5,11 @@ import "./components/index.scss";
 import MloginApi from "./components/loginAPIM";
 import Context from "../store/Context";
 import { useNavigate } from "react-router-dom";
-import updateApi from "../api/updateApi";
-import TextField from "@mui/material/TextField";
+import Slect_item from "./components/select_item";
 function Sigin() {
   const navigate = useNavigate();
+  //Không cho tiếng việt vào ô name
   let specialCharacters = 0;
-  //Không cho tiếng việt vào ô input
   function removeVietnameseTones(str) {
     str = str.trim();
     str = str.replace(/ /g, "");
@@ -30,10 +29,20 @@ function Sigin() {
     str = str.replace(/Đ/g, "D");
     return str;
   }
-
+  // không nhập tiếng việt vào ô password
+  function searchSpecialCharacters (valueinput){
+    let x =
+      "à,á,ạ,ả,ã,â,ầ,ấ,ậ,ẩ,ẫ,ă,ằ,ắ,ặ,ẳ,ẵ,è,é,ẹ,ẻ,ẽ,ê,ề,ế,ệ,ể,ễ,ì,í,ị,ỉ,ĩ,ò,ó,ọ,ỏ,õ,ô,ồ,ố,ộ,ổ,ỗ,ơ,ờ,ớ,ợ,ở,ỡ,ù,ú,ụ,ủ,ũ,ư,ừ,ứ,ự,ử,ữ,ỳ,ý,ỵ,ỷ,ỹ,đ,À,Á,Ạ,Ả,Ã,Â,Ầ,Ấ,Ậ,Ẩ,Ẫ,Ă,Ằ,Ắ,Ặ,Ẳ,Ẵ,È,É,Ẹ,Ẻ,Ẽ,Ê,Ề,Ế,Ệ,Ể,Ễ,Ì,Í,Ị,Ỉ,Ĩ,Ò,Ó,Ọ,Ỏ,Õ,Ô,Ồ,Ố,Ộ,Ổ,Ỗ,Ơ,Ờ,Ớ,Ợ,Ở,Ỡ,Ù,Ú,Ụ,Ủ,Ũ,Ư,Ừ,Ứ,Ự,Ử,Ữ,Ỳ,Ý,Ỵ,Ỷ,Ỹ,Đ";
+    let z = valueinput.split('')
+    z.forEach(element => {
+      if(x.search(element)>=0){
+        specialCharacters++
+      }
+    });
+  }
   //data người dùng
   const spanErr = useRef();
-  const spanErrvn =  useRef();
+  const spanErrvn = useRef();
   const nameInput = useRef();
   const passwordInput = useRef();
   const [dataDoctor, setDataDoctor] = useContext(Context);
@@ -44,9 +53,10 @@ function Sigin() {
     username: "",
     password: "",
   };
-
+  // đẩy dữ liệu lên khi nhấn nút 
   const handclick = (even) => {
     even.preventDefault();
+    //điều kiện để đẩy dữ liệu lên
     if (
       nameInput.current.value !== "" &&
       passwordInput.current.value !== "" &&
@@ -62,17 +72,15 @@ function Sigin() {
         } else {
           spanErr.current.classList.remove("err_span_none");
           spanErr.current.classList.add("err_span_block");
-          nameInput.current.value =""
-          passwordInput.current.value =""
         }
       });
     }
-    if (specialCharacters>0) {
-      spanErrvn.current.classList.remove("err_span_none")
-      spanErrvn.current.classList.add("err_span_block")
-      specialCharacters = 0
-      passwordInput.current.value = ""
+    //có ký tự đặc biệt ở pass
+    if (specialCharacters > 0) {
+      spanErrvn.current.classList.remove("err_span_none");
+      spanErrvn.current.classList.add("err_span_block");
     }
+    //ô name và pass để trống sẽ hiện lỗi
     if (nameInput.current.value === "") {
       setclassNameSpanInput("err_span_block");
     }
@@ -80,20 +88,26 @@ function Sigin() {
       setclassNameSpanPassword("err_span_block");
     }
   };
-
+  //khi rời ô nhập
   const onBlurEven = (e) => {
-    e.target.value = removeVietnameseTones(e.target.value);
     if (e.target.name === "name" && e.target.value === "") {
       setclassNameSpanInput("err_span_block");
     }
+    if (e.target.name === "name" ) {
+      e.target.value = removeVietnameseTones(e.target.value);
+    }
     if (e.target.name === "password" && e.target.value === "") {
       setclassNameSpanPassword("err_span_block");
+      searchSpecialCharacters(e.target.value)
+    }
+    if (e.target.name === "password" ) {
+      searchSpecialCharacters(e.target.value)
     }
   };
-
+  //khi ấn vào ô nhập
   const onFocusEven = (e) => {
     spanErr.current.classList.add("err_span_none");
-    spanErrvn.current.classList.add("err_span_none")
+    spanErrvn.current.classList.add("err_span_none");
     if (e.target.name === "name") {
       setclassNameSpanInput("err_span_none");
     }
@@ -101,32 +115,13 @@ function Sigin() {
       setclassNameSpanPassword("err_span_none");
     }
   };
-  // không nhập tiếng việt vào ô password
-  const inputOnChange = (e) => {
-    let x = [];
-    let z =
-      "à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ| ";
-    let i = z.split("|");
-    let y = e.target.value.split("");
-    x[0] = y[y.length - 1];
-    for (let c = 0; c < z.length; c++) {
-      if (i[c] === x[0]) {
-        specialCharacters++;
-        break;
-      }
-    }
-    // i.forEach((element) => {
-    //   if (element === x[0]) {
-    //     console.log("ádas");
-    //     break;
-    //   }
-    // });
-  };
 
   //form đăng nhập
   return (
     <React.Fragment>
       <form className="form_main ">
+        {/* <Slect_item></Slect_item> */}
+        {/* tên đăng nhâp */}
         <Input_item
           type="text"
           labelText="Tên đăng nhập"
@@ -137,6 +132,7 @@ function Sigin() {
           onBlurEven={onBlurEven}
           name={"name"}
         />
+        {/* password */}
         <Input_item
           type="password"
           labelText="Mật khẩu"
@@ -145,15 +141,16 @@ function Sigin() {
           classNameSpan={classNameSpanPassword}
           onFocusEven={onFocusEven}
           onBlurEven={onBlurEven}
-          onChangeEven={inputOnChange}
           name={"password"}
         />
         <button type="submit" className="submit_button" onClick={handclick}>
           đăng nhập
         </button>
+        {/* lỗi khi có ký tự đặc biệt  */}
         <span className="err_span_none" ref={spanErrvn}>
           Mật khẩu có chứa ký tự đặc biệt , vui lòng nhập lại mật khẩu
         </span>
+        {/* lỗi khi không thể đăng nhập */}
         <span className="err_span_none" ref={spanErr}>
           Sai mật khẩu hoặc tên đăng nhập
         </span>
