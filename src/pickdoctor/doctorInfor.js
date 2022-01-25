@@ -14,7 +14,7 @@ const DoctorDetail = () => {
       setDataShow(await doctorApi.get(id).then((res) => res.data));
     };
     fetchDoctors();
-  }, []);
+  }, [id]);
 
   function createMarkup() {
     const convert = dataShow.detail;

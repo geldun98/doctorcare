@@ -6,7 +6,7 @@ const CheckLogin = () => {
     if (localStorage.getItem('user')) {
       setDataUser(JSON.parse(localStorage.getItem('user')));
     }
-  }, []);
+  }, [setDataUser]);
   return <div></div>;
 };
 

@@ -1,4 +1,32 @@
-.History {
-  .ListHistory {
+.ListHistory-content {
+  h1 {
+    padding-top: 50px;
+    text-align: center !important;
+  }
+}
+.ItemHistory,
+.ListHistory-title {
+  margin: 15px 0;
+  display: flex;
+  font-size: 20px;
+
+  color: #2c3e50;
+  font-weight: 700;
+  border-bottom: 2px solid #ccc;
+  &-name {
+    padding: 15px;
+    width: 40%;
+  }
+  &-date {
+    padding: 15px;
+    width: 30%;
+
+    text-align: center;
+  }
+  &-time {
+    padding: 15px;
+    width: 30%;
+
+    text-align: center;
   }
 }

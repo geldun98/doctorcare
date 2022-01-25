@@ -21,7 +21,7 @@ const Picktime = ({ id, name }) => {
       setDataTime(valuedata.listdate.find((item) => item.value === firstDate).listtime);
     };
     fetchDoctors();
-  }, []);
+  }, [id]);
   function handleDate(e) {
     const dataDate = solutionListTime(e.target.value);
 
