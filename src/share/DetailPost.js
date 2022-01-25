@@ -11,7 +11,7 @@ const DetailPost = () => {
       setData(await postApi.get(id).then((res) => res.data));
     };
     fetchData();
-  }, []);
+  }, [id]);
   return (
     <div className="DetailPost">
       <div className="DetailPost-body container">

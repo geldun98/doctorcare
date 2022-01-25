@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
-import "./DoctorUpdateInfo.scss";
-import updateApi from "../api/updateApi";
-import Context from "../store/Context";
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import './DoctorUpdateInfo.scss';
+import updateApi from '../api/updateApi';
+import Context from '../store/Context';
 function DoctorUpdateInfo() {
   const [result, setResult] = useState(false);
   const [reject, setReject] = useState(false);
@@ -14,8 +14,7 @@ function DoctorUpdateInfo() {
       await updateApi.get(id).then((res) => {
         if (res.data.name) nameValueInput.current.value = res.data.name;
         if (res.data.email) emailValueInput.current.value = res.data.email;
-        if (res.data.hospital)
-          hospitalValueInput.current.value = res.data.hospital;
+        if (res.data.hospital) hospitalValueInput.current.value = res.data.hospital;
         if (res.data.major) majorValueInput.current.value = res.data.major;
         if (res.data.degree) degreeValueInput.current.value = res.data.degree;
         if (res.data.exp) expValueInput.current.value = res.data.exp;
@@ -23,7 +22,7 @@ function DoctorUpdateInfo() {
       });
     };
     fetchUpdate();
-  }, []);
+  }, [id]);
   function handleUpdate() {
     const data = {
       id: dataUser.id,
@@ -36,13 +35,13 @@ function DoctorUpdateInfo() {
       time: timeValueInput.current.value,
     };
     if (
-      (nameValueInput.current.value !== "") &
-      (emailValueInput.current.value !== "") &
-      (hospitalValueInput.current.value !== "") &
-      (majorValueInput.current.value !== "") &
-      (degreeValueInput.current.value !== "") &
-      (expValueInput.current.value !== "") &
-      (timeValueInput.current.value !== "")
+      (nameValueInput.current.value !== '') &
+      (emailValueInput.current.value !== '') &
+      (hospitalValueInput.current.value !== '') &
+      (majorValueInput.current.value !== '') &
+      (degreeValueInput.current.value !== '') &
+      (expValueInput.current.value !== '') &
+      (timeValueInput.current.value !== '')
     ) {
       updateApi.update(data).then((res) => {
         console.log(res.status);
@@ -53,34 +52,34 @@ function DoctorUpdateInfo() {
     } else {
       setReject(true);
     }
-    if (nameValueInput.current.value === "") {
+    if (nameValueInput.current.value === '') {
       errorName.current.classList.remove('errormsg_none');
       errorName.current.classList.add('errormsg_block');
     }
-    if (emailValueInput.current.value === "" || !validateEmail(emailValueInput.current.value)) {
+    if (emailValueInput.current.value === '' || !validateEmail(emailValueInput.current.value)) {
       errorEmail.current.classList.remove('errormsg_none');
       errorEmail.current.classList.add('errormsg_block');
     }
-    if (hospitalValueInput.current.value === "") {
+    if (hospitalValueInput.current.value === '') {
       errorHospital.current.classList.remove('errormsg_none');
       errorHospital.current.classList.add('errormsg_block');
     }
-    if (majorValueInput.current.value === "") {
+    if (majorValueInput.current.value === '') {
       errorMajor.current.classList.remove('errormsg_none');
       errorMajor.current.classList.add('errormsg_block');
     }
-    if (degreeValueInput.current.value === "") {
+    if (degreeValueInput.current.value === '') {
       errorDegree.current.classList.remove('errormsg_none');
       errorDegree.current.classList.add('errormsg_block');
     }
-    if (expValueInput.current.value === "" || isNaN(expValueInput.current.value)) {
+    if (expValueInput.current.value === '' || isNaN(expValueInput.current.value)) {
       errorExp.current.classList.remove('errormsg_none');
       errorExp.current.classList.add('errormsg_block');
     }
-    if (timeValueInput.current.value === "" || isNaN(timeValueInput.current.value)) {
+    if (timeValueInput.current.value === '' || isNaN(timeValueInput.current.value)) {
       errorTime.current.classList.remove('errormsg_none');
       errorTime.current.classList.add('errormsg_block');
-    } 
+    }
   }
 
   const validateEmail = (email) => {
@@ -112,9 +111,7 @@ function DoctorUpdateInfo() {
         <form>
           <div className="form-header">
             <div className="form-header_avatar"></div>
-            <h3 className="form-header_name">
-              Tài khoản : {dataUser.username}
-            </h3>
+            <h3 className="form-header_name">Tài khoản : {dataUser.username}</h3>
             <p className="form-header_role">{dataUser.role}</p>
           </div>
           <div className="form-content">
@@ -183,18 +180,12 @@ function DoctorUpdateInfo() {
               <button type="reset">Hủy</button>
             </div>
             {result && (
-              <p
-                className="update-success"
-                style={{ color: "green", marginLeft: "20px" }}
-              >
+              <p className="update-success" style={{ color: 'green', marginLeft: '20px' }}>
                 Update thành công!
               </p>
             )}
             {reject && (
-              <p
-                className="update-fail"
-                style={{ color: "red", marginLeft: "20px" }}
-              >
+              <p className="update-fail" style={{ color: 'red', marginLeft: '20px' }}>
                 Update thất bại!
               </p>
             )}

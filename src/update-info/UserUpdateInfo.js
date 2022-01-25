@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
-import "./UserUpdateInfo.scss";
-import "./DoctorUpdateInfo.scss";
-import updateApi from "../api/updateApi";
-import Context from "../store/Context";
-import { getImageListItemBarUtilityClass } from "@mui/material";
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import './UserUpdateInfo.scss';
+import './DoctorUpdateInfo.scss';
+import updateApi from '../api/updateApi';
+import Context from '../store/Context';
+import { getImageListItemBarUtilityClass } from '@mui/material';
 function UserUpdateInfo() {
   const [result, setResult] = useState(false);
   const [reject, setReject] = useState(false);
@@ -13,32 +13,34 @@ function UserUpdateInfo() {
 
   useEffect(() => {
     const fetchUpdate = async () => {
-      await updateApi.get(id).then((res) => {
-        if (res.data.name) {
-          nameValueInput.current.value = res.data.name;
-        }
-        if (res.data.email) {
-          emailValueInput.current.value = res.data.email;
-        }
-        if (res.data.dob) {
-          dobValueInput.current.value = res.data.dob;
-        }
-        if (res.data.gender) {
-          genderValueInput.current.value = res.data.gender;
-        }
-        if (res.data.phone) {
-          phoneValueInput.current.value = res.data.phone;
-        }
-        if (res.data.address) {
-          addressValueInput.current.value = res.data.address;
-        }
-        if (res.data.Job) {
-          jobValueInput.current.value = res.data.Job;
-        }
-      });
+      if (id) {
+        await updateApi.get(id).then((res) => {
+          if (res.data.name) {
+            nameValueInput.current.value = res.data.name;
+          }
+          if (res.data.email) {
+            emailValueInput.current.value = res.data.email;
+          }
+          if (res.data.dob) {
+            dobValueInput.current.value = res.data.dob;
+          }
+          if (res.data.gender) {
+            genderValueInput.current.value = res.data.gender;
+          }
+          if (res.data.phone) {
+            phoneValueInput.current.value = res.data.phone;
+          }
+          if (res.data.address) {
+            addressValueInput.current.value = res.data.address;
+          }
+          if (res.data.Job) {
+            jobValueInput.current.value = res.data.Job;
+          }
+        });
+      }
     };
     fetchUpdate();
-  }, []);
+  }, [id]);
 
   function handleUpdate() {
     const data = {
@@ -52,13 +54,13 @@ function UserUpdateInfo() {
       Job: jobValueInput.current.value,
     };
     if (
-      (nameValueInput.current.value !== "") &
-      (emailValueInput.current.value !== "") &
-      (dobValueInput.current.value !== "") &
-      (genderValueInput.current.value !== "") &
-      (phoneValueInput.current.value !== "") &
-      (addressValueInput.current.value !== "") &
-      (jobValueInput.current.value !== "")
+      (nameValueInput.current.value !== '') &
+      (emailValueInput.current.value !== '') &
+      (dobValueInput.current.value !== '') &
+      (genderValueInput.current.value !== '') &
+      (phoneValueInput.current.value !== '') &
+      (addressValueInput.current.value !== '') &
+      (jobValueInput.current.value !== '')
     ) {
       updateApi.update(data).then((res) => {
         if (res.status) {
@@ -68,39 +70,33 @@ function UserUpdateInfo() {
     } else {
       setReject(true);
     }
-    if (nameValueInput.current.value === "") {
-      errorName.current.classList.remove("errormsg_none");
-      errorName.current.classList.add("errormsg_block");
+    if (nameValueInput.current.value === '') {
+      errorName.current.classList.remove('errormsg_none');
+      errorName.current.classList.add('errormsg_block');
     }
-    if (
-      emailValueInput.current.value === "" ||
-      !validateEmail(emailValueInput.current.value)
-    ) {
-      errorEmail.current.classList.remove("errormsg_none");
-      errorEmail.current.classList.add("errormsg_block");
+    if (emailValueInput.current.value === '' || !validateEmail(emailValueInput.current.value)) {
+      errorEmail.current.classList.remove('errormsg_none');
+      errorEmail.current.classList.add('errormsg_block');
     }
-    if (dobValueInput.current.value === "") {
-      errorDob.current.classList.remove("errormsg_none");
-      errorDob.current.classList.add("errormsg_block");
+    if (dobValueInput.current.value === '') {
+      errorDob.current.classList.remove('errormsg_none');
+      errorDob.current.classList.add('errormsg_block');
     }
-    if (genderValueInput.current.value === "") {
-      errorGender.current.classList.remove("errormsg_none");
-      errorGender.current.classList.add("errormsg_block");
+    if (genderValueInput.current.value === '') {
+      errorGender.current.classList.remove('errormsg_none');
+      errorGender.current.classList.add('errormsg_block');
     }
-    if (
-      phoneValueInput.current.value === "" ||
-      !validatephone(phoneValueInput.current.value)
-    ) {
-      errorPhone.current.classList.remove("errormsg_none");
-      errorPhone.current.classList.add("errormsg_block");
+    if (phoneValueInput.current.value === '' || !validatephone(phoneValueInput.current.value)) {
+      errorPhone.current.classList.remove('errormsg_none');
+      errorPhone.current.classList.add('errormsg_block');
     }
-    if (addressValueInput.current.value === "") {
-      errorAddress.current.classList.remove("errormsg_none");
-      errorAddress.current.classList.add("errormsg_block");
+    if (addressValueInput.current.value === '') {
+      errorAddress.current.classList.remove('errormsg_none');
+      errorAddress.current.classList.add('errormsg_block');
     }
-    if (jobValueInput.current.value === "") {
-      errorJob.current.classList.remove("errormsg_none");
-      errorJob.current.classList.add("errormsg_block");
+    if (jobValueInput.current.value === '') {
+      errorJob.current.classList.remove('errormsg_none');
+      errorJob.current.classList.add('errormsg_block');
     }
   }
 
@@ -113,9 +109,7 @@ function UserUpdateInfo() {
   };
 
   const validatephone = (str) => {
-    return /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(
-      str
-    );
+    return /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(str);
   };
 
   const nameValueInput = useRef();
@@ -203,18 +197,12 @@ function UserUpdateInfo() {
             <button type="reset">Hủy</button>
           </div>
           {result && (
-            <p
-              className="update-success"
-              style={{ color: "green", marginLeft: "20px" }}
-            >
+            <p className="update-success" style={{ color: 'green', marginLeft: '20px' }}>
               Update thành công!
             </p>
           )}
           {reject && (
-            <p
-              className="update-fail"
-              style={{ color: "red", marginLeft: "20px" }}
-            >
+            <p className="update-fail" style={{ color: 'red', marginLeft: '20px' }}>
               Update thất bại!
             </p>
           )}
