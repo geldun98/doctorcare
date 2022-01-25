@@ -1,11 +1,16 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./Footer.scss";
 function Footer() {
   return (
     <>
       <div className="footer">
         <div className="company_info">
+        <Link to="/trangchu">
+          <div className="company_info_logo">
           <h3>DOCTOR CARE</h3>
+          </div>
+        </Link>
           <hr></hr>
           <h4>Địa chỉ</h4>
           <p className="company_info-item">Số 315 Trường Chinh, Thanh Xuân Hà Nội</p>

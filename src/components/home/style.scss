@@ -199,13 +199,12 @@
 }
 
 .news-events {
-  // background-image: url(http://mauweb.monamedia.net/anphuoc/wp-content/uploads/2018/01/news2-bg.jpg);
   position: relative;
   top: 70px;
   padding: 20px 160px;
   object-fit: cover;
   border-radius: 3px;
-  background-color: rgb(252, 252, 252);
+  background-color: rgb(250, 250, 250);
   &:hover {
     cursor: pointer;
   }
