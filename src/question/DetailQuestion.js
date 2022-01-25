@@ -13,7 +13,7 @@ const DetailQuestion = () => {
       setData(await questionApi.get(id).then((res) => res.data));
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <div className="DetailQuestion">

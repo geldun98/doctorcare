@@ -33,7 +33,7 @@ const ListComment = ({ id }) => {
       setListShow(await commentApi.get(id).then((res) => res.data.listcomment));
     };
     fetchData();
-  }, [count]);
+  }, [id,count]);
 
   return (
     <div className="ListComment">
