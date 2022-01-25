@@ -1,3 +1,4 @@
+
 .body_login_logout{
   display: flex;
   align-items: center;
@@ -9,11 +10,11 @@
     max-width: 300px;
     background-color: #eee;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     padding: 10px 15px;
     margin-top: 10px;
-    
-    
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
   }
   .form_main{
     display: flex;
@@ -71,25 +72,29 @@
     cursor: pointer;
     font-weight: 600;
     transition: 200ms;
+    color: #13cfae;
   }
   .navbar_login_logout .mavnar_login_logout_link a:focus{
     text-decoration: underline;
     color: rgb(20,207,174);
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
     transition: 200ms;
   }
   .submit_button {
-    background-color: rgb(81, 142, 223);
+    background-color: #13cfae;
     height: 34px;
     border-radius: 4px;
     border: none;
     color: white;
     text-transform: uppercase;
     margin-top: 10px;
+    border: 1px solid #13cfae;
   }
   .submit_button:hover{
     cursor: pointer;
+    background-color: #00be9c;
+    
   }
   .test{
     color:rgb(81, 142, 223)

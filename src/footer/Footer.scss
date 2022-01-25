@@ -67,12 +67,11 @@
     background-color: #13cfae;
     color: white;
     border-radius: 3px;
+    border: 2px solid #13cfae;
   }
 
   .register_for_news button:hover {
-    border: 1px solid;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    color: #13cfae;
-    background-color: white;
+    background-color: #00b392;
   }
 }

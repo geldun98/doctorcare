@@ -109,7 +109,6 @@ function DoctorUpdateInfo() {
     <>
       <div className="form">
         <h1>SỬA THÔNG TIN BÁC SĨ</h1>
-
         <form>
           <div className="form-header">
             <div className="form-header_avatar"></div>
