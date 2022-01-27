@@ -6,6 +6,7 @@ import MloginApi from "./components/loginAPIM";
 import Context from "../store/Context";
 import { useNavigate } from "react-router-dom";
 import Slect_item from "./components/select_item";
+import {useLocation} from 'react-router-dom';
 function Sigin() {
   const navigate = useNavigate();
   //Không cho tiếng việt vào ô name
@@ -116,7 +117,7 @@ function Sigin() {
       setclassNameSpanPassword("err_span_none");
     }
   };
-
+ 
   //form đăng nhập
   return (
     <React.Fragment>
@@ -156,6 +157,7 @@ function Sigin() {
           Sai mật khẩu hoặc tên đăng nhập
         </span>
       </form>
+
     </React.Fragment>
   );
 }
