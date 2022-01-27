@@ -49,10 +49,12 @@ function Register() {
     setClassDiv("doctor_register");
   };
   // điều kiện dể submit
-  const [classNameSpanInput, setclassNameSpanInput] = useState("err_span_none");
+  const [classNameSpanUserName, setclassNameSpanUserName] = useState("err_span_none");
   const [classNameSpanPassword, setclassNameSpanPassword] =
     useState("err_span_none");
   const [classNameSpanconfirmpassword, setclassNameSpanconfirmpassword] =
+    useState("err_span_none");
+  const [classNameSpanname, setclassNameSpanname] =
     useState("err_span_none");
   const [classNameSpanhospital, setclassNameSpanhospital] =
     useState("err_span_none");
@@ -63,13 +65,15 @@ function Register() {
 
   const spanErr = useRef();
   const spanErrvn = useRef();
-  const nameInput = useRef();
+  const usernameInput = useRef();
   const passwordInput = useRef();
   const confirmpasswordInput = useRef();
+  const nameInput = useRef()
   const hospitalInput = useRef();
   const majorInput = useRef();
   const degreeInput = useRef();
   const expInput = useRef();
+  
   const data = {
     username: "",
     password: "",
@@ -83,7 +87,7 @@ function Register() {
  // đẩy dữ liệu lên khi nhấn nút 
   const handclick = (even) => {
     even.preventDefault();
-    //khi có ký tự đặc biệt
+    //khi có ký tự đặc biệt ở pas
     if (specialCharacters > 0) {
       spanErrvn.current.classList.remove("err_span_none");
       spanErrvn.current.classList.add("err_span_block");
@@ -97,8 +101,8 @@ function Register() {
      
     }
     //kiểm tra các ô input có bị trống ko
-    if (nameInput.current.value === "") {
-      setclassNameSpanInput("err_span_block");
+    if (usernameInput.current.value === "") {
+      setclassNameSpanUserName("err_span_block");
     }
     if (passwordInput.current.value === "") {
       setclassNameSpanPassword("err_span_block");
@@ -121,15 +125,19 @@ function Register() {
     if (expInput.current.value === "") {
       setclassNameSpanexp("err_span_block");
     }
+    if (nameInput.current.value === "") {
+      setclassNameSpanname("err_span_block");
+    }
     //chọn role user
     if (
-      nameInput.current.value !== "" &&
+      usernameInput.current.value !== "" &&
       passwordInput.current.value !== "" &&
       confirmpasswordInput.current.value !== ""&&
+      nameInput.current.value &&
       role === "user"&&
       specialCharacters === 0
     ) {
-      data["username"] = nameInput.current.value;
+      data["username"] = usernameInput.current.value;
       data["password"] = passwordInput.current.value;
       data["role"] = role;
       
@@ -138,6 +146,7 @@ function Register() {
           const dataUpdate = {
             ...data,
             id: res.data,
+            name :  nameInput.current.value,
           };
           localStorage.setItem("user", JSON.stringify(dataUpdate));
           updateApi.add(dataUpdate).then((resUpdate) => {});
@@ -150,9 +159,10 @@ function Register() {
     }
     //chọn role doctor
     if (
-      nameInput.current.value !== "" &&
+      usernameInput.current.value !== "" &&
       passwordInput.current.value !== "" &&
       confirmpasswordInput.current.value !== ""&&
+      nameInput.current.value &&
       hospitalInput.current.value !== ""&&
       majorInput.current.value !== ""&&
       degreeInput.current.value !== ""&&
@@ -160,7 +170,7 @@ function Register() {
       role === "doctor"&&
        specialCharacters === 0
     ) {
-      data["username"] = nameInput.current.value;
+      data["username"] = usernameInput.current.value;
       data["password"] = passwordInput.current.value;
       data["role"] = role;
       
@@ -172,7 +182,8 @@ function Register() {
             hospital : hospitalInput.current.value,
             major : majorInput.current.value,
             degree : degreeInput.current.value,
-            exp : expInput.current.value
+            exp : expInput.current.value,
+            name :  nameInput.current.value, 
           };
           localStorage.setItem("user", JSON.stringify(dataUpdate));
           updateApi.add(dataUpdate).then((resUpdate) => {});
@@ -186,10 +197,10 @@ function Register() {
   };
 //khi rời ô nhập
   const onBlurEven = (e) => {
-    if (e.target.name === "name" && e.target.value === "") {
-      setclassNameSpanInput("err_span_block");
+    if (e.target.name === "username" && e.target.value === "") {
+      setclassNameSpanUserName("err_span_block");
     }
-    if (e.target.name === "name" ) {
+    if (e.target.name === "username" ) {
       e.target.value = removeVietnameseTones(e.target.value);
     }
     if (e.target.name === "password" && e.target.value === "") {
@@ -213,13 +224,15 @@ function Register() {
     if (e.target.name === "exp" && e.target.value === "") {
       setclassNameSpanexp("err_span_block");
     }
-    
+    if (e.target.name === "fullname" && e.target.value === "") {
+      setclassNameSpanname("err_span_block");
+    }
   };
 //khi ấn vào ô nhập
   const onFocusEven = (e) => {
     spanErr.current.classList.add("err_span_none");
-    if (e.target.name === "name") {
-      setclassNameSpanInput("err_span_none");
+    if (e.target.name === "username") {
+      setclassNameSpanUserName("err_span_none");
     }
     if (e.target.name === "password") {
       setclassNameSpanPassword("err_span_none");
@@ -240,18 +253,42 @@ function Register() {
     if (e.target.name === "exp") {
       setclassNameSpanexp("err_span_none");
     }
+    if (e.target.name === "fullname") {
+      setclassNameSpanname("err_span_none");
+    }
   };
   return (
     <div>
       <form className="form_main">
+        {/* chọn role */}
+        <div className="radio_input_group">
+          <div>
+            <label>Người dùng</label>
+            <input
+              type="radio"
+              value="user"
+              checked={role === "user"}
+              onChange={use}
+            ></input>
+          </div>
+          <div>
+            <label>Bác sĩ</label>
+            <input
+              type="radio"
+              value="doctor"
+              checked={role === "doctor"}
+              onChange={doctor}
+            ></input>
+          </div>
+        </div>
         {/* tên đăng nhập */}
         <Input_item
           type="text"
           labelText="Tên đăng nhập"
           className="input_group"
-          Ref={nameInput}
-          name="name"
-          classNameSpan={classNameSpanInput}
+          Ref={usernameInput}
+          name="username"
+          classNameSpan={classNameSpanUserName}
           onFocusEven={onFocusEven}
           onBlurEven={onBlurEven}
         />
@@ -277,27 +314,17 @@ function Register() {
           onFocusEven={onFocusEven}
           onBlurEven={onBlurEven}
         />
-        {/* chọn role */}
-        <div className="radio_input_group">
-          <div>
-            <label>Người dùng</label>
-            <input
-              type="radio"
-              value="user"
-              checked={role === "user"}
-              onChange={use}
-            ></input>
-          </div>
-          <div>
-            <label>Bác sĩ</label>
-            <input
-              type="radio"
-              value="doctor"
-              checked={role === "doctor"}
-              onChange={doctor}
-            ></input>
-          </div>
-        </div>
+        {/* họ và tên */}
+        <Input_item
+          type="text"
+          labelText="Họ và tên"
+          className="input_group"
+          Ref={nameInput}
+          name="fullname"
+          classNameSpan={classNameSpanname}
+          onFocusEven={onFocusEven}
+          onBlurEven={onBlurEven}
+        />
         <div className={classDiv}>
           {/* bệnh viện công tác */}
           <Input_item

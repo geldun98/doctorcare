@@ -43,12 +43,13 @@ function Sigin() {
   //data người dùng
   const spanErr = useRef();
   const spanErrvn = useRef();
-  const nameInput = useRef();
+  const usernameInput = useRef();
   const passwordInput = useRef();
   const [dataDoctor, setDataDoctor] = useContext(Context);
-  const [classNameSpanInput, setclassNameSpanInput] = useState("err_span_none");
+  const [classUserNameSpanInput, setclassUserNameSpanInput] = useState("err_span_none");
   const [classNameSpanPassword, setclassNameSpanPassword] =
     useState("err_span_none");
+  
   const data = {
     username: "",
     password: "",
@@ -58,11 +59,11 @@ function Sigin() {
     even.preventDefault();
     //điều kiện để đẩy dữ liệu lên
     if (
-      nameInput.current.value !== "" &&
+      usernameInput.current.value !== "" &&
       passwordInput.current.value !== "" &&
       specialCharacters === 0
     ) {
-      data["username"] = nameInput.current.value;
+      data["username"] = usernameInput.current.value;
       data["password"] = passwordInput.current.value;
       MloginApi.add(data).then((res) => {
         if (res.status === 200) {
@@ -81,8 +82,8 @@ function Sigin() {
       spanErrvn.current.classList.add("err_span_block");
     }
     //ô name và pass để trống sẽ hiện lỗi
-    if (nameInput.current.value === "") {
-      setclassNameSpanInput("err_span_block");
+    if (usernameInput.current.value === "") {
+      setclassUserNameSpanInput("err_span_block");
     }
     if (passwordInput.current.value === "") {
       setclassNameSpanPassword("err_span_block");
@@ -90,10 +91,10 @@ function Sigin() {
   };
   //khi rời ô nhập
   const onBlurEven = (e) => {
-    if (e.target.name === "name" && e.target.value === "") {
-      setclassNameSpanInput("err_span_block");
+    if (e.target.name === "username" && e.target.value === "") {
+      setclassUserNameSpanInput("err_span_block");
     }
-    if (e.target.name === "name" ) {
+    if (e.target.name === "username" ) {
       e.target.value = removeVietnameseTones(e.target.value);
     }
     if (e.target.name === "password" && e.target.value === "") {
@@ -108,8 +109,8 @@ function Sigin() {
   const onFocusEven = (e) => {
     spanErr.current.classList.add("err_span_none");
     spanErrvn.current.classList.add("err_span_none");
-    if (e.target.name === "name") {
-      setclassNameSpanInput("err_span_none");
+    if (e.target.name === "username") {
+      setclassUserNameSpanInput("err_span_none");
     }
     if (e.target.name === "password") {
       setclassNameSpanPassword("err_span_none");
@@ -126,11 +127,11 @@ function Sigin() {
           type="text"
           labelText="Tên đăng nhập"
           className="input_group"
-          Ref={nameInput}
-          classNameSpan={classNameSpanInput}
+          Ref={usernameInput}
+          classNameSpan={classUserNameSpanInput}
           onFocusEven={onFocusEven}
           onBlurEven={onBlurEven}
-          name={"name"}
+          name={"username"}
         />
         {/* password */}
         <Input_item
