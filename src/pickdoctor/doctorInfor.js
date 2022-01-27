@@ -22,7 +22,7 @@ const DoctorDetail = () => {
   }
 
   return (
-    <div className="pickdoctor container">
+    <div className="pickdoctor container" style={{ marginTop: '20px' }}>
       <div className="d-flex">
         <div>
           <img src={dataShow.image} alt="doctorpicture" />

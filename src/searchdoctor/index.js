@@ -112,20 +112,20 @@ function SearchDoctor() {
               <option key={item}>{item}</option>
             ))}
           </select>
-          <div>
-            <span> {`Năm công tác : từ ${valueExperience[0]} đến ${valueExperience[1]} năm`} </span>
-            <div className="inputExperience">
-              <Slider
-                getAriaLabel={() => 'Minimum distance'}
-                value={valueExperience}
-                onChange={handleRange}
-                valueLabelDisplay="auto"
-                getAriaValueText={valuetext}
-                disableSwap
-                max={50}
-              />
-            </div>
+
+          <span> {`Năm công tác : từ ${valueExperience[0]} đến ${valueExperience[1]} năm`} </span>
+          <div className="inputExperience">
+            <Slider
+              getAriaLabel={() => 'Minimum distance'}
+              value={valueExperience}
+              onChange={handleRange}
+              valueLabelDisplay="auto"
+              getAriaValueText={valuetext}
+              disableSwap
+              max={50}
+            />
           </div>
+
         </div>
       </div>
 
