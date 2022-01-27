@@ -1,7 +1,6 @@
 .Share {
-  min-height: 100vh;
+  padding-top: 60px;
   &-create {
-    margin-top: 40px;
     background-color: #3498db;
     color: white;
     font-size: 20px;
@@ -10,13 +9,15 @@
     padding: 10px 15px;
     position: relative;
     left: 50%;
+    bottom: 30px;
     transform: translateX(-50%);
-    margin-bottom: 25px;
+    border-radius: 5px;
   }
 }
 .ItemPost {
   cursor: pointer;
   margin-bottom: 50px;
+  border-radius: 5px;
   &-title {
     color: #3498db;
     font-size: 24px;
@@ -68,6 +69,9 @@
     }
   }
 }
-.ListPost {
-  padding-top: 80px;
+.CreatePost-quill {
+  min-height: 300px !important;
+}
+.ql-snow {
+  border-color: transparent !important;
 }

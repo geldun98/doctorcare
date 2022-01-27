@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import postApi from '../api/postApi';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const CreatePost = () => {
   const valueheading = useRef();
   const valuebody = useRef();
@@ -60,9 +61,14 @@ const CreatePost = () => {
           </span>
         </div>
 
-        <button className="CreatePost-submit" onClick={handleSubmit}>
-          Đăng bài viết
-        </button>
+        <div className="CreatePost-button">
+          <button className="CreatePost-button-submit" onClick={handleSubmit}>
+            Đăng bài viết
+          </button>
+          <Link className="CreatePost-button-cancel" to="/camnang">
+            Hủy
+          </Link>
+        </div>
       </div>
     </div>
   );
