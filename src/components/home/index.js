@@ -24,7 +24,7 @@ const Home = () => {
         <div className="featured_product">
           <h5>DỊCH VỤ CỦA CHÚNG TÔI</h5>
         </div>
-        <div className="product_news">
+        <div className="product_news ">
           <div className="product_detail">
             <img src="" alt=""></img>
             <div className="detail">

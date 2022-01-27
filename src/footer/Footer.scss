@@ -2,7 +2,6 @@
   position: relative;
   color: white;
   top: 70px;
-  height: 400px;
   width: 100%;
   background-color: #222222;
   display: flex;
@@ -25,13 +24,13 @@
     cursor: pointer;
   }
 
-  .company_link-item, 
-  .company_support-item{
+  .company_link-item,
+  .company_support-item {
     margin-bottom: 5px;
   }
   .company_info h3 {
     color: #13cfae;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
   }
   .input-group {
     input {

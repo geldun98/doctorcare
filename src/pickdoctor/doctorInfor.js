@@ -22,33 +22,34 @@ const DoctorDetail = () => {
   }
 
   return (
-    <div className="pickdoctor container">
+    <div className="pickdoctor container" style={{ marginTop: '20px' }}>
       <div className="d-flex">
         <div>
           <img src={dataShow.image} alt="doctorpicture" />
         </div>
         <div className="infor">
           <h3>
-            <span> {dataShow.position} </span>
+            {dataShow.position}
             {dataShow.name}
           </h3>
           <p>{dataShow.work}</p>
           <mark>{dataShow.major}</mark>
+
+          <span>
+            <i className="fas fa-users"></i>Lượt tư vấn:{' '}<b>{dataShow.appointment}</b>
+          </span>
+
+
+
+          <span>
+            <i className="fas fa-star"></i>Đánh giá:{' '}<b>{dataShow.vote}</b>
+          </span>
+
+
         </div>
-        <div className="more-infor">
-          <p>
-            <span>
-              <i className="fas fa-users"></i>Lượt tư vấn:{' '}
-            </span>
-            <b>{dataShow.appointment}</b>
-          </p>
-          <p>
-            <span>
-              <i className="fas fa-star"></i>Đánh giá:{' '}
-            </span>
-            <b>{dataShow.vote}</b>
-          </p>
-        </div>
+
+
+
       </div>
       <Picktime id={id} name={dataShow.name}></Picktime>
       <div className="doctor-expensive">
