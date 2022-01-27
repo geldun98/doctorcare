@@ -1,3 +1,14 @@
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
 .Navbar {
   display: flex;
   // background-color: #ecf0f1;
@@ -13,9 +24,9 @@
       font-size: 40px;
       font-weight: 600;
       color: #13cfae;
-      font-family:Georgia, 'Times New Roman', Times, serif;
+      font-family: Georgia, 'Times New Roman', Times, serif;
     }
-    p{
+    p {
       font-size: 18px;
       font-weight: 400;
       color: #610051;
@@ -25,6 +36,11 @@
   &-List {
     display: flex;
     align-items: center;
+  }
+  &-Bar {
+    display: none;
+    font-size: 20px;
+    font-weight: 600;
   }
 
   &-Item {
@@ -38,19 +54,19 @@
       position: relative;
       text-decoration: none;
 
-      &::after{
+      &::after {
         content: '';
         position: absolute;
         width: 100%;
         transform: scaleX(0);
         height: 2px;
-        bottom: 0;
+        bottom: -2px;
         left: 0;
         background-color: #13cfae;
         transition: 0.1s;
       }
 
-      &:hover{
+      &:hover {
         color: #13cfae;
       }
 
@@ -70,9 +86,78 @@
     font-weight: 600;
     border-radius: 15px;
 
-    &:hover{
+    &:hover {
       background-color: #d12e1c;
     }
   }
+  .active {
+    color: #13cfae;
 
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #13cfae;
+    }
+  }
+  @include maxWidth(767px) {
+    position: relative;
+
+    &-List {
+      background-color: #ccc !important;
+
+      flex-direction: column;
+      position: absolute;
+      overflow: hidden;
+      width: 100%;
+      height: 0;
+      transition: all 0.2s linear;
+      background-color: white;
+      align-items: flex-start;
+      z-index: 10;
+      top: 100%;
+      left: 0;
+      .Navbar-Item {
+        margin-bottom: 15px;
+        a {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+      .Navbar-Item:first-child {
+        margin-top: 15px;
+      }
+    }
+    .show {
+      transition: all 0.2s linear;
+
+      height: 300px;
+      display: block;
+    }
+    &-Bar {
+      display: block;
+
+      i {
+        padding: 7px;
+        background-color: #f7f7f7;
+      }
+    }
+    &-Logo {
+      span {
+        font-size: 20px;
+        font-weight: 600;
+        color: #13cfae;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        color: #610051;
+        font-style: italic;
+      }
+    }
+  }
 }

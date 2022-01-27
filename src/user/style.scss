@@ -1,3 +1,13 @@
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
 .User {
   font-weight: 600;
   margin-left: 20px;
@@ -26,6 +36,21 @@
   position: relative;
   &-menu {
     display: none;
+  }
+  &-Mobile {
+    display: none;
+  }
+  @include maxWidth(767px) {
+    &-Desktop {
+      display: none;
+    }
+    &-Mobile {
+      color: black;
+      font-weight: 600;
+      display: block;
+      font-size: 20px;
+      margin-left: 2px;
+    }
   }
 }
 .NavUser {

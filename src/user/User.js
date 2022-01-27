@@ -13,14 +13,17 @@ const User = () => {
   }
   return (
     <div className="User">
-      <div className="User-account">
-        {dataUser.username}
-        {<i className="fas fa-user"></i>}
-      </div>
+      <div className="User-Desktop">
+        <div className="User-account">
+          {dataUser.username}
+          {<i className="fas fa-user"></i>}
+        </div>
 
-      <div className="User-menu">
-        <NavUser handleLogout={handleLogout}></NavUser>
+        <div className="User-menu">
+          <NavUser handleLogout={handleLogout}></NavUser>
+        </div>
       </div>
+      <div className="User-Mobile">Mobile</div>
     </div>
   );
 };
