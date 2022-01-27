@@ -1,9 +1,12 @@
 import React from 'react';
 
-const ItemHistory = ({ data }) => {
+const ItemHistory = ({ data, role }) => {
+  console.log(data);
   return (
     <div className="ItemHistory">
-      <div className="ItemHistory-name">{data.name_doctor}</div>
+      {role === 'user' && <div className="ItemHistory-name">{data.name_doctor}</div>}
+      {role === 'doctor' && <div className="ItemHistory-name">{data.username}</div>}
+
       <div className="ItemHistory-date">{data.date}</div>
       <div className="ItemHistory-time">{data.time}</div>
     </div>
