@@ -146,8 +146,8 @@ function UserUpdateInfo() {
   const errorAddress = useRef();
   const errorJob = useRef();
   return (
-    <div className="form">
-      <form>
+    <div className="form_update">
+      <form className="form_update_main">
         <h1>SỬA THÔNG TIN CÁ NHÂN</h1>
         <div className="form-header">
           <h3 className="form-header_name">Tài khoản : {dataUser.username}</h3>
