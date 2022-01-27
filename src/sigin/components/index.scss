@@ -59,14 +59,8 @@
     justify-content: center;
     width: 50%;
   }
-<<<<<<< HEAD
   .navbar_login_logout .mavnar_login_logout_link .mavnar_login_logout_link_a{
     color :#262213;
-=======
-  .navbar_login_logout .mavnar_login_logout_link a {
-    // border: 1px groove rgb(20,207,174);
-    color: #262213;
->>>>>>> main
     padding: 5px;
     border-radius: 4px;
     transition: 150ms;
@@ -77,11 +71,7 @@
     transition: 200ms;
     color: #13cfae;
   }
-<<<<<<< HEAD
   .navbar_login_logout .mavnar_login_logout_link .mavnar_login_logout_link_a_focus{
-=======
-  .navbar_login_logout .mavnar_login_logout_link a:focus {
->>>>>>> main
     text-decoration: underline;
     color: rgb(20, 207, 174);
     font-size: 18px;

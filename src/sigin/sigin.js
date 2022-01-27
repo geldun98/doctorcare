@@ -7,6 +7,7 @@ import Context from "../store/Context";
 import { useNavigate } from "react-router-dom";
 import Slect_item from "./components/select_item";
 import {useLocation} from 'react-router-dom';
+import CryptoJS from 'crypto-js'
 function Sigin() {
   const navigate = useNavigate();
   //Không cho tiếng việt vào ô name
@@ -58,6 +59,9 @@ function Sigin() {
   // đẩy dữ liệu lên khi nhấn nút 
   const handclick = (even) => {
     even.preventDefault();
+
+    let message = crypto.AES.encrypt('Nội dung cần mã hóa', 'itsasecret123').toString();
+    console.log(message)
     //điều kiện để đẩy dữ liệu lên
     if (
       usernameInput.current.value !== "" &&

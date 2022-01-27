@@ -16,7 +16,7 @@ const Navbar_sigin = () => {
   //hiện thị thay đổi khi ở đăng nhập hoặc đăng suấtuseLocation().pathname
   function usePageViews() {
     if(/sigin/.test(useLocation().pathname)) {
-      siginclass = "mavnar_login_logout_link_a_focus"
+    siginclass = "mavnar_login_logout_link_a_focus"
     }
     if(/register/.test(useLocation().pathname)) { 
     registerclass = "mavnar_login_logout_link_a_focus"
