@@ -1,9 +1,8 @@
-
-.body_login_logout{
+.body_login_logout {
   display: flex;
   align-items: center;
   min-height: 50vh;
-  .form{
+  .form {
     display: flex;
     flex-direction: column;
     width: 30vw;
@@ -16,11 +15,11 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: white;
   }
-  .form_main{
+  .form_main {
     display: flex;
     flex-direction: column;
   }
-  .input_group{
+  .input_group {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -32,23 +31,22 @@
     padding: 0 10px;
     margin-top: 4px;
   }
- 
-  .err_span_block{
+
+  .err_span_block {
     display: block;
     font-size: 12px;
     color: red;
     margin-top: 5px;
   }
-  .err_span_none{
+  .err_span_none {
     display: none;
   }
   .radio_input_group {
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
-    
   }
-  .radio_input_group label{
+  .radio_input_group label {
     margin-right: 7px;
   }
   .navbar_login_logout {
@@ -56,13 +54,19 @@
     justify-content: space-around;
     margin-bottom: 10px;
   }
-  .mavnar_login_logout_link{
+  .mavnar_login_logout_link {
     display: flex;
     justify-content: center;
     width: 50%;
   }
+<<<<<<< HEAD
   .navbar_login_logout .mavnar_login_logout_link .mavnar_login_logout_link_a{
     color :#262213;
+=======
+  .navbar_login_logout .mavnar_login_logout_link a {
+    // border: 1px groove rgb(20,207,174);
+    color: #262213;
+>>>>>>> main
     padding: 5px;
     border-radius: 4px;
     transition: 150ms;
@@ -73,9 +77,13 @@
     transition: 200ms;
     color: #13cfae;
   }
+<<<<<<< HEAD
   .navbar_login_logout .mavnar_login_logout_link .mavnar_login_logout_link_a_focus{
+=======
+  .navbar_login_logout .mavnar_login_logout_link a:focus {
+>>>>>>> main
     text-decoration: underline;
-    color: rgb(20,207,174);
+    color: rgb(20, 207, 174);
     font-size: 18px;
     font-weight: 600;
     transition: 200ms;
@@ -90,18 +98,17 @@
     margin-top: 10px;
     border: 1px solid #13cfae;
   }
-  .submit_button:hover{
+  .submit_button:hover {
     cursor: pointer;
     background-color: #00be9c;
-    
   }
-  .test{
-    color:rgb(81, 142, 223)
+  .test {
+    color: rgb(81, 142, 223);
   }
-  .use_register{
+  .use_register {
     display: none;
   }
-  .doctor_register{
+  .doctor_register {
     display: block;
   }
 }
