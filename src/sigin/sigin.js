@@ -59,17 +59,14 @@ function Sigin() {
   // đẩy dữ liệu lên khi nhấn nút 
   const handclick = (even) => {
     even.preventDefault();
-
-    let message = crypto.AES.encrypt('Nội dung cần mã hóa', 'itsasecret123').toString();
-    console.log(message)
     //điều kiện để đẩy dữ liệu lên
     if (
       usernameInput.current.value !== "" &&
       passwordInput.current.value !== "" &&
       specialCharacters === 0
-    ) {
-      data["username"] = usernameInput.current.value;
-      data["password"] = passwordInput.current.value;
+    ) { 
+      data["username"] = usernameInput.current.value
+      data["password"] = CryptoJS.MD5(passwordInput.current.value).toString();
       MloginApi.add(data).then((res) => {
         if (res.status === 200) {
           localStorage.setItem("user", JSON.stringify(res.data.user));
