@@ -199,7 +199,7 @@ const Home = () => {
         <div className="more_about_us">HIỂU THÊM VỀ CHÚNG TÔI</div>
       </div>
 
-      {/* <div className="news-events">
+      <div className="news-events">
         <div className="main_news">
           <p className="news_title">CẨM NANG Y TẾ</p>
           <div className="cards_news">
@@ -252,9 +252,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
-      {/* <div className="company_achivement">
+      <div className="company_achivement">
         <div className="achivement_list">
           <div className="achivement">
             <h2>70</h2>
@@ -269,9 +269,9 @@ const Home = () => {
             <h4>Khách hàng tư vấn</h4>
           </div>
         </div>
-      </div> */}
+      </div>
 
-      {/* <div className="logos_companies">
+      <div className="logos_companies">
         <div className="logo">
           <img
             src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/o2o-01-png_971c5a73_e148_49d4_9150_93b50275bcbf.png"
@@ -308,7 +308,7 @@ const Home = () => {
             alt=""
           ></img>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
