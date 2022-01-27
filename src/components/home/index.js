@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.scss';
 const Home = () => {
   return (
@@ -8,8 +9,9 @@ const Home = () => {
           <h3>Tìm bác sĩ, bệnh viện dễ dàng hơn</h3>
           <p>Chủ động đặt lịch hẹn thông minh và được chăm sóc tận tình</p>
           <div className='Home-Content-search'>
-            <input className="Home-Content_input" placeholder="Nhập tên bác sĩ, bệnh viện, dịch vụ..."></input>
-            <button className="btnSearch">Tìm kiếm</button>
+            <Link to="/datkham">
+            <button className="btnSearch">Đặt khám ngay</button>
+            </Link>
           </div>
         </div>
         <img
@@ -186,8 +188,8 @@ const Home = () => {
       </div>
 
       <div className="company_detail">
-        <h3>Dịch vụ</h3>
         <div className="company_intro">
+        <h3>Dịch vụ</h3>
           <h1>TƯ VẤN SỨC KHỎE TRỰC TUYẾN</h1>
           <p>
             Mang đến những dịch vụ thăm khám chuyên nghiệp, thân thiện cùng những đặc quyền dành riêng cho bạn và gia
@@ -274,13 +276,13 @@ const Home = () => {
       <div className="logos_companies">
         <div className="logo">
           <img
-            src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/o2o-01-png_971c5a73_e148_49d4_9150_93b50275bcbf.png"
+            src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/tai-xuong-(1)_ff79dc7d_45f8_47ff_97e0_d463a2c7b2ba.jpg"
             alt=""
           ></img>
         </div>
         <div className="logo">
           <img
-            src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/tai-xuong-(1)_ff79dc7d_45f8_47ff_97e0_d463a2c7b2ba.jpg"
+            src="https://isofhcare-backup.s3-ap-southeast-1.amazonaws.com/images/o2o-01-png_971c5a73_e148_49d4_9150_93b50275bcbf.png"
             alt=""
           ></img>
         </div>
