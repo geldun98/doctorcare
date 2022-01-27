@@ -1,3 +1,13 @@
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
 .pickdoctor {
   mark {
     background-color: rgb(202, 229, 241);
@@ -92,5 +102,15 @@
     font-size: 18px;
     padding-top: 20px;
     padding-left: 10px;
+  }
+  span {
+    margin-left: 100px;
+  }
+}
+@include maxWidth(820px) {
+  .pickdoctor span {
+    display: block;
+    margin-top: 10px;
+    margin-left: 0px;
   }
 }

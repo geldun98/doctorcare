@@ -98,33 +98,47 @@ function SearchDoctor() {
     <Fragment>
       <div className="searchDoctor">
         <div className="SearchBox container">
-          <span>Học vị</span>
-          <select onChange={handleSelect} id="position" className="SearchSelect">
-            <option></option>
-            {listPosition.current.map((item) => (
-              <option key={item}>{item}</option>
-            ))}
-          </select>
-          <span>Chuyên nghành</span>
-          <select onChange={handleSelect} id="major" className="SearchSelect">
-            <option></option>
-            {listMajor.current.map((item) => (
-              <option key={item}>{item}</option>
-            ))}
-          </select>
+          <div className='row'>
+            <div className='col-12 col-sm-4'>
 
-          <span> {`Năm công tác : từ ${valueExperience[0]} đến ${valueExperience[1]} năm`} </span>
-          <div className="inputExperience">
-            <Slider
-              getAriaLabel={() => 'Minimum distance'}
-              value={valueExperience}
-              onChange={handleRange}
-              valueLabelDisplay="auto"
-              getAriaValueText={valuetext}
-              disableSwap
-              max={50}
-            />
+              <span>Học vị</span>
+              <select onChange={handleSelect} id="position" className="SearchSelect">
+                <option></option>
+                {listPosition.current.map((item) => (
+                  <option key={item}>{item}</option>
+                ))}
+              </select>
+            </div>
+            <div className='col-12 col-sm-4'>
+              <span>Chuyên nghành</span>
+              <select onChange={handleSelect} id="major" className="SearchSelect">
+                <option></option>
+                {listMajor.current.map((item) => (
+                  <option key={item}>{item}</option>
+                ))}
+              </select>
+            </div>
+            <div className='col-12 col-sm-4'>
+              <span> {`Năm công tác : từ ${valueExperience[0]} đến ${valueExperience[1]} năm`} </span>
+              <div className="inputExperience">
+                <Slider
+                  getAriaLabel={() => 'Minimum distance'}
+                  value={valueExperience}
+                  onChange={handleRange}
+                  valueLabelDisplay="auto"
+                  getAriaValueText={valuetext}
+                  disableSwap
+                  max={50}
+                />
+              </div>
+            </div>
+
           </div>
+
+
+
+
+
 
         </div>
       </div>
