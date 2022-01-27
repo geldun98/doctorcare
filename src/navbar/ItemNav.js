@@ -2,7 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const ItemNav = ({ url, children }) => {
-  console.log(url);
+  function handleItem(e) {
+    e.target.parentElement.parentElement.classList.remove('show');
+  }
   return (
     <div className="Navbar-Item">
       <NavLink
@@ -11,6 +13,7 @@ const ItemNav = ({ url, children }) => {
           if (navData.isActive === true) return 'active';
           else return '';
         }}
+        onClick={handleItem}
       >
         {children}
       </NavLink>

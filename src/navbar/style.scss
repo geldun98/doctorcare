@@ -13,6 +13,11 @@
   display: flex;
   background-color: white;
   height: 100px;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   padding-left: 25px;
@@ -103,20 +108,26 @@
     }
   }
   @include maxWidth(767px) {
-    position: relative;
+    height: 100px;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
 
     &-List {
-      background-color: #ccc !important;
+      background-color: #ecf0f1 !important;
 
       flex-direction: column;
+      padding-bottom: 5px;
       position: absolute;
       overflow: hidden;
-      width: 100%;
-      height: 0;
+      transform: translateX(-100%);
       transition: all 0.2s linear;
       background-color: white;
       align-items: flex-start;
       z-index: 10;
+      margin-top: 2px;
       top: 100%;
       left: 0;
       .Navbar-Item {
@@ -132,9 +143,10 @@
     }
     .show {
       transition: all 0.2s linear;
-
-      height: 300px;
-      display: block;
+      opacity: 1;
+      transform: translateX(0);
+      width: 100%;
+      display: inline-flex;
     }
     &-Bar {
       display: block;

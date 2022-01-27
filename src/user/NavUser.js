@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 const NavUser = ({ handleLogout }) => {
   return (
     <div className="NavUser">
+      <div className="NavUser-item-close">
+        <i className="fas fa-times"></i>
+      </div>
       <div className="NavUser-item">
         <Link to="/capnhatthongtin">
           <i className="fas fa-user-edit"></i>
