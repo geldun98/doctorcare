@@ -27,7 +27,6 @@
     border-radius: 5px;
   }
   @include maxWidth(767px) {
-    padding-top: 0;
     padding-bottom: 0;
     .DetailPost {
       &-title {
