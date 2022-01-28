@@ -26,8 +26,10 @@
     transform: translateX(-50%);
     border-radius: 5px;
   }
+
   @include maxWidth(767px) {
     padding-bottom: 0;
+
     .DetailPost {
       &-title {
         font-size: 23px;
@@ -37,6 +39,9 @@
         padding-right: 0;
         padding-left: 0;
       }
+    }
+    .CreatePost {
+      padding-bottom: 25px;
     }
   }
 }
