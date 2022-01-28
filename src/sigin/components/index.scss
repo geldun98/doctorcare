@@ -8,7 +8,6 @@
     @content;
   }
 }
-
 .body_login_logout {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -17,11 +16,11 @@
     flex-direction: column;
     width: 30vw;
     max-width: 350px;
+    margin-top: 10vh;
     background-color: #eee;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px 15px;
-    margin-top: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: white;
     width: 100%;
@@ -44,6 +43,15 @@
     border: 1px solid #ddd;
     padding: 0 10px;
     margin-top: 4px;
+  }
+  .input_group select {
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    margin-top: 4px;
+    padding: 2px 10px;
+    font-weight: 400;
   }
 
   .err_span_block {
@@ -73,8 +81,7 @@
     justify-content: center;
     width: 50%;
   }
-  .navbar_login_logout .mavnar_login_logout_link a {
-    // border: 1px groove rgb(20,207,174);
+  .navbar_login_logout .mavnar_login_logout_link .mavnar_login_logout_link_a {
     color: #262213;
     padding: 5px;
     border-radius: 4px;
@@ -86,7 +93,7 @@
     transition: 200ms;
     color: #13cfae;
   }
-  .navbar_login_logout .mavnar_login_logout_link a:focus {
+  .navbar_login_logout .mavnar_login_logout_link .mavnar_login_logout_link_a_focus {
     text-decoration: underline;
     color: rgb(20, 207, 174);
     font-size: 18px;
