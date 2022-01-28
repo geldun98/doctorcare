@@ -10,9 +10,8 @@
 }
 
 .body_login_logout {
-  display: flex;
-  align-items: center;
-  min-height: 50vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
   .form {
     display: flex;
     flex-direction: column;
@@ -118,7 +117,7 @@
     display: block;
   }
 
-  @include maxWidth(376px){
+  @include maxWidth(376px) {
     .form {
       display: flex;
       flex-direction: column;
@@ -151,7 +150,7 @@
       padding: 0 10px;
       margin-top: 4px;
     }
-  
+
     .err_span_block {
       display: block;
       font-size: 12px;

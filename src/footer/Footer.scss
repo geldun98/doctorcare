@@ -19,9 +19,11 @@
   flex: 1;
   justify-content: center;
   padding: 40px 0;
-.company_info, .company_link, .company_support{
-  margin-right: 70px;
-}
+  .company_info,
+  .company_link,
+  .company_support {
+    margin-right: 70px;
+  }
   .company_info-item {
     cursor: pointer;
     color: grey;
@@ -43,7 +45,7 @@
   }
   .company_info h3 {
     color: #13cfae;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
   .input-group {
     input {
@@ -87,11 +89,13 @@
     background-color: #00b392;
   }
 
-  .company_link h4, .company_support h4, .register_for_news h4{
+  .company_link h4,
+  .company_support h4,
+  .register_for_news h4 {
     font-size: 28px;
-  } 
+  }
 
-  @include maxWidth(471px){
+  @include maxWidth(471px) {
     .company_info-item {
       cursor: pointer;
       color: grey;
@@ -100,31 +104,38 @@
     .company_info-item:hover {
       color: #fff;
     }
-    
-    .company_info, .company_link, .company_support{
-      margin-left: 10px;
+
+    .company_info,
+    .company_link,
+    .company_support,
+    .register_for_news {
+      margin-left: 25px;
       width: 100%;
+      margin-bottom: 10px;
     }
-    .register_for_news{
+    .register_for_news {
       width: 100% !important;
+      padding-right: 25px;
     }
-    .company_link h4, .company_support h4, .register_for_news h4{
+    .company_link h4,
+    .company_support h4,
+    .register_for_news h4 {
       font-size: 20px;
-    } 
+    }
 
     .company_info-item:hover,
     .company_link-item:hover,
     .company_support-item:hover {
       cursor: pointer;
     }
-  
+
     .company_link-item,
     .company_support-item {
       margin-bottom: 5px;
     }
     .company_info h3 {
       color: #13cfae;
-      font-family: Georgia, "Times New Roman", Times, serif;
+      font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .input-group {
       input {
@@ -147,11 +158,11 @@
     .company_info-item {
       width: 250px;
     }
-  
+
     .register_for_news {
       width: 300px;
     }
-  
+
     .register_for_news button {
       width: 70px;
       height: 38px;
@@ -162,7 +173,7 @@
       border-radius: 3px;
       border: 2px solid #13cfae;
     }
-  
+
     .register_for_news button:hover {
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
       background-color: #00b392;

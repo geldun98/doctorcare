@@ -1,7 +1,51 @@
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
 .ListHistory-content {
   h1 {
     padding-top: 50px;
     text-align: center !important;
+  }
+}
+.ListHistory {
+  padding-bottom: 50px;
+}
+.ListHistory {
+  @include maxWidth(767px) {
+    .ItemHistory {
+      font-size: 15px !important;
+      &-name {
+        width: 40% !important;
+      }
+      &-date {
+        width: 40% !important;
+        text-align: left;
+      }
+      &-time {
+        width: 20% !important;
+      }
+    }
+    &-title {
+      font-size: 18px !important;
+      &-name {
+        width: 40% !important;
+      }
+      &-date {
+        width: 40% !important;
+        text-align: left !important;
+      }
+      &-time {
+        width: 20% !important;
+      }
+    }
   }
 }
 .ItemHistory,

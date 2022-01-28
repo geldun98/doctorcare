@@ -8,7 +8,10 @@
     @content;
   }
 }
-
+.Home {
+  width: 100%;
+  overflow: hidden;
+}
 .Home-Image {
   position: relative;
   width: 100%;
@@ -30,18 +33,18 @@
     background-color: #13cfae;
     color: white;
     margin: auto;
-    &:hover{
+    &:hover {
       background-color: #00bd9a;
       color: white;
     }
   }
-  @include maxWidth(376px){
+  @include maxWidth(376px) {
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-  
+
     .btnSearch {
       width: 70%;
       height: 50.5px;
@@ -51,7 +54,7 @@
       background-color: #13cfae;
       color: white;
       margin: auto;
-      &:hover{
+      &:hover {
         background-color: #00bd9a;
         color: white;
       }
@@ -74,7 +77,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @include maxWidth(376px){
+  @include maxWidth(376px) {
     h3 {
       font-size: 25px;
       font-weight: 600;
@@ -188,7 +191,7 @@
       }
     }
   }
-  @include maxWidth(852px){
+  @include maxWidth(852px) {
     .featured_product h5 {
       font-weight: 500;
       font-size: 14px;
@@ -212,7 +215,7 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-  
+
       .product_detail {
         padding: 20px;
         max-width: 225px;
@@ -225,7 +228,7 @@
         border: 1.5px solid transparent;
         margin-bottom: 20px;
         &:hover {
-          border-color:#13cfae;
+          border-color: #13cfae;
           cursor: pointer;
         }
         .detail p {
@@ -258,7 +261,7 @@
           box-shadow: 1px 3px 10px -5px #000000;
           margin: 10px 10px;
           padding: 0 10px;
-  
+
           background-color: rgb(254, 254, 254);
           &:hover {
             border-color: #13cfae;
@@ -301,7 +304,8 @@
   margin: 0 0 50px 40px;
   .company_intro {
     width: 70%;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
+    margin: 20px 0;
   }
   .more_about_us {
     padding-top: 5px;
@@ -320,36 +324,36 @@
       background-color: white;
     }
   }
-  @include maxWidth(375px){
-      .company_intro {
-        width: 100%;
-        margin-bottom: 20px;
-        .company_intro h3{
-          width: 50px;
-          font-size: 18px;
-        }
-        .company_intro p{
-          width: 500px;
-          font-size: 14px;
-        }
+  @include maxWidth(375px) {
+    .company_intro {
+      width: 100%;
+      margin-bottom: 20px;
+      .company_intro h3 {
+        width: 50px;
+        font-size: 18px;
       }
-      .more_about_us {
-        padding-top: 5px;
-        text-align: center;
-        max-width: 250px;
-        max-height: 40px;
-        background-color: #13cfae;
-        cursor: pointer;
-        border-radius: 5px;
-        color: white;
-    
-        &:hover {
-          border: 1px solid;
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-          color: #13cfae;
-          background-color: white;
-        }
+      .company_intro p {
+        width: 500px;
+        font-size: 14px;
       }
+    }
+    .more_about_us {
+      padding-top: 5px;
+      text-align: center;
+      max-width: 250px;
+      max-height: 40px;
+      background-color: #13cfae;
+      cursor: pointer;
+      border-radius: 5px;
+      color: white;
+
+      &:hover {
+        border: 1px solid;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        color: #13cfae;
+        background-color: white;
+      }
+    }
   }
 }
 
@@ -362,13 +366,13 @@
   object-fit: cover;
   border-radius: 3px;
   background-color: rgb(250, 250, 250);
-  
+
   .news_title {
     font-size: 20px;
     font-weight: 500;
     padding: 20px 15px;
   }
-  .card{
+  .card {
     margin: 0 20px;
     margin-bottom: 70px;
     &:hover {
@@ -395,13 +399,13 @@
   .card p {
     color: gray;
   }
-  @include maxWidth(900px){
+  @include maxWidth(900px) {
     .news_title {
       font-size: 20px;
       font-weight: 500;
       padding: 20px 15px;
     }
-    .card{
+    .card {
       margin-bottom: 20px;
     }
     .cards_news {
@@ -421,7 +425,7 @@
     .card h5 {
       cursor: pointer;
     }
-  
+
     .card p {
       color: gray;
     }
@@ -454,7 +458,7 @@
     font-weight: 600;
     margin-bottom: 20px;
   }
-  @include maxWidth(376px){
+  @include maxWidth(376px) {
     .achivement_list {
       display: flex;
       flex-wrap: wrap;
@@ -502,13 +506,13 @@
   .logo img:hover {
     cursor: pointer;
   }
-  @include maxWidth(376px){
+  @include maxWidth(376px) {
     .logo img {
       height: 100px;
       width: 100px;
       object-fit: fill;
     }
-  
+
     .logo img:hover {
       cursor: pointer;
     }

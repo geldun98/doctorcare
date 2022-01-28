@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import User from '../user/User';
 const Navbar = () => {
   const [dataUser, setDataUser] = useContext(Context);
-
+  const [icon, setIcon] = useState(true);
   let hide = false;
   if (dataUser.id) {
     hide = !hide;
@@ -18,8 +18,11 @@ const Navbar = () => {
     } else {
       NavbarList.current.classList.add('show');
     }
+    setIcon(!icon);
   }
-
+  function handleClick() {
+    setIcon(true);
+  }
   return (
     <div className="Navbar">
       <Link to="/trangchu">
@@ -29,7 +32,7 @@ const Navbar = () => {
         </div>
       </Link>
 
-      <div className="Navbar-List" ref={NavbarList}>
+      <div className="Navbar-List" ref={NavbarList} onClick={handleClick}>
         <ItemNav url={'/'}>Trang chủ</ItemNav>
         <ItemNav url="/datkham">Đặt khám</ItemNav>
         <ItemNav url="/hoidap">Hỏi đáp</ItemNav>
@@ -39,7 +42,8 @@ const Navbar = () => {
         {hide && <User></User>}
       </div>
       <div className="Navbar-Bar" onClick={handleBar}>
-        <i className="fas fa-bars"></i>
+        {icon && <i className="fas fa-bars"></i>}
+        {!icon && <i className="fas fa-times" style={{ color: 'red' }}></i>}
       </div>
     </div>
   );
