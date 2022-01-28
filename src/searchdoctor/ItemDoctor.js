@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ItemDoctor = ({ data }) => {
+  useEffect(() => {
+    AOS.init({ duration: 1500 })
+  })
   const url = `/pickdoctor?${data.id}`;
   return (
-    <div className="ItemDoctor">
+    <div className="ItemDoctor" data-aos="flip-left">
       <div className="ItemDoctor-Image">
         <img src={data.image} alt="imagedoctor"></img>
       </div>
