@@ -24,7 +24,7 @@ const DoctorDetail = () => {
   return (
     <div className="pickdoctor container" style={{ marginTop: '20px' }}>
       <div className="d-flex">
-        <div>
+        <div className='image'>
           <img src={dataShow.image} alt="doctorpicture" />
         </div>
         <div className="infor">
@@ -54,7 +54,7 @@ const DoctorDetail = () => {
       <Picktime id={id} name={dataShow.name}></Picktime>
       <div className="doctor-expensive">
         <h5>Kinh nghiệm khám chữa bệnh</h5>
-        <div className="doctor-exp" dangerouslySetInnerHTML={createMarkup()}></div>
+        <div className="doctor-exp" dangerouslySetInnerHTML={createMarkup()} style={{ marginBottom: '30px' }}></div>
       </div>
     </div>
   );
