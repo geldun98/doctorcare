@@ -18,6 +18,7 @@
 }
 .ListQuestion {
   width: 550px;
+  padding-bottom: 50px;
 }
 .InputQuestion {
   width: 370px;
@@ -113,6 +114,9 @@
     }
   }
 }
+.DetailQuestion {
+  background-color: white;
+}
 .ItemQuestion {
   a {
     text-decoration: none;
@@ -181,8 +185,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-  margin-bottom: 100px;
+  padding-bottom: 25px;
 }
 .ItemComment {
   background-color: #e7ecf4;
@@ -213,7 +216,6 @@
 }
 .Question {
   @include maxWidth(767px) {
-    padding-bottom: 25px;
     .ListQuestion {
       width: 100%;
     }
