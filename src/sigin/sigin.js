@@ -5,9 +5,7 @@ import "./components/index.scss";
 import MloginApi from "./components/loginAPIM";
 import Context from "../store/Context";
 import { useNavigate } from "react-router-dom";
-import Slect_item from "./components/select_item";
 import {useLocation} from 'react-router-dom';
-import CryptoJS from 'crypto-js'
 function Sigin() {
   const navigate = useNavigate();
   //Không cho tiếng việt vào ô name
@@ -66,7 +64,7 @@ function Sigin() {
       specialCharacters === 0
     ) { 
       data["username"] = usernameInput.current.value
-      data["password"] = CryptoJS.MD5(passwordInput.current.value).toString();
+      data["password"] = passwordInput.current.value
       MloginApi.add(data).then((res) => {
         if (res.status === 200) {
           localStorage.setItem("user", JSON.stringify(res.data.user));
@@ -118,12 +116,10 @@ function Sigin() {
       setclassNameSpanPassword("err_span_none");
     }
   };
- 
   //form đăng nhập
   return (
     <React.Fragment>
       <form className="form_main ">
-        {/* <Slect_item></Slect_item> */}
         {/* tên đăng nhâp */}
         <Input_item
           type="text"

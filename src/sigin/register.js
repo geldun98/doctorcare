@@ -27,13 +27,13 @@ function Register() {
     return str;
   }
   // không nhập tiếng việt vào ô password
-  function searchSpecialCharacters (valueinput){
+  function searchSpecialCharacters(valueinput) {
     let x =
       "à,á,ạ,ả,ã,â,ầ,ấ,ậ,ẩ,ẫ,ă,ằ,ắ,ặ,ẳ,ẵ,è,é,ẹ,ẻ,ẽ,ê,ề,ế,ệ,ể,ễ,ì,í,ị,ỉ,ĩ,ò,ó,ọ,ỏ,õ,ô,ồ,ố,ộ,ổ,ỗ,ơ,ờ,ớ,ợ,ở,ỡ,ù,ú,ụ,ủ,ũ,ư,ừ,ứ,ự,ử,ữ,ỳ,ý,ỵ,ỷ,ỹ,đ,À,Á,Ạ,Ả,Ã,Â,Ầ,Ấ,Ậ,Ẩ,Ẫ,Ă,Ằ,Ắ,Ặ,Ẳ,Ẵ,È,É,Ẹ,Ẻ,Ẽ,Ê,Ề,Ế,Ệ,Ể,Ễ,Ì,Í,Ị,Ỉ,Ĩ,Ò,Ó,Ọ,Ỏ,Õ,Ô,Ồ,Ố,Ộ,Ổ,Ỗ,Ơ,Ờ,Ớ,Ợ,Ở,Ỡ,Ù,Ú,Ụ,Ủ,Ũ,Ư,Ừ,Ứ,Ự,Ử,Ữ,Ỳ,Ý,Ỵ,Ỷ,Ỹ,Đ";
-    let z = valueinput.split('')
-    z.forEach(element => {
-      if(x.search(element)>=0){
-        specialCharacters++
+    let z = valueinput.split("");
+    z.forEach((element) => {
+      if (x.search(element) >= 0) {
+        specialCharacters++;
       }
     });
   }
@@ -49,13 +49,13 @@ function Register() {
     setClassDiv("doctor_register");
   };
   // điều kiện dể submit
-  const [classNameSpanUserName, setclassNameSpanUserName] = useState("err_span_none");
+  const [classNameSpanUserName, setclassNameSpanUserName] =
+    useState("err_span_none");
   const [classNameSpanPassword, setclassNameSpanPassword] =
     useState("err_span_none");
   const [classNameSpanconfirmpassword, setclassNameSpanconfirmpassword] =
     useState("err_span_none");
-  const [classNameSpanname, setclassNameSpanname] =
-    useState("err_span_none");
+  const [classNameSpanname, setclassNameSpanname] = useState("err_span_none");
   const [classNameSpanhospital, setclassNameSpanhospital] =
     useState("err_span_none");
   const [classNameSpanmajor, setclassNameSpanmajor] = useState("err_span_none");
@@ -68,23 +68,19 @@ function Register() {
   const usernameInput = useRef();
   const passwordInput = useRef();
   const confirmpasswordInput = useRef();
-  const nameInput = useRef()
+  const nameInput = useRef();
   const hospitalInput = useRef();
   const majorInput = useRef();
   const degreeInput = useRef();
   const expInput = useRef();
-  
+
   const data = {
     username: "",
     password: "",
     role: "",
-    // hospital: "",
-    // major: "",
-    // degree: "",
-    // exp: "",
   };
 
- // đẩy dữ liệu lên khi nhấn nút 
+  // đẩy dữ liệu lên khi nhấn nút
   const handclick = (even) => {
     even.preventDefault();
     //khi có ký tự đặc biệt ở pas
@@ -98,7 +94,6 @@ function Register() {
         "Xác nhận mật khẩu và mật khẩu không trùng nhau , vui lòng nhập lại";
       spanErr.current.classList.remove("err_span_none");
       spanErr.current.classList.add("err_span_block");
-     
     }
     //kiểm tra các ô input có bị trống ko
     if (usernameInput.current.value === "") {
@@ -112,15 +107,12 @@ function Register() {
     }
     if (hospitalInput.current.value === "") {
       setclassNameSpanhospital("err_span_block");
-     
     }
     if (majorInput.current.value === "") {
       setclassNameSpanmajor("err_span_block");
-      
     }
     if (degreeInput.current.value === "") {
       setclassNameSpandegree("err_span_block");
-     
     }
     if (expInput.current.value === "") {
       setclassNameSpanexp("err_span_block");
@@ -132,21 +124,22 @@ function Register() {
     if (
       usernameInput.current.value !== "" &&
       passwordInput.current.value !== "" &&
-      confirmpasswordInput.current.value !== ""&&
+      confirmpasswordInput.current.value !== "" &&
       nameInput.current.value &&
-      role === "user"&&
+      role === "user" &&
       specialCharacters === 0
     ) {
+      console.log("đâs")
       data["username"] = usernameInput.current.value;
       data["password"] = passwordInput.current.value;
       data["role"] = role;
-      
+
       MilogioutApi.add(data).then((res) => {
         if (res.status === 200) {
           const dataUpdate = {
             ...data,
             id: res.data,
-            name :  nameInput.current.value,
+            name: nameInput.current.value,
           };
           localStorage.setItem("user", JSON.stringify(dataUpdate));
           updateApi.add(dataUpdate).then((resUpdate) => {});
@@ -161,29 +154,30 @@ function Register() {
     if (
       usernameInput.current.value !== "" &&
       passwordInput.current.value !== "" &&
-      confirmpasswordInput.current.value !== ""&&
+      confirmpasswordInput.current.value !== "" &&
       nameInput.current.value &&
-      hospitalInput.current.value !== ""&&
-      majorInput.current.value !== ""&&
-      degreeInput.current.value !== ""&&
-      expInput.current.value !== ""&&
-      role === "doctor"&&
-       specialCharacters === 0
+      hospitalInput.current.value !== "" &&
+      majorInput.current.value !== "" &&
+      degreeInput.current.value !== "" &&
+      expInput.current.value !== "" &&
+      role === "doctor" &&
+      specialCharacters === 0
     ) {
+      console.log("đâs123123")
       data["username"] = usernameInput.current.value;
       data["password"] = passwordInput.current.value;
       data["role"] = role;
-      
+
       MilogioutApi.add(data).then((res) => {
         if (res.status === 200) {
           const dataUpdate = {
             ...data,
             id: res.data,
-            hospital : hospitalInput.current.value,
-            major : majorInput.current.value,
-            degree : degreeInput.current.value,
-            exp : expInput.current.value,
-            name :  nameInput.current.value, 
+            hospital: hospitalInput.current.value,
+            major: majorInput.current.value,
+            degree: degreeInput.current.value,
+            exp: expInput.current.value,
+            name: nameInput.current.value,
           };
           localStorage.setItem("user", JSON.stringify(dataUpdate));
           updateApi.add(dataUpdate).then((resUpdate) => {});
@@ -195,19 +189,19 @@ function Register() {
       });
     }
   };
-//khi rời ô nhập
+  //khi rời ô nhập
   const onBlurEven = (e) => {
     if (e.target.name === "username" && e.target.value === "") {
       setclassNameSpanUserName("err_span_block");
     }
-    if (e.target.name === "username" ) {
+    if (e.target.name === "username") {
       e.target.value = removeVietnameseTones(e.target.value);
     }
     if (e.target.name === "password" && e.target.value === "") {
       setclassNameSpanPassword("err_span_block");
     }
-    if (e.target.name === "password" ) {
-      searchSpecialCharacters(e.target.value)
+    if (e.target.name === "password") {
+      searchSpecialCharacters(e.target.value);
     }
     if (e.target.name === "confirmpassword" && e.target.value === "") {
       setclassNameSpanconfirmpassword("err_span_block");
@@ -228,7 +222,7 @@ function Register() {
       setclassNameSpanname("err_span_block");
     }
   };
-//khi ấn vào ô nhập
+  //khi ấn vào ô nhập
   const onFocusEven = (e) => {
     spanErr.current.classList.add("err_span_none");
     if (e.target.name === "username") {
@@ -338,27 +332,43 @@ function Register() {
             onBlurEven={onBlurEven}
           />
           {/* chuyên khoa */}
-          <Input_item
-            type="text"
-            labelText="Chuyên khoa"
-            className="input_group"
-            Ref={majorInput}
-            name="major"
-            classNameSpan={classNameSpanmajor}
-            onFocusEven={onFocusEven}
-            onBlurEven={onBlurEven}
-          />
+          <div className="input_group">
+            <label>Chuyên khoa</label>
+            <select
+              ref={majorInput}
+              name="major"
+              onFocus={onFocusEven}
+              onBlur={onBlurEven}
+            >
+              <option value="">Chọn chuyên khoa </option>
+              <option value="Tai Mũi Họng">Tai Mũi Họng</option>
+              <option value="Nội Tiết">Nội Tiết</option>
+              <option value="Nhi">Nhi</option>
+              <option value="Mắt">Mắt</option>
+              <option value="Hô Hấp">Hô Hấp</option>
+              <option value="Nội Tổng Hợp">Nội Tổng Hợp</option>
+              <option value="Da Liễu">Da Liễu</option>
+            </select>
+            <span className={classNameSpanmajor}>Vui lòng chọn đủ Chuyên khoa </span>
+          </div>
           {/* học vị */}
-          <Input_item
-            type="text"
-            labelText="Học vị"
-            className="input_group"
-            Ref={degreeInput}
-            name="degree"
-            classNameSpan={classNameSpandegree}
-            onFocusEven={onFocusEven}
-            onBlurEven={onBlurEven}
-          />
+          <div className="input_group">
+            <label>Học vị</label>
+            <select
+              ref={degreeInput}
+              name="degree"
+              onFocus={onFocusEven}
+              onBlur={onBlurEven}
+            >
+              <option value="">Chọn học vị </option>
+              <option value="PGS.TS">PGS.TS</option>
+              <option value="ThS">ThS</option>
+              <option value="BSNT">BSNT</option>
+              <option value="BS">BS</option>
+              <option value="BSCKI">BSCKI</option>
+            </select>
+            <span className={classNameSpandegree}>Vui lòng chọn đủ Học vị </span>
+          </div>
           {/* năm kinh nghiệm */}
           <Input_item
             type="number"
@@ -369,13 +379,13 @@ function Register() {
             classNameSpan={classNameSpanexp}
             onFocusEven={onFocusEven}
             onBlurEven={onBlurEven}
-            min = "1" 
+            min="1"
           />
         </div>
         <button type="submit" className="submit_button" onClick={handclick}>
           đăng ký
         </button>
-         {/* lỗi khi có ký tự đặc biệt  */}
+        {/* lỗi khi có ký tự đặc biệt  */}
         <span className="err_span_none" ref={spanErrvn}>
           Mật khẩu có chứa ký tự đặc biệt , vui lòng nhập lại mật khẩu
         </span>
