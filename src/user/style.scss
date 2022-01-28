@@ -1,38 +1,60 @@
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
 .User {
   font-weight: 600;
   margin-left: 20px;
-  color: #2ecc71;
+
   i {
     padding-left: 5px;
   }
 
   cursor: pointer;
-  &-account {
-    position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: 20px;
-    }
-  }
-  &:hover {
-    .User-menu {
-      display: block;
-    }
-  }
+
   position: relative;
   &-menu {
     display: none;
   }
+  &-Mobile {
+    display: none;
+  }
+  .menu {
+    display: block !important;
+  }
+  @include maxWidth(767px) {
+    &-Desktop {
+      display: none;
+    }
+    &-Mobile {
+      color: black;
+      font-weight: 600;
+      display: block;
+      font-size: 20px;
+      &-Item {
+        i {
+          width: 33px;
+        }
+        a {
+          color: black;
+        }
+        margin-bottom: 15px;
+      }
+    }
+  }
 }
 .NavUser {
   position: absolute;
+  overflow: hidden;
   top: 150%;
   right: 0;
-  width: 200px;
+  width: 240px;
   min-height: 100px;
   background-color: white;
   border-radius: 10px;
@@ -44,11 +66,29 @@
   &-item:last-child {
     padding-bottom: 15px;
   }
+
+  &-item-close {
+    position: relative;
+    width: 100%;
+
+    margin-top: 10px;
+    margin-bottom: 5px;
+    i {
+      color: red;
+      font-size: 22px;
+      position: relative;
+      //
+      left: 100%;
+      display: block;
+
+      transform: translateX(-15%);
+    }
+  }
   &-item {
     padding: 5px 15px;
 
     &:hover {
-      background-color: #2ecc71;
+      background-color: #13cfae;
       a {
         color: white;
       }
@@ -59,6 +99,9 @@
     cursor: pointer;
     a {
       color: black;
+      width: 100%;
+      display: inline-block;
+      height: 100%;
     }
     color: black;
     i {

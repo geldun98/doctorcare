@@ -1,6 +1,21 @@
-.form {
-  width: 700px;
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+.form_update {
+  width: auto;
   margin: auto;
+  .form_update_main{
+    width: 700px;
+    margin-left: 25%;
+  }
   h1 {
     text-align: center;
     margin: 20px auto;
@@ -23,7 +38,7 @@
 
   .form-content div input,
   .form-content div select {
-    width: 500px;
+    width: 75%;
     height: 35px;
     padding: 0 10px;
     border-radius: 5px;
@@ -92,5 +107,105 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     color: #13cfae;
     background-color: white;
+  }
+
+
+  @include maxWidth(376px){
+    .form_update_main{
+      width: 100%;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px auto;
+    }
+    .form-header {
+      text-align: center;
+    }
+    .form-content {
+      margin-top: 20px;
+      border: 1px solid silver;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+  
+    .form-content div label {
+      float: left;
+      font-size: 17px;
+      margin-left: 20px;
+    }
+  
+    .form-content div input,
+    .form-content div select {
+      width: 60%;
+      height: 35px;
+      padding: 0 10px;
+      border-radius: 5px;
+      border: 1px solid silver;
+    }
+  
+    .form-content div {
+      margin: 20px 0 20px 5px;
+  
+      .errormsg_block{
+        display: block;
+        font-size: 14px;
+        color: red;
+        margin: 5px 20px;
+      }
+      .errormsg_none{
+        display: none;
+      }
+    }
+    .form-content_name input {
+      margin-left: 34px;
+    }
+    .form-content_email input {
+      margin-left: 66px;
+    }
+    .form-content_dob input {
+      margin-left: 32px;
+    }
+    .form-content_gender select {
+      margin-left: 42px;
+      font-weight: 400;
+    }
+    .form-content_major select option{
+      font-weight: 400;
+    }
+    .form-content_phone input {
+      margin-left: 8px;
+    }
+    .form-content_address input {
+      margin-left: 55px;
+    }
+    .form-content_job input {
+      margin-left: 8px;
+    }
+  
+    .btn {
+      margin: auto auto 20px auto;
+      display: flex;
+      justify-content: space-around;
+    }
+    .btn button {
+      width: 30%;
+      height: 35px;
+      border-radius: 5px;
+      border: 1px solid silver;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .btn button:first-child {
+      background-color: #13cfae;
+      color: white;
+    }
+    .btn button:hover {
+      cursor: pointer;
+      border: 1px solid;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      color: #13cfae;
+      background-color: white;
+    }
   }
 }

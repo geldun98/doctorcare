@@ -1,3 +1,16 @@
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+.Question {
+  background-color: #ecf0f1;
+}
 .Question-content {
   padding-top: 50px;
   display: flex;
@@ -8,7 +21,7 @@
 }
 .InputQuestion {
   width: 370px;
-  height: 550px;
+
   background-color: white;
 
   padding: 20px 16px;
@@ -146,7 +159,7 @@
 }
 .InputComment {
   textarea {
-    width: 1000px;
+    width: 100%;
     outline: none;
     border: 2px solid #2c3e50;
     height: 80px !important;
@@ -156,18 +169,19 @@
     }
   }
   button {
-    margin-left: 15px;
+    margin-top: 15px;
     outline: none;
     border: none;
     color: white;
     background-color: #2ecc71;
     font-size: 20px;
     padding: 5px 15px;
-    border-radius: 15px;
+    border-radius: 5px;
   }
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: center;
+
   margin-bottom: 100px;
 }
 .ItemComment {
@@ -195,5 +209,20 @@
 .validate {
   .validate-text {
     display: none;
+  }
+}
+.Question {
+  @include maxWidth(767px) {
+    padding-bottom: 25px;
+    .ListQuestion {
+      width: 100%;
+    }
+    .InputQuestion {
+      margin-top: 20px;
+      width: 100%;
+    }
+    &-content {
+      flex-direction: column;
+    }
   }
 }

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import CheckLogin from './checklogin/CheckLogin';
 import HomePage from './components/home';
 import Footer from './footer/Footer';
+import History from './history';
 import Navbar from './navbar';
 import DoctorDetail from './pickdoctor/doctorInfor';
 import Question from './question';
@@ -11,7 +12,6 @@ import Share from './share';
 import SiginRegister from './sigin/sigin_register';
 import './style.scss';
 import UpdateInfo from './update-info/UpdateInfo';
-import History from './history';
 
 const App = () => {
   return (

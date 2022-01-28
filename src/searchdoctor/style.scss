@@ -1,3 +1,13 @@
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
 .ItemDoctor {
   line-height: 1.4;
   width: 320px;
@@ -45,7 +55,7 @@
     padding: 15px;
     font-weight: 600;
     height: 80px;
-    background-color: #95a5a6;
+    background-color: #bebebe;
   }
   button {
     margin-top: 25px;
@@ -60,11 +70,15 @@
     font-size: 20px;
     background-color: #46a995;
   }
+  button:hover {
+    background-color: #169178;
+  }
 }
 .ListDoctor {
   width: 100%;
   padding-top: 50px;
   background-color: #ecf0f1;
+  padding-bottom: 50px;
 }
 .ListDoctorContent {
   display: flex;
@@ -77,24 +91,32 @@
   margin: 0 auto;
 }
 .SearchSelect {
-  font-size: 18px;
+  font-size: 15px;
   margin: 15px;
   padding: 5px 15px;
   outline: none;
   border: none;
 }
 .SearchBox {
-  span {
-    font-size: 20px;
-    font-weight: 600;
-    margin: 15px;
-    color: white;
-    line-height: 80px;
-  }
-
-  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 80px;
   flex-wrap: wrap;
-  padding-bottom: 10px;
+}
+.searchDoctor {
+  @include maxWidth(767px) {
+    .SearchBox {
+      padding-bottom: 15px;
+    }
+    .text-search {
+      width: 120px;
+    }
+    .SearchBox-Item {
+      select {
+        width: 150px;
+      }
+    }
+  }
 }
 a {
   text-decoration: none;
@@ -111,8 +133,16 @@ option {
   background-color: #2c3e50;
 }
 .inputExperience {
-  display: inline-flex;
-
-  width: 300px;
-  height: 100%;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  margin-left: 15px;
+}
+.SearchBox-Item {
+  display: flex;
+  align-items: center;
+  span {
+    color: white;
+    font-size: 16px;
+  }
 }

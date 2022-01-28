@@ -125,9 +125,9 @@ function DoctorUpdateInfo() {
   const errorTime = useRef();
   return (
     <>
-      <div className="form">
+      <div className="form_update">
+        <form className="form_update_main">
         <h1>SỬA THÔNG TIN BÁC SĨ</h1>
-        <form>
           <div className="form-header">
             <h3 className="form-header_name">Tài khoản : {dataUser.username}</h3>
             <p className="form-header_role">{dataUser.role}</p>

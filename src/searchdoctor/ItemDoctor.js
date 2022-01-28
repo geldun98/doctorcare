@@ -18,9 +18,9 @@ const ItemDoctor = ({ data }) => {
       <div className="ItemDoctor-Major"> Chuyên khoa: {data.major}</div>
 
       <Link to={url}>
-        <button >Đặt khám</button>
+        <button ><i className="fas fa-stethoscope" style={{ marginRight: '20px' }}></i>Đặt khám</button>
       </Link>
-    </div>
+    </div >
   );
 };
 

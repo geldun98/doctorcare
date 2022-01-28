@@ -1,3 +1,13 @@
+@mixin maxWidth($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
 .pickdoctor {
   mark {
     background-color: rgb(202, 229, 241);
@@ -7,17 +17,14 @@
   img {
     width: 200px;
     height: 200px;
-  }
-  .d-flex {
-    padding: 25px 0px;
-    background-color: white;
+    object-fit: cover;
   }
 
   .time {
     margin: 15px 0px;
     width: 100%;
     background-color: white;
-    padding: 20px;
+    // padding: 20px;
   }
   .pick-time {
     background-color: antiquewhite;
@@ -95,5 +102,15 @@
     font-size: 18px;
     padding-top: 20px;
     padding-left: 10px;
+  }
+  span {
+    margin-left: 100px;
+  }
+}
+@include maxWidth(820px) {
+  .pickdoctor span {
+    display: block;
+    margin-top: 10px;
+    margin-left: 0px;
   }
 }
